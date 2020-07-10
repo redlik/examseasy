@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Lesson;
+use App\Subject;
+use App\Level;
 use Illuminate\Http\Request;
 
 class LessonsController extends Controller
@@ -24,7 +26,9 @@ class LessonsController extends Controller
      */
     public function create()
     {
-        //
+        $subjects = Subject::all()->sortBy('name');
+        $levels = Level::all();
+        return view('lessons/create', ['subjects' => $subjects, 'levels' => $levels]);
     }
 
     /**
@@ -35,7 +39,19 @@ class LessonsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $subject = Subject::find($request->input('subjectSelect'));
+        $level = Level::find($request->input('levelSelect'));
+
+        $lesson = new Lesson();
+        $lesson->title = $request->input('title');
+        $lesson->link = $request->input('title');
+        $lesson->thumbnail = $request->input('title');
+        $lesson->description = $request->input('description');
+        $lesson->subject_id = $request->get('subjectSelect');
+        $lesson->level_id = $request->get('levelSelect');
+        $lesson->save();
+
+        return redirect('lessons');
     }
 
     /**
