@@ -24,3 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/lesson', 'LessonsController');
+
+Route::get('/lessons', 'LessonsController@index')->name('lessons-list');

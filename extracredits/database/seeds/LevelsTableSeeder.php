@@ -12,7 +12,7 @@ class LevelsTableSeeder extends Seeder
      */
     public function run()
     {
-        Level::truncate();
+        // Level::truncate();
 
         Level::create(['level_name' => 'Leaving Cert', 'level_slug' => 'leaving-cert']);
         Level::create(['level_name' => 'Junior Cert', 'level_slug' => 'junior-cert']);

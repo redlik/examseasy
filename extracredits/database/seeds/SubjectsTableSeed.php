@@ -12,7 +12,7 @@ class SubjectsTableSeed extends Seeder
      */
     public function run()
     {
-        Subject::truncate();
+        // Subject::truncate();
 
         Subject::create(['name' => 'irish']);
         Subject::create(['name' => 'english']);
