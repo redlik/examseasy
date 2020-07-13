@@ -3,7 +3,7 @@
 @section('content')
 <div class="col">
     <h2>Create new lesson</h2>
-    <form action="{{ action('LessonsController@store')}}" method="POST" role="form">
+    <form action="{{ action('LessonsController@store')}}" method="POST" role="form" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         <div class="form-group">
             <label for="title">Title of the lesson</label>

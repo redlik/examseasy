@@ -42,14 +42,23 @@ class LessonsController extends Controller
         $subject = Subject::find($request->input('subjectSelect'));
         $level = Level::find($request->input('levelSelect'));
 
+        $request->validate(['thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
+
+        $thumbnail = $request->file('thumbnail');
+        $thumbnail_name = $thumbnail->getClientOriginalName();
+
+        $new_filename = time().'-'.$thumbnail_name;
+
         $lesson = new Lesson();
         $lesson->title = $request->input('title');
         $lesson->link = $request->input('title');
-        $lesson->thumbnail = $request->input('title');
+        $lesson->thumbnail = $new_filename;
         $lesson->description = $request->input('description');
         $lesson->subject_id = $request->get('subjectSelect');
         $lesson->level_id = $request->get('levelSelect');
         $lesson->save();
+
+        $thumbnail->move(public_path('images/thumbnails'), $new_filename);
 
         return redirect('lessons');
     }
