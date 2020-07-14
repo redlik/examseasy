@@ -107,4 +107,9 @@ class LessonsController extends Controller
     {
         //
     }
+
+    public function isUnlocked($post_id) {
+        
+        return view('unlock');
+    }
 }

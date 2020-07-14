@@ -28,3 +28,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/lesson', 'LessonsController');
 
 Route::get('/lessons', 'LessonsController@index')->name('lessons-list');
+
+Route::get('/unlock/{id}', 'LessonsController@isUnlocked')->name('is-unlocked');
