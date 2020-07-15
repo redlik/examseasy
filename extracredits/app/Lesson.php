@@ -16,6 +16,6 @@ class Lesson extends Model
     }
 
     public function user_unlocked() {
-        return $this->belongsToMany('App\User');
+        return $this->belongsToMany('App\User')->withTimestamps();
     }
 }

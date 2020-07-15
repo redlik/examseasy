@@ -25,7 +25,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/lesson', 'LessonsController');
+Route::resource('/lesson', 'LessonsController')->middleware('auth');
 
 Route::get('/lessons', 'LessonsController@index')->name('lessons-list');
 

@@ -19,8 +19,14 @@ class LessonsController extends Controller
     {
         $user = Auth::user();
         $lessons = Lesson::all();
-        $credits = $user->credits;
-        return view('lessons/index', ['lessons' => $lessons, 'credits' => $credits]);
+        if (Auth::user()) {
+            $credits = $user->credits;
+            return view('lessons/index', ['lessons' => $lessons, 'credits' => $credits]);
+        }
+        else {
+            return view('lessons/index', ['lessons' => $lessons, 'credits' => '0']);
+        }
+
     }
 
     /**
@@ -75,7 +81,9 @@ class LessonsController extends Controller
      */
     public function show($id)
     {
-        //
+        $lesson = Lesson::find($id);
+
+        return view('lessons.show', ['lesson' => $lesson]);
     }
 
     /**

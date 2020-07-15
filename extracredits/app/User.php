@@ -38,6 +38,6 @@ class User extends Authenticatable
     ];
 
     public function unlocked_lesson() {
-        return $this->belongsToMany('App\Lesson');
+        return $this->belongsToMany('App\Lesson')->withTimestamps();
     }
 }
