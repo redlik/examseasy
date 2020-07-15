@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Lesson;
 use App\Subject;
 use App\Level;
+use App\User;
+use Auth;
 use Illuminate\Http\Request;
 
 class LessonsController extends Controller
@@ -15,8 +17,10 @@ class LessonsController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         $lessons = Lesson::all();
-        return view('lessons/index', ['lessons' => $lessons]);
+        $credits = $user->credits;
+        return view('lessons/index', ['lessons' => $lessons, 'credits' => $credits]);
     }
 
     /**
@@ -108,8 +112,19 @@ class LessonsController extends Controller
         //
     }
 
-    public function isUnlocked($post_id) {
+    public static function isUnlocked($lesson_id) {
         
-        return view('unlock');
+        $lesson_id = $lesson_id;
+        $current_lesson = Lesson::find($lesson_id);
+        $id = Auth::user()->id;
+        $currentuser = User::find($id);
+        $credits = $currentuser->credits;
+        $currentuser->credits = $credits -1;
+        $currentuser->unlocked_lesson()->attach($lesson_id);
+        $currentuser->save();
+
+        
+
+        return redirect('lessons');
     }
 }

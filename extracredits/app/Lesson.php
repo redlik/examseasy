@@ -14,4 +14,8 @@ class Lesson extends Model
     public function has_level() {
         return $this->hasOne('App\Level');
     }
+
+    public function user_unlocked() {
+        return $this->belongsToMany('App\User');
+    }
 }

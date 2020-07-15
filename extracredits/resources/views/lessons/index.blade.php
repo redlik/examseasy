@@ -12,10 +12,15 @@
                     <h5 class="card-title">{{ $lesson->title }}</h5>
                     <p class="card-text">{{ Str::words($lesson->description, 12, '  ...') }}</p>
                     @guest
-                        <a href="#" class="btn btn-warning">Login</a>
+                    <a href="#" class="btn btn-warning">Login</a>
                     @endguest
                     @auth
-                        <a href="{{ route('is-unlocked', [$lesson->id]) }}" class="btn btn-success">View</a>
+                        @if (user_unlocked($lesson->id) )
+                        <a href="{{ route('lesson', [$lesson->id]) }}" class="btn btn-danger">View</a>
+                        @else
+                        <a href="{{ route('is-unlocked', [$lesson->id]) }}" class="btn btn-danger">Unlock -
+                            {{ $credits }}</a>
+                        @endif
                     @endauth
                 </div>
             </div>
