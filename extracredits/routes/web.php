@@ -30,3 +30,5 @@ Route::get('/lessons', 'LessonsController@index')->name('lessons-list');
 Route::get('/unlock/{id}', 'LessonsController@isUnlocked')->name('is-unlocked');
 
 Route::get('/subject/{id}', 'LessonsController@subjects')->name('subjects-view');
+
+Route::get('/dashboard', 'PagesController@dashboard')->name('dashboard');

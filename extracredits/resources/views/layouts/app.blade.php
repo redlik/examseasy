@@ -39,6 +39,7 @@
 
     </footer>
     @yield('bottom_scripts')
+    
 </body>
 
 </html>

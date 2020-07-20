@@ -70,7 +70,7 @@ class LessonsController extends Controller
 
         $thumbnail->move(public_path('images/thumbnails'), $new_filename);
 
-        return redirect('lessons');
+        return redirect('dashboard');
     }
 
     /**
