@@ -9,8 +9,8 @@
     <div id="vimeo-player"></div>
     <h1>{{ $lesson->title}}</h1>
     <p class="my-2">{{ $lesson->description }}</p>
+    <a href="" class="btn btn-primary">Back to <span class="text-capitalize">{{ $lesson->subject->name }}</span> </a>
     <a href="" class="btn btn-success">Back to all lessons</a>
-    <a href="" class="btn btn-success">Back to {{ $lesson->has_subject->name }} </a>
 </div>
 @endsection
 
