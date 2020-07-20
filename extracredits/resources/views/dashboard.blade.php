@@ -24,9 +24,9 @@
                 <thead>
                     <tr>
                         <th scope="col" class="col-1">#</th>
-                        <th scope="col" class="col-5">Title</th>
+                        <th scope="col" class="col-4">Title</th>
                         <th scope="col" class="col-2">Subject</th>
-                        <th scope="col" class="col-1">Used</th>
+                        <th scope="col" class="col-2">Unlocked</th>
                         <th scope="col" class="col-3">Operations</th>
                     </tr>
                 </thead>
@@ -36,9 +36,13 @@
                         <th scope="row">{{ $lesson->id }}</th>
                         <td>{{ $lesson->title }}</td>
                         <td>{{ ucfirst($lesson->subject->name) }}</td>
-                        <td>60</td>
-                        <td><a href="" class="btn btn-success mx-lg-4">View</a><a href=""
-                                class="btn btn-primary">Edit</a></td>
+                        <td>{{ $lesson->user_count }}</td>
+                        <td><a href="" class="btn btn-success mx-lg-1">View</a>
+                            <a href="" class="btn btn-primary">Edit</a>
+                        @if ($lesson->user_count < 1)
+                        <a href="" class="btn btn-danger mx-lg-1">Delete</a>
+                        @endif
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -64,8 +68,7 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->credits }}</td>
-                        <td><a href="" class="btn btn-success mx-lg-4">View</a><a href=""
-                                class="btn btn-primary">Edit</a></td>
+                        <td><a href="{{ route('user_panel', [$user->id]) }}" class="btn btn-primary">View details</a></td>
                     </tr>
                     @endforeach
                 </tbody>

@@ -37,7 +37,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function unlocked_lesson() {
+    public function lesson() {
         return $this->belongsToMany('App\Lesson')->withTimestamps();
     }
 }

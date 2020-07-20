@@ -15,7 +15,7 @@ class Lesson extends Model
         return $this->belongsTo('App\Level');
     }
 
-    public function user_unlocked() {
+    public function user() {
         return $this->belongsToMany('App\User')->withTimestamps();
     }
 }
