@@ -2,7 +2,12 @@
 
 @section('content')
 <div class="col">
-    <h2>List of lessons go here</h2>
+    @if ($subject ?? '')
+    <h2>All lessons in {{ ucfirst($subject)}}</h2>
+    @else
+    <h2>All lessons index</h2>
+    @endif
+
     <div class="row">
         @foreach ($lessons as $lesson)
         <div class="col-4">
@@ -15,12 +20,12 @@
                     <a href="{{ route('login') }}" class="btn btn-warning">Login</a>
                     @endguest
                     @auth
-                        @if (user_unlocked($lesson->id) )
-                        <a href="{{ url('/lesson', [$lesson->id]) }}" class="btn btn-success">View</a>
-                        @else
-                        <a href="{{ route('is-unlocked', [$lesson->id]) }}" class="btn btn-danger">Unlock -
-                            {{ $credits }}</a>
-                        @endif
+                    @if (user_unlocked($lesson->id) )
+                    <a href="{{ url('/lesson', [$lesson->id]) }}" class="btn btn-success">View</a>
+                    @else
+                    <a href="{{ route('is-unlocked', [$lesson->id]) }}" class="btn btn-danger">Unlock -
+                        {{ $credits }}</a>
+                    @endif
                     @endauth
                 </div>
             </div>

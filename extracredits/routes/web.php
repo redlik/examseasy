@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@home');
 
 Auth::routes();
 
@@ -30,3 +28,5 @@ Route::resource('/lesson', 'LessonsController')->middleware('auth');
 Route::get('/lessons', 'LessonsController@index')->name('lessons-list');
 
 Route::get('/unlock/{id}', 'LessonsController@isUnlocked')->name('is-unlocked');
+
+Route::get('/subject/{id}', 'LessonsController@subjects')->name('subjects-view');

@@ -135,4 +135,14 @@ class LessonsController extends Controller
 
         return redirect('lessons');
     }
+
+    public function subjects($subject_name) {
+        $user = Auth::user();
+        $credits = $user->credits;
+        $subject_name = $subject_name;
+        $subject = Subject::where('name',$subject_name)->first();
+        $subject_id = $subject->id;
+        $lessons = Lesson::where('subject_id', $subject_id)->get();
+        return view('lessons/index', ['lessons' => $lessons, 'subject'=>$subject_name, 'credits'=>$credits]);
+    }
 }

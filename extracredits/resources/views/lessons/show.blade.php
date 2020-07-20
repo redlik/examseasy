@@ -1,7 +1,32 @@
 @extends('layouts.app')
+@section('extra_scripts')
+<script src="https://player.vimeo.com/api/player.js"></script>
+
+@endsection
 
 @section('content')
 <div class="col">
+    <div id="vimeo-player"></div>
     <h1>{{ $lesson->title}}</h1>
+    <p class="my-2">{{ $lesson->description }}</p>
+    <a href="" class="btn btn-success">Back to all lessons</a>
+    <a href="" class="btn btn-success">Back to {{ $lesson->has_subject->name }} </a>
 </div>
+@endsection
+
+@section('bottom_scripts')
+<script>
+    var divWidth = document.getElementById('vimeo-player').clientWidth;
+    var link = '{{ $lesson->link}}';
+    var options = {
+      url: link,
+      width: divWidth,
+    };
+    console.log(divWidth);
+    var videoPlayer = new Vimeo.Player('vimeo-player', options);
+
+    videoPlayer.on('play', function() {
+      console.log('Played the first video');
+    });
+</script>
 @endsection
