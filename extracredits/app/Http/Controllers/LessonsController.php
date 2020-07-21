@@ -128,7 +128,7 @@ class LessonsController extends Controller
         $currentuser = User::find($id);
         $credits = $currentuser->credits;
         $currentuser->credits = $credits -1;
-        $currentuser->unlocked_lesson()->attach($lesson_id);
+        $currentuser->lesson()->attach($lesson_id);
         $currentuser->save();
 
         

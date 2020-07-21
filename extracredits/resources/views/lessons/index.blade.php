@@ -22,8 +22,10 @@
                     @auth
                     @if (user_unlocked($lesson->id) )
                         <a href="{{ url('/lesson', [$lesson->id]) }}" class="btn btn-success">View</a>
+                    @elseif ($credits == 0)
+                        <a href="{{ route('buy_credits') }}" class="btn btn-danger">Buy more credits</a>
                     @else
-                        <a href="{{ route('is-unlocked', [$lesson->id]) }}" class="btn btn-danger">Unlock -
+                        <a href="{{ route('is-unlocked', [$lesson->id]) }}" class="btn btn-warning">Unlock -
                         {{ $credits }}</a>
                     @endif
                     @endauth

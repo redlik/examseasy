@@ -26,4 +26,22 @@ class PagesController extends Controller
         $lessons = Lesson::withCount('user')->get();
         return view('user_panel', ['user' => $user, 'lessons' => $lessons]);
     }
+
+    public function buy_credits() {
+        return view('buycredits');
+    }
+
+    public function topup(Request $request) {
+        $user = Auth::user();
+        $topup = (int)$request->get('topup');
+        $credit = $user->credits;
+        $new_credit = $credit + $topup;
+        $user->credits = $new_credit;
+        $user->save();
+
+        $lessons = Lesson::withCount('user')->get();
+
+        return view('user_panel', ['user' => $user, 'lessons' => $lessons]);
+
+    }
 }
