@@ -31,6 +31,8 @@ Route::get('/unlock/{id}', 'LessonsController@isUnlocked')->name('is-unlocked');
 
 Route::get('/subject/{id}', 'LessonsController@subjects')->name('subjects-view');
 
+Route::get('/subject-view', 'LessonsController@subjectsView')->name('subjectsView');
+
 Route::get('/dashboard', 'PagesController@dashboard')->name('dashboard')->middleware('auth');
 
 Route::get('/user/{id}', 'PagesController@user_panel')->name('user_panel')->middleware('auth');

@@ -145,4 +145,10 @@ class LessonsController extends Controller
         $lessons = Lesson::where('subject_id', $subject_id)->get();
         return view('lessons/index', ['lessons' => $lessons, 'subject'=>$subject_name, 'credits'=>$credits]);
     }
+
+    public function subjectsView() {
+        $subjects = Subject::all();
+
+        return view('lessons.subjects', ['subjects' => $subjects]);
+    }
 }

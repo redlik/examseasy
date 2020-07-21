@@ -17,7 +17,7 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('lessons-list') }}">All Lessons</a>
+                    <a class="nav-link" href="{{ route('subjectsView') }}">All Lessons</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
