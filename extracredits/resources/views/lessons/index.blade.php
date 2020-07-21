@@ -21,11 +21,11 @@
                     @endguest
                     @auth
                     @if (user_unlocked($lesson->id) )
-                        <a href="{{ url('/lesson', [$lesson->id]) }}" class="btn btn-success">View</a>
+                        <a href="{{ url('/lesson', [$lesson->id]) }}" class="btn btn-success">View <i class="fas fa-tv ml-2"></i></a>
                     @elseif ($credits == 0)
-                        <a href="{{ route('buy_credits') }}" class="btn btn-danger">Buy more credits</a>
+                        <a href="{{ route('buy_credits') }}" class="btn btn-danger"><i class="fas fa-cart-plus mr-2"></i> Buy more credits</a>
                     @else
-                        <a href="{{ route('is-unlocked', [$lesson->id]) }}" class="btn btn-warning">Unlock -
+                        <a href="{{ route('is-unlocked', [$lesson->id]) }}" class="btn btn-warning"><i class="fas fa-unlock mr-2"></i> Unlock -
                         {{ $credits }}</a>
                     @endif
                     @endauth
