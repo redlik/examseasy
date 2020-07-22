@@ -7,6 +7,7 @@ use App\Level;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class LessonsController extends Controller
 {
@@ -137,18 +138,24 @@ class LessonsController extends Controller
     }
 
     public function subjects($subject_name) {
-        $user = Auth::user();
-        $credits = $user->credits;
-        $subject_name = $subject_name;
-        $subject = Subject::where('name',$subject_name)->first();
-        $subject_id = $subject->id;
-        $lessons = Lesson::where('subject_id', $subject_id)->get();
-        return view('lessons/index', ['lessons' => $lessons, 'subject'=>$subject_name, 'credits'=>$credits]);
+        if (Auth::user()) {
+            $user = Auth::user();
+            $credits = $user->credits;
+            $subject_name = $subject_name;
+            $subject = Subject::where('name', $subject_name)->first();
+            $subject_id = $subject->id;
+            $lessons = Lesson::where('subject_id', $subject_id)->get();
+            return view('lessons/index', ['lessons' => $lessons, 'subject'=>$subject_name, 'credits'=>$credits]);
+        }
+        else {
+          return redirect()->route('login'); 
+        }
     }
 
     public function subjectsView() {
         $subjects = Subject::all();
-
-        return view('lessons.subjects', ['subjects' => $subjects]);
+        $user = Auth::user();
+        $credits = $user->credits;
+        return view('lessons.subjects', ['subjects' => $subjects, 'credits' => $credits]);
     }
 }
