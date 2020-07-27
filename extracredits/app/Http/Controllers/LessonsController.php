@@ -62,7 +62,7 @@ class LessonsController extends Controller
 
         $lesson = new Lesson();
         $lesson->title = $request->input('title');
-        $lesson->link = $request->input('title');
+        $lesson->link = $request->input('link');
         $lesson->thumbnail = $new_filename;
         $lesson->description = $request->input('description');
         $lesson->subject_id = $request->get('subjectSelect');
@@ -123,6 +123,7 @@ class LessonsController extends Controller
 
     public static function isUnlocked($lesson_id) {
         
+        $subjects = Subject::all();
         $lesson_id = $lesson_id;
         $current_lesson = Lesson::find($lesson_id);
         $id = Auth::user()->id;
@@ -132,9 +133,7 @@ class LessonsController extends Controller
         $currentuser->lesson()->attach($lesson_id);
         $currentuser->save();
 
-        
-
-        return redirect('lessons');
+        return view('lessons.subjects', ['subjects' => $subjects, 'credits' => $credits]);
     }
 
     public function subjects($subject_name) {

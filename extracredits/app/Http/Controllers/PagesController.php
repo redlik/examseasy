@@ -16,9 +16,10 @@ class PagesController extends Controller
 
     public function dashboard() {
         $user = Auth::user();
+        $subjects = Subject::all();
         $lessons = Lesson::withCount('user')->get();
         $users = User::all();
-        return view('dashboard', ['user' => $user, 'lessons'=> $lessons, 'users'=>$users]);
+        return view('dashboard', ['user' => $user, 'lessons'=> $lessons, 'users'=>$users, 'subjects' => $subjects]);
     }
 
     public function user_panel($id) {

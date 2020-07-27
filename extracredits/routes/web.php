@@ -31,7 +31,7 @@ Route::get('/unlock/{id}', 'LessonsController@isUnlocked')->name('is-unlocked');
 
 Route::get('/subject/{id}', 'LessonsController@subjects')->name('subjects-view');
 
-Route::get('/subject-view', 'LessonsController@subjectsView')->name('subjectsView')->middleware('auth');
+Route::get('/subject-view', 'LessonsController@subjectsView')->name('subjectsView');
 
 Route::get('/dashboard', 'PagesController@dashboard')->name('dashboard')->middleware('auth');
 
@@ -40,3 +40,5 @@ Route::get('/user/{id}', 'PagesController@user_panel')->name('user_panel')->midd
 Route::get('/buycredits', 'PagesController@buy_credits')->name('buy_credits')->middleware('auth');
 
 Route::post('/topup', 'PagesController@topup');
+
+Route::post('/subcategory/create', 'SubcategoryController@store');
