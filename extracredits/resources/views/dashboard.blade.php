@@ -97,10 +97,6 @@
                             <form action="{{ action('SubcategoryController@store')}}" method="POST" role="form"
                                 enctype="multipart/form-data">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                                <div class="form-group">
-                                    <label for="title">Name of the subcategory</label>
-                                    <input type="text" name="name" id="name" class="form-control" />
-                                </div>
 
                                 <div class="row">
                                     <div class="col-6">
@@ -115,6 +111,10 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group">
+                                    <label for="title">Name of the subcategory</label>
+                                    <input type="text" name="name" id="name" class="form-control" />
+                                </div>
 
                         </div>
                         <div class="modal-footer">
@@ -126,30 +126,24 @@
                 </div>
             </div>
             @foreach ($subjects as $subject)
-                <div class="row">
-                    <div class="col-8">
-                        <div class="mb-4">
-                            <div class="p-3 mb-2 bg-dark text-white rounded-sm">
-                                <h4>
-                                    {{ ucfirst($subject->name) }} - @if ($subject->lesson->count() < 1)
-                                       No lessons yet 
-                                    @else
-                                    {{$subject->lesson->count() }} lessons
-                                    @endif
-                                </h4>
-                            </div>
-
-                            <ul class="list-group list-group-flush">
-                                @foreach ($subject->subcategory as $subcategory)
-                                <li class="list-group-item">{{ ucfirst($subcategory->name) }}</li>
-                                @endforeach
-                            </ul>
+            <div class="row">
+                <div class="col-8">
+                    <div class="mb-4">
+                        <div class="p-3 mb-2 bg-dark text-white rounded-sm">
+                            <h4>
+                                {{ ucfirst($subject->name) }} - @if ($subject->lesson->count() < 1) No lessons yet @else
+                                    {{$subject->lesson->count() }} lessons @endif </h4> </div> <ul
+                                    class="list-group list-group-flush">
+                                    @foreach ($subject->subcategory as $subcategory)
+                                    <li class="list-group-item">{{ ucfirst($subcategory->name) }}</li>
+                                    @endforeach
+                                    </ul>
                         </div>
-                        
+
                     </div>
                 </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
     </div>
-</div>
-@endsection
+    @endsection
