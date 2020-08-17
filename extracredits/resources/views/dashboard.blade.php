@@ -39,7 +39,7 @@
                         <td>{{ $lesson->user_count }}</td>
                         <td><a href="{{ url('/lesson', [$lesson->id]) }}" class="btn btn-success mx-lg-1">View</a>
                             <a href="" class="btn btn-primary">Edit</a>
-                            @if ($lesson->user_count < 1) <a href="" class="btn btn-danger mx-lg-1">Delete</a>
+                            @if ($lesson->user_count < 1) <a href="{{ url('/lesson', [$lesson->id, 'delete']) }}" class="btn btn-danger mx-lg-1">Delete</a>
                                 @endif
                         </td>
                     </tr>

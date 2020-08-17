@@ -5,9 +5,11 @@ use App\Lesson;
 use App\Subject;
 use App\Level;
 use App\User;
+use App\Subcategory;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use DB;
 
 class LessonsController extends Controller
 {
@@ -52,6 +54,7 @@ class LessonsController extends Controller
     {
         $subject = Subject::find($request->input('subjectSelect'));
         $level = Level::find($request->input('levelSelect'));
+        $category = Subcategory::find($request->input('subjectCategory'));
 
         $request->validate(['thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
 
@@ -66,6 +69,7 @@ class LessonsController extends Controller
         $lesson->thumbnail = $new_filename;
         $lesson->description = $request->input('description');
         $lesson->subject_id = $request->get('subjectSelect');
+        $lesson->category_id = $request->get('subjectCategory');
         $lesson->level_id = $request->get('levelSelect');
         $lesson->save();
 
@@ -118,7 +122,9 @@ class LessonsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $lesson = Lesson::find($id);
+        $lesson->delete();
+        return redirect('dashboard');
     }
 
     public static function isUnlocked($lesson_id) {
@@ -156,5 +162,9 @@ class LessonsController extends Controller
         $user = Auth::user();
         $credits = $user->credits;
         return view('lessons.subjects', ['subjects' => $subjects, 'credits' => $credits]);
+    }
+
+    public function getCategory($subject_id) {
+        echo json_encode(DB::table('subcategories')->where('subject_id', $subject_id)->get());
     }
 }

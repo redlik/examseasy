@@ -1,13 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="col">
-    @role('student')
-        <p>Hi, Student</p>
-    @else
-        <p>You're not student</p>
-    @endrole
-</div>
 <div class="col-2">
     <h2>Subjects</h2>
     <ul>
@@ -16,14 +9,19 @@
         @endforeach
     </ul>
 </div>
-<div class="col-10 col-sm-12">
+<div class="col-sm-12 col-md-10">
+    @role('student')
+        <p>Hi, Student</p>
+    @else
+        <p>You're not student</p>
+    @endrole
     @foreach ($subjects as $subject)
     <h2 id="{{ $subject->name }}">All lessons in {{ ucfirst($subject->name)}}</h2>
  
 
     <div class="row">
         @foreach ($subject->lesson as $lesson)
-        <div class="col-lg-4 col-12">
+        <div class="col-md-4 col-12">
             <div class="card">
                 <img src="/images/thumbnails/{{ $lesson->thumbnail }}" class="card-img-top" alt="...">
                 <div class="card-body">

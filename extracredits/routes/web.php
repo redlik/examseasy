@@ -19,19 +19,19 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::resource('/lesson', 'LessonsController')->middleware('auth');
 
 Route::get('/lessons', 'LessonsController@index')->name('lessons-list');
+
+Route::get('/lesson/{id}/delete', 'LessonsController@destory')->name('delete');
 
 Route::get('/unlock/{id}', 'LessonsController@isUnlocked')->name('is-unlocked');
 
 Route::get('/subject/{id}', 'LessonsController@subjects')->name('subjects-view');
 
 Route::get('/subject-view', 'LessonsController@subjectsView')->name('subjectsView');
+
+Route::get('/getcategory/{id}', 'LessonsController@getCategory');
 
 Route::get('/dashboard', 'PagesController@dashboard')->name('dashboard')->middleware('auth');
 
