@@ -117,7 +117,14 @@ class LessonsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $lesson = Lesson::find($id);
+
+        $lesson->title = $request->input('title');
+
+        $lesson->save();
+
+        return redirect('dashboard');
+
     }
 
     /**

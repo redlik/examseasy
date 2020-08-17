@@ -3,10 +3,10 @@
 @section('content')
 <div class="col">
     <h2>Edit "{{ $lesson->title }}" lesson</h2>
-    <form action="{{ action('LessonsController@update')}}" method="POST" role="form" enctype="multipart/form-data">
-        <input type="hidden" name="_method" value="PATCH">
+    <form action="{{ action('LessonsController@update', [$lesson->id])}}" method="POST" role="form" enctype="multipart/form-data">
+        @method('PATCH')
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-        <input type="hidden" name="lesson_id" value="{{ $lesson->id }}" />
+        <input type="hidden" name="id" value="{{ $lesson->id }}" />
         <div class="form-group">
             <label for="title">Title of the lesson</label>
             <input type="text" name="title" id="title" class="form-control" value="{{ $lesson->title }}"/>
