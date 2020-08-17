@@ -11,7 +11,7 @@
     <!-- Block search indeing -->
     <meta name="robots" content="noindex">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Exams Made Easy</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
@@ -24,6 +24,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
+
 </head>
 
 <body>
