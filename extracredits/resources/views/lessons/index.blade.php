@@ -1,9 +1,15 @@
 @extends('layouts.app')
 
+@section('show_credits')
+    @auth
+    <li class="mb-sm-4 mb-md-0"><strong>Credits: {{ $credits }}</strong></li>
+    @endauth
+@endsection
+
 @section('content')
 <div class="col">
     @role('student')
-        <p>Hi, Student</p>
+        <p>Hi, {{ Auth::user()->name }}</p>
     @else
         <p>You're not student</p>
     @endrole
