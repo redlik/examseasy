@@ -120,8 +120,22 @@ class LessonsController extends Controller
         $lesson = Lesson::find($id);
 
         $lesson->title = $request->input('title');
+        $lesson->link = $request->input('link');
+        $lesson->description = $request->input('description');
+        $lesson->subject_id = $request->get('subjectSelect');
+        $lesson->category_id = $request->get('subjectCategory');
+        $lesson->level_id = $request->get('levelSelect');
+
+        if ($request->has('thumbnail')) {
+            $thumbnail = $request->file('thumbnail');
+            $thumbnail_name = $thumbnail->getClientOriginalName();
+            $new_filename = time().'-'.$thumbnail_name;
+            $lesson->thumbnail = $new_filename;
+            $thumbnail->move(public_path('images/thumbnails'), $new_filename);
+        }
 
         $lesson->save();
+
 
         return redirect('dashboard');
 
