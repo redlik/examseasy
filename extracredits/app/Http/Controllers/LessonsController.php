@@ -127,6 +127,12 @@ class LessonsController extends Controller
         return redirect('dashboard');
     }
 
+    public function remove($id) {
+        $lesson = Lesson::find($id);
+        $lesson->delete();
+        return redirect('dashboard');
+    }
+
     public static function isUnlocked($lesson_id) {
         
         $subjects = Subject::all();

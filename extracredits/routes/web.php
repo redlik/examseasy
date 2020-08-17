@@ -23,7 +23,7 @@ Route::resource('/lesson', 'LessonsController')->middleware('auth');
 
 Route::get('/lessons', 'LessonsController@index')->name('lessons-list');
 
-Route::get('/lesson/{id}/delete', 'LessonsController@destory')->name('delete');
+Route::get('/remove/{id}', 'LessonsController@remove')->name('remove');
 
 Route::get('/unlock/{id}', 'LessonsController@isUnlocked')->name('is-unlocked');
 
