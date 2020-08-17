@@ -99,7 +99,13 @@ class LessonsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $lesson = Lesson::find($id);
+        $subjects = Subject::all()->sortBy('name');
+        $levels = Level::all();
+        $subcategories = Subcategory::where('subject_id', $lesson->subject_id)->get()->sortBy('name');
+
+        return view('lessons.edit', ['lesson' => $lesson, 'subjects' => $subjects, 'levels' => $levels, 'subcategories' => $subcategories]);
+
     }
 
     /**
