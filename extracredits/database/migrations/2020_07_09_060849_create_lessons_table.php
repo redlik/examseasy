@@ -19,13 +19,15 @@ class CreateLessonsTable extends Migration
             $table->string('link');
             $table->string('thumbnail');
             $table->text('description');
+            $table->integer('credit_cost')->default(1);
+            $table->integer('author_id');
             $table->unsignedBigInteger('level_id');
-            $table->unsignedBigInteger('subject_id');
+            $table->unsignedBigInteger('topic_id');
             $table->timestamps();
 
             $table->foreign('level_id')->references('id')->on('levels')->onDelete('cascade');
             
-            $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
+            $table->foreign('topic_id')->references('id')->on('topics')->onDelete('cascade');
         });
     }
 

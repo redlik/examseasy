@@ -8,11 +8,12 @@ class Lesson extends Model
 {
     protected $fillable = array('title', 'link', 'thumbnail', 'description');
 
-    public function subject() {
-        return $this->belongsTo('App\Subject');
-    }
     public function level() {
-        return $this->belongsTo('App\Level');
+        return $this->belongsTo('App\Topic');
+    }
+
+    public function subcategory() {
+        return $this->hasOneThrough('App\Subject', 'App\Subcategory');
     }
 
     public function user() {
