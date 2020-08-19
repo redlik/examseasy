@@ -29,7 +29,13 @@ class PagesController extends Controller
         $user = Auth::user();
         $lessons = Lesson::all();
         $subjects = DB::table('subjects')->orderBy('name', 'desc');
-        return view('dashboard.lessons', compact( $user, $subjects, $lessons));
+        return view('dashboard.lessons', compact( "user", "subjects", "lessons"));
+    }
+
+    public function dashboard_categories() {
+        $user = Auth::user();
+        $subjects = Subject::all();
+        return view('dashboard.categories', ['subjects' => $subjects, 'user'=>$user]);
     }
 
     public function user_panel($id) {

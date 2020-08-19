@@ -9,7 +9,7 @@
         <li class="pl-3 mb-3 text-warning font-weight-bold"><i class="fas fa-fw fa-tachometer-alt pr-1"></i> Dashboard</li>
         <hr class="sidebar-rule">
         <li class="pl-3 mb-3"><a href="{{ route('dashboard.lessons') }}" class="text-white"><i class="fas fa-chevron-right pr-1"></i> Lessons</a></li>
-        <li class="pl-3 mb-3"><a href="" class="text-white"><i class="fas fa-chevron-right pr-1"></i> Categories & Topics</a></li>
+        <li class="pl-3 mb-3"><a href="{{ route('dashboard.categories') }}" class="text-white"><i class="fas fa-chevron-right pr-1"></i> Categories & Topics</a></li>
         <hr class="sidebar-rule">
         <li class="pl-3 mb-3"><a href="" class="text-white"><i class="fas fa-chevron-right pr-1"></i> Students</a></li>
         <li class="pl-3 mb-3"><a href="" class="text-white"><i class="fas fa-chevron-right pr-1"></i> Transactions</a></li>
