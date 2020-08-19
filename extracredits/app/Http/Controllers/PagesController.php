@@ -5,6 +5,8 @@ use App\Subject;
 use App\User;
 use App\Lesson;
 use Auth;
+use DB;
+use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -15,11 +17,19 @@ class PagesController extends Controller
     }
 
     public function dashboard() {
+        $active_students = count(User::role('student')->get());
         $user = Auth::user();
         $subjects = Subject::all();
         $lessons = Lesson::withCount('user')->get();
         $users = User::all();
-        return view('dashboard', ['user' => $user, 'lessons'=> $lessons, 'users'=>$users, 'subjects' => $subjects]);
+        return view('dashboard', ['user' => $user, 'lessons'=> $lessons, 'users'=>$users, 'subjects' => $subjects, 'active_students' => $active_students]);
+    }
+
+    public function dashboard_lessons() {
+        $user = Auth::user();
+        $lessons = Lesson::all();
+        $subjects = DB::table('subjects')->orderBy('name', 'desc');
+        return view('dashboard.lessons', compact( $user, $subjects, $lessons));
     }
 
     public function user_panel($id) {

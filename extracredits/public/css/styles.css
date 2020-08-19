@@ -21,3 +21,8 @@
 html {
     scroll-behavior: smooth;
   }
+
+.sidebar-rule {
+    border-top: 1px solid rgba(255,255,255,0.20);
+    margin: 1rem;
+}
