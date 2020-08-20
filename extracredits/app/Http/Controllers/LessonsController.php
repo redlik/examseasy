@@ -73,6 +73,7 @@ class LessonsController extends Controller
         $lesson->thumbnail = $new_filename;
         $lesson->description = $request->input('description');
         $lesson->topic_id = $request->get('topicSelection');
+        $lesson->subject_id = $request->get('subjectSelect');
         $lesson->credit_cost = (int)$request->get('creditCost');
         $lesson->level_id = $request->get('levelSelect');
         $lesson->author_id = $user->id;

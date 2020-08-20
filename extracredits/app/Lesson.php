@@ -12,6 +12,10 @@ class Lesson extends Model
         return $this->belongsTo('App\Topic');
     }
 
+    public function subject() {
+        return $this->belongsTo('App\Subject');
+    }
+
     public function subcategory() {
         return $this->hasOneThrough('App\Subject', 'App\Subcategory');
     }
