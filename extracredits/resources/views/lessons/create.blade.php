@@ -31,7 +31,7 @@
         </div>
 
         <div class="row">
-            <div class="col-6">
+            <div class="col-4">
                 <div class="form-group">
                     <label for="subjectSelect">Select subject</label>
                     <select name="subjectSelect" id="subjectSelect" class="form-control">
@@ -42,10 +42,19 @@
                 </div>
 
             </div>
-            <div class="col-6">
+            <div class="col-4">
                 <div class="form-group">
                     <label for="subjectCategory">Select Category</label>
-                    <select name="subjectCategory" id="subjectCategory" class="form-control" placeholder="Select category">
+                    <select name="subjectCategory" id="subjectCategory" class="form-control"
+                        placeholder="Select category">
+                    </select>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="topicSelection">Select Topic</label>
+                    <select name="topicSelection" id="topicSelection" class="form-control"
+                        placeholder="Select topic">
                     </select>
                 </div>
             </div>
@@ -62,6 +71,24 @@
                     </select>
                 </div>
             </div>
+            <div class="col-6">
+                <p class="d-block">Select credit cost of the video</p>
+                <div class="d-block">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="creditCost" id="creditCost1" value="1"
+                            checked>
+                        <label class="form-check-label" for="creditCost1">
+                            1 Credit
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="creditCost" id="creditCost2" value="2">
+                        <label class="form-check-label" for="creditCost2">
+                            2 Credits
+                        </label>
+                    </div>
+                </div>
+            </div>
         </div>
         <input type="submit" value="Submit" class="btn btn-primary">
     </form>
@@ -70,29 +97,53 @@
 @endsection
 
 @section('bottom_scripts')
-    <script>
-        $(document).ready(function() {
-            $('#subjectSelect').on('change', function () {
-                let id = $(this).val();
-                console.log(id);
-                $('#subjectCategory').empty();
-                $('#subjectCategory').append(`<option value ="0" disabled selected>Processing...</option>`);
-                $.ajax({
-                    type: 'GET',
-                    url: '/getcategory/' + id,
-                    success: function(response) {
-                        var response = JSON.parse(response);
-                        console.log(response);
-                        $('#subjectCategory').empty();
-                        $('#subjectCategory').append(`<option value="0" disabled selected>Select Category</option>`);
-                        response.forEach(element => {
-                            $('#subjectCategory').append(`<option value="${element['id']}">${element['name']}</option>`);
-                        });
-                    }
-                });
+<script>
+    $(document).ready(function () {
+        $('#subjectSelect').on('change', function () {
+            let id = $(this).val();
+            console.log(id);
+            $('#subjectCategory').empty();
+            $('#subjectCategory').append(`<option value ="0" disabled selected>Processing...</option>`);
+            $.ajax({
+                type: 'GET',
+                url: '/getcategory/' + id,
+                success: function (response) {
+                    var response = JSON.parse(response);
+                    console.log(response);
+                    $('#subjectCategory').empty();
+                    $('#subjectCategory').append(
+                        `<option value="0" disabled selected>Select Category</option>`);
+                    response.forEach(element => {
+                        $('#subjectCategory').append(
+                            `<option value="${element['id']}">${element['name']}</option>`
+                            );
+                    });
+                }
             });
         });
-    
-    
-    </script>
+        $('#subjectCategory').on('change', function () {
+            let id = $(this).val();
+            console.log(id);
+            $('#topicSelection').empty();
+            $('#topicSelection').append(`<option value ="0" disabled selected>Processing...</option>`);
+            $.ajax({
+                type: 'GET',
+                url: '/gettopic/' + id,
+                success: function (response) {
+                    var response = JSON.parse(response);
+                    console.log(response);
+                    $('#topicSelection').empty();
+                    $('#topicSelection').append(
+                        `<option value="0" disabled selected>Select Topic</option>`);
+                    response.forEach(element => {
+                        $('#topicSelection').append(
+                            `<option value="${element['id']}">${element['name']}</option>`
+                            );
+                    });
+                }
+            });
+        });
+    });
+
+</script>
 @endsection

@@ -6,6 +6,7 @@ use App\Subcategory;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Str;
+use DB;
 
 class SubcategoryController extends Controller
 {
@@ -22,5 +23,9 @@ class SubcategoryController extends Controller
         $subcategory->save();
 
         return redirect()->back();
+    }
+
+    public function getTopic($subcategory_id) {
+        echo json_encode(DB::table('topics')->where('subcategory_id', $subcategory_id)->get());
     }
 }

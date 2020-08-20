@@ -29,6 +29,7 @@ Route::group(['middleware' => ['role:teacher|superadmin']], function () {
     Route::post('/subcategory/create', 'SubcategoryController@store');
     Route::post('/topic/create', 'TopicController@store');
     Route::get('/getcategory/{id}', 'LessonsController@getCategory');
+    Route::get('/gettopic/{id}', 'SubcategoryController@getTopic');
    
 });
 
