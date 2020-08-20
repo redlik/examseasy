@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="col-12 col-md-3 bg-dark rounded p-3 shadow">
+<div class="col-12 col-md-3 bg-dark rounded p-3 shadow" style="height:90%">
     <h4 class="text-white text-center text-uppercase">Categories & Topics</h4>
     <h6 class="text-white text-center">Hi, {{ $user->name ?? ''}}</h6>
     <hr class="sidebar-rule">
@@ -23,7 +23,7 @@
     </ul>
 
 </div>
-<div class="col-12 col-md-9">
+<div class="col-12 col-md-9 overflow-auto" height="100%">
     <h2 class='font-weight-bold text-uppercase'>Categories & Topics</h2>
     <ul class="list-group">
         @foreach ($subjects as $subject)
@@ -34,13 +34,13 @@
         @foreach ($subcategories as $subcategory)
             @if ($subcategory->subject_id == $subject->id)
             <li class="list-group-item pl-5 d-flex justify-content-between align-items-center">{{ $subcategory->name }}
-                <button class="badge badge-success badge-pill p-1 topic-btn" data-toggle="modal" data-target="#topicsModal"
+                <button class="badge badge-success badge-pill p-2 topic-btn" data-toggle="modal" data-target="#topicsModal"
                     data-category="{{ $subcategory->name }}" data-id="{{ $subcategory->id }}">Add Topic</button></li>
                 @foreach ($topics as $topic)
                     @if ($topic->subcategory_id == $subcategory->id)
                     <li class="list-group-item pl-5 d-flex justify-content-between align-items-center"><span
-                            class="pl-3">{{ $topic->name }}</span>
-                        <span class="badge badge-primary badge-pill" data-toggle="modal" data-target="#topicsModal"
+                            class="pl-3 text-secondary font-italic">{{ $topic->name }}</span>
+                        <span class="badge badge-secondary badge-pill" data-toggle="modal" data-target="#topicsModal"
                             data_id="{{ $subcategory->name }}">{{$topic->lesson->count() }} Lessons</span></li>
                     @endif
                 @endforeach
