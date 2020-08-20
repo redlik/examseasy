@@ -27,6 +27,7 @@ Route::group(['middleware' => ['role:teacher|superadmin']], function () {
     Route::get('/dashboard/emails', 'PagesController@dashboard_emails')->name('dashboard.emails');
     Route::get('/dashboard/coupons', 'PagesController@dashboard_coupons')->name('dashboard.coupons');
     Route::post('/subcategory/create', 'SubcategoryController@store');
+    Route::post('/topic/create', 'TopicController@store');
     Route::get('/getcategory/{id}', 'LessonsController@getCategory');
    
 });

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Subject;
 use App\User;
 use App\Lesson;
+use App\Subcategory;
+use App\Topic;
 use Auth;
 use DB;
 use Spatie\Permission\Models\Role;
@@ -35,7 +37,9 @@ class PagesController extends Controller
     public function dashboard_categories() {
         $user = Auth::user();
         $subjects = Subject::all();
-        return view('dashboard.categories', ['subjects' => $subjects, 'user'=>$user]);
+        $subcategories = Subcategory::orderBy('name', 'asc')->get();
+        $topics = Topic::orderBy('name', 'asc')->get();
+        return view('dashboard.categories', compact("user", "subjects", "subcategories", "topics"));
     }
 
     public function user_panel($id) {
