@@ -6,9 +6,11 @@ use App\Subject;
 use App\Level;
 use App\User;
 use App\Subcategory;
+use App\Topic;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Str;
 use DB;
 
 class LessonsController extends Controller
@@ -52,9 +54,10 @@ class LessonsController extends Controller
      */
     public function store(Request $request)
     {
-        $subject = Subject::find($request->input('subjectSelect'));
-        $level = Level::find($request->input('levelSelect'));
-        $category = Subcategory::find($request->input('subjectCategory'));
+        // $level = Level::find($request->input('levelSelect'));
+        // $topic = Topic::find($request->input('topicSelection'));
+
+        $user = Auth::user();
 
         $request->validate(['thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
 
@@ -65,17 +68,19 @@ class LessonsController extends Controller
 
         $lesson = new Lesson();
         $lesson->title = $request->input('title');
+        $lesson->slug = Str::slug($request->input('title'), '-');
         $lesson->link = $request->input('link');
         $lesson->thumbnail = $new_filename;
         $lesson->description = $request->input('description');
-        $lesson->subject_id = $request->get('subjectSelect');
-        $lesson->category_id = $request->get('subjectCategory');
+        $lesson->topic_id = $request->get('topicSelection');
+        $lesson->credit_cost = (int)$request->get('creditCost');
         $lesson->level_id = $request->get('levelSelect');
+        $lesson->author_id = $user->id;
         $lesson->save();
 
         $thumbnail->move(public_path('images/thumbnails'), $new_filename);
 
-        return redirect('dashboard');
+        return redirect('dashboard/lessons');
     }
 
     /**
