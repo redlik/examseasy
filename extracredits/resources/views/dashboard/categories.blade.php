@@ -32,20 +32,19 @@
             <button class="badge badge-primary badge-pill p-2" data-toggle="modal"
                 data-target="#{{ $subject->name}}Modal">Add Category</button></li>
         @foreach ($subcategories as $subcategory)
-        @if ($subcategory->subject_id == $subject->id)
-        <li class="list-group-item pl-5 d-flex justify-content-between align-items-center">{{ $subcategory->name }}
-            <button class="badge badge-success badge-pill p-1 topic-btn" data-toggle="modal" data-target="#topicsModal"
-                data-category="{{ $subcategory->name }}" data-id="{{ $subcategory->id }}">Add Topic</button></li>
-        @foreach ($topics as $topic)
-        @if ($topic->subcategory_id == $subcategory->id)
-        <li class="list-group-item pl-5 d-flex justify-content-between align-items-center"><span
-                class="pl-3">{{ $topic->name }}</span>
-            <span class="badge badge-primary badge-pill" data-toggle="modal" data-target="#topicsModal"
-                data_id="{{ $subcategory->name }}">{{$topic->lesson->count() }} Lessons</span></li>
-        @endif
-        @endforeach
-        @endif
-
+            @if ($subcategory->subject_id == $subject->id)
+            <li class="list-group-item pl-5 d-flex justify-content-between align-items-center">{{ $subcategory->name }}
+                <button class="badge badge-success badge-pill p-1 topic-btn" data-toggle="modal" data-target="#topicsModal"
+                    data-category="{{ $subcategory->name }}" data-id="{{ $subcategory->id }}">Add Topic</button></li>
+                @foreach ($topics as $topic)
+                    @if ($topic->subcategory_id == $subcategory->id)
+                    <li class="list-group-item pl-5 d-flex justify-content-between align-items-center"><span
+                            class="pl-3">{{ $topic->name }}</span>
+                        <span class="badge badge-primary badge-pill" data-toggle="modal" data-target="#topicsModal"
+                            data_id="{{ $subcategory->name }}">{{$topic->lesson->count() }} Lessons</span></li>
+                    @endif
+                @endforeach
+            @endif
         @endforeach
         <!-- Modal -->
         <div class="modal fade" id="{{ $subject->name}}Modal" tabindex="-1" role="dialog"
