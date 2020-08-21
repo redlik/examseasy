@@ -41,9 +41,10 @@ class LessonsController extends Controller
      */
     public function create()
     {
+        $user = Auth::user();
         $subjects = Subject::all()->sortBy('name');
         $levels = Level::all();
-        return view('lessons/create', ['subjects' => $subjects, 'levels' => $levels]);
+        return view('lessons/create', ['subjects' => $subjects, 'levels' => $levels, 'user' => $user]);
     }
 
     /**
@@ -108,9 +109,12 @@ class LessonsController extends Controller
         $lesson = Lesson::find($id);
         $subjects = Subject::all()->sortBy('name');
         $levels = Level::all();
+        $topics = Topic::all();
         $subcategories = Subcategory::where('subject_id', $lesson->subject_id)->get()->sortBy('name');
+        $topic = Topic::find($lesson->topic_id);
+        $selected_subcategory = Subcategory::find($topic->subcategory_id);
 
-        return view('lessons.edit', ['lesson' => $lesson, 'subjects' => $subjects, 'levels' => $levels, 'subcategories' => $subcategories]);
+        return view('lessons.edit', ['lesson' => $lesson, 'subjects' => $subjects, 'levels' => $levels, 'subcategories' => $subcategories, 'selected_subcategory' => $selected_subcategory, 'topics'=>$topics]);
 
     }
 
@@ -126,11 +130,13 @@ class LessonsController extends Controller
         $lesson = Lesson::find($id);
 
         $lesson->title = $request->input('title');
+        $lesson->slug = Str::slug($request->input('title'), '-');
         $lesson->link = $request->input('link');
         $lesson->description = $request->input('description');
         $lesson->subject_id = $request->get('subjectSelect');
-        $lesson->category_id = $request->get('subjectCategory');
+        $lesson->topic_id = $request->get('topicSelection');
         $lesson->level_id = $request->get('levelSelect');
+        $lesson->credit_cost = (int)$request->get('creditCost');
 
         if ($request->has('thumbnail')) {
             $thumbnail = $request->file('thumbnail');
@@ -143,7 +149,7 @@ class LessonsController extends Controller
         $lesson->save();
 
 
-        return redirect('dashboard');
+        return redirect('dashboard/lessons');
 
     }
 

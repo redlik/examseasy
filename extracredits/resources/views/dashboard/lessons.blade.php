@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-12 col-md-3 bg-dark rounded p-3 shadow">
     <h4 class="text-white text-center text-uppercase">Dashboard</h4>
-    <h6 class="text-white text-center">Hi, {{ $user->name ?? ''}}</h6>
+    <h6 class="text-white text-center">Hi, {{ Auth::user()->name ?? ''}}</h6>
     <hr class="sidebar-rule">
     <ul class="sidebar-menu text-white list-unstyled">
         <li class="pl-3 mb-3"><a href="{{ route('dashboard') }}" class="text-white"><i class="fas fa-fw fa-tachometer-alt pr-1"></i> Dashboard</a></li>
@@ -26,22 +26,22 @@
                 <thead>
                     <tr>
                         <th scope="col" class="col-1">#</th>
-                        <th scope="col" class="col-4">Title</th>
-                        <th scope="col" class="col-2">Subject</th>
-                        <th scope="col" class="col-2">Unlocked</th>
-                        <th scope="col" class="col-3">Operations</th>
+                        <th scope="col" class="col-6">Title</th>
+                        <th scope="col" class="col-1">Unlocked</th>
+                        <th scope="col" class="col-4">Operations</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($lessons as $lesson)
                     <tr class="{{$lesson->subject->name}}">
                         <th scope="row">{{ $lesson->id }}</th>
-                        <td>{{ $lesson->title }}</td>
-                        <td>{{ ucfirst($lesson->subject->name) }}</td>
+                        <td><span class="font-text-bold">{{ $lesson->title }}</span><br>
+                            <span class="text-secondary">{{ ucfirst($lesson->subject->name) }} >> {{ $lesson->topic->name }} </span>
+                            </td>
                         <td>{{ $lesson->user_count }}</td>
-                        <td><a href="{{ url('/lesson', [$lesson->id]) }}" class="btn btn-success mx-lg-1">View</a>
-                            <a href="{{ url('/lesson', [$lesson->id, 'edit']) }}" class="btn btn-primary">Edit</a>
-                            @if ($lesson->user_count < 1) <a href="{{ url('/remove', [$lesson->id]) }}" class="btn btn-danger mx-lg-1">Delete</a>
+                        <td><a href="{{ url('/lesson', [$lesson->id]) }}" class="text-success mr-2">View</a>
+                            <a href="{{ url('/lesson', [$lesson->id, 'edit']) }}" class="text-primary mr-2">Edit</a>
+                            @if ($lesson->user_count < 1) <a href="{{ url('/remove', [$lesson->id]) }}" class="text-danger">Delete</a>
                                 @endif
                         </td>
                     </tr>

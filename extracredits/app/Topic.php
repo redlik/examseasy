@@ -11,4 +11,8 @@ class Topic extends Model
     public function lesson() {
         return $this->hasMany('App\Lesson');
     }
+
+    public function subcategory() {
+        return $this->belongsTo('App\Subcategory');
+    }
 }

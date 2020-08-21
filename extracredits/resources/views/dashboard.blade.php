@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-12 col-md-3 bg-dark rounded p-3 shadow">
     <h4 class="text-white text-center text-uppercase">Dashboard</h4>
-    <h6 class="text-white text-center">Hi, {{ $user->name }}</h6>
+    <h6 class="text-white text-center">Hi, {{ Auth::user()->name ?? ''}}</h6>
     <hr class="sidebar-rule">
     <ul class="sidebar-menu text-white list-unstyled">
         <li class="pl-3 mb-3 text-warning font-weight-bold"><i class="fas fa-fw fa-tachometer-alt pr-1"></i> Dashboard</li>
