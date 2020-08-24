@@ -34,6 +34,24 @@ class PagesController extends Controller
         return view('dashboard.lessons', compact( "user", "subjects", "lessons"));
     }
 
+    public function dashboard_lessons_search(Request $request) {
+        $search_query = $request->get('searchInput');
+        $lessons = Lesson::where( 'title', 'like', '%' . $search_query . '%' )->get();
+        return view('dashboard.lessons', compact("lessons", "search_query"));
+    }
+
+    public function lesson_view($subject, $subcategory, $topic, $lesson_slug) {
+        $lesson = Lesson::where('slug', $lesson_slug)->first();
+
+        return view('lessons.show', ['lesson' => $lesson]);
+    }
+
+    public function dashboard_students() {
+        $students = User::role('student')->get();
+
+        return view('dashboard.students', compact("students"));
+    }
+
     public function dashboard_categories() {
         $user = Auth::user();
         $subjects = Subject::all();

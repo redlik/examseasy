@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,7 @@ Route::group(['middleware' => ['role:teacher|superadmin']], function () {
     
     Route::get('/dashboard', 'PagesController@dashboard')->name('dashboard');
     Route::get('/dashboard/lessons', 'PagesController@dashboard_lessons')->name('dashboard.lessons');
+    Route::get('/dashboard/search', 'PagesController@dashboard_lessons_search')->name('dashboard.lessons.search');
     Route::get('/dashboard/categories', 'PagesController@dashboard_categories')->name('dashboard.categories');
     Route::get('/dashboard/students', 'PagesController@dashboard_students')->name('dashboard.students');
     Route::get('/dashboard/transactions', 'PagesController@dashboard_transactions')->name('dashboard.transactions');
@@ -43,6 +45,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/lesson', 'LessonsController')->middleware('auth');
 
+Route::get('/{subject}/{category}/{topic}/{lesson}', 'PagesController@lesson_view')->name('lesson_canonical_view');
+
 Route::get('/lessons', 'LessonsController@index')->name('lessons-list');
 
 Route::get('/remove/{id}', 'LessonsController@remove')->name('remove');
@@ -56,3 +60,28 @@ Route::get('/subject-view', 'LessonsController@subjectsView')->name('subjectsVie
 Route::get('/buycredits', 'PagesController@buy_credits')->name('buy_credits')->middleware('auth');
 
 Route::post('/topup', 'PagesController@topup');
+
+// Route::get('test', function () {
+
+//     $user = [
+//         'name' => 'Mahedi Hasan',
+//         'info' => 'Laravel Developer'
+//     ];
+
+//     \Mail::to('mail@codechief.org')->send(new \App\Mail\NewMail($user));
+
+//     dd("success");
+
+// });
+
+Route::get('how-it-works', function() {
+    return view('pages.howitworks');
+});
+
+Route::get('pricing', function() {
+    return view('pages.pricing');
+});
+
+Route::get('testimonials', function() {
+    return view('pages.testimonials');
+});

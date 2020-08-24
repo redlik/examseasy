@@ -17,8 +17,14 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('subjectsView') }}">All Lessons</a>
+                    <a class="nav-link" href="{{ url('') }}">Home</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('how-it-works') }}">How it Works</a>
+                </li>
+                {{-- <li class="nav-item">
+                    <a class="nav-link" href="{{ route('subjectsView') }}">All Lessons</a>
+                </li> --}}
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -38,7 +44,12 @@
                 </li>
                 <!--  Authentication Links -->
 
-
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('pricing') }}">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('testimonials') }}">Testimonials</a>
+                </li>
 
                 @guest
                 <li class="nav-item">
@@ -46,7 +57,7 @@
                 </li>
                 @if (Route::has('register'))
                 <li class="nav-item">
-                    <a class="nav-link btn btn-danger text-white ml-3"
+                    <a class="nav-link btn btn-pink text-white ml-md-3"
                         href="{{ route('register') }}">{{ __('Register') }}</a>
                 </li>
                 @endif
@@ -62,6 +73,7 @@
                         <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
                         <a class="dropdown-item" href="{{ url('/lesson/create') }}">Create new Lesson</a>
                         @else
+                        <a class="dropdown-item" href="">My Videos</a>
                         <a class="dropdown-item" href="">Student Dashboard</a>
                         @endunlessrole
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

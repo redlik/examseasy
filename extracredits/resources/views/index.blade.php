@@ -9,7 +9,7 @@
             <p class="my-3">ExtraCredit is an online service trusted by thousands of second-level students and their
                 parents across
                 Ireland when preparing for exams. It is the modern alternative to grinds.</p>
-            <a href="{{ route('register') }}" class="btn btn-danger my-4">SIGN-UP NOW</a>
+            <a href="{{ route('register') }}" class="btn btn-pink text-white p-3 my-4">SIGN-UP NOW</a>
         </div>
 
     </div>

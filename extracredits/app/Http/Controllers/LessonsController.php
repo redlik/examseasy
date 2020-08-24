@@ -60,7 +60,11 @@ class LessonsController extends Controller
 
         $user = Auth::user();
 
-        $request->validate(['thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
+        $request->validate(['thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', 
+                            'title' => 'required|unique:lessons',
+                            'description' => 'required',
+                            'link' => 'required|url',
+                            ]);
 
         $thumbnail = $request->file('thumbnail');
         $thumbnail_name = $thumbnail->getClientOriginalName();
@@ -128,6 +132,11 @@ class LessonsController extends Controller
     public function update(Request $request, $id)
     {
         $lesson = Lesson::find($id);
+        
+        $request->validate(['title' => 'required',
+                            'description' => 'required',
+                            'link' => 'required|url',
+                            ]);
 
         $lesson->title = $request->input('title');
         $lesson->slug = Str::slug($request->input('title'), '-');

@@ -9,8 +9,10 @@
         <li class="pl-3 mb-3"><a href="{{ route('dashboard') }}" class="text-white"><i
                     class="fas fa-fw fa-tachometer-alt pr-1"></i> Dashboard</a></li>
         <hr class="sidebar-rule">
-        <li class="pl-3 mb-3"><a href="{{ route('dashboard.lessons') }}" class="text-warning font-weight-bold"><i
+        <li class="pl-3 mb-3"><a href="{{ route('dashboard.lessons') }}" class="text-white font-weight-bold"><i
                     class="fas fa-chevron-right pr-1"></i> Lessons</a></li>
+        <li class="pl-3 mb-3"><a href="{{ url('/lesson/create') }}" class="text-warning font-weight-bold"><i
+                    class="fas fa-chevron-right pr-1 pl-4"></i> Add new lesson</a></li>
         <li class="pl-3 mb-3"><a href="{{ route('dashboard.categories') }}" class="text-white"><i
                     class="fas fa-chevron-right pr-1"></i> Categories & Topics</a></li>
         <hr class="sidebar-rule">
@@ -25,7 +27,16 @@
 
 <div class="col-12 col-md-9 overflow-auto px-md-4 mt-sm-4 mt-md-0">
     <h2 class="font-weight-bold text-uppercase">Create new lesson</h2>
-    <form action="{{ action('LessonsController@store')}}" method="POST" role="form" enctype="multipart/form-data">
+    @if ($errors->any())
+    <div class="alert alert-danger" role="alert">
+        <ul id="errors list-unstyled">
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    <form action="{{ action('LessonsController@store')}}" method="POST" role="form" enctype="multipart/form-data" class="mt-4">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         <div class="form-group">
             <label for="title">Title of the lesson</label>
@@ -47,12 +58,12 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mt-4">
             <label for="description">Lesson Description</label>
-            <textarea name="description" class="form-control" id="description" rows="3"></textarea>
+            <textarea name="description" class="form-control" id="description" rows="4"></textarea>
         </div>
 
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-12 col-md-4">
                 <div class="form-group">
                     <label for="subjectSelect">Select subject</label>
@@ -68,7 +79,7 @@
                 <div class="form-group">
                     <label for="subjectCategory">Select Category</label>
                     <select name="subjectCategory" id="subjectCategory" class="form-control"
-                        placeholder="Select category">
+                        placeholder="Select category"><option value="0" selected disabled>Select Category</option>
                     </select>
                 </div>
             </div>
@@ -76,14 +87,14 @@
             <div class="col-12 col-md-4">
                 <div class="form-group">
                     <label for="topicSelection">Select Topic</label>
-                    <select name="topicSelection" id="topicSelection" class="form-control"
-                        placeholder="Select topic">
+                    <select name="topicSelection" id="topicSelection" class="form-control" placeholder="Select topic">
+                        <option value="0" selected disabled>Select Topic</option>
                     </select>
                 </div>
             </div>
 
         </div>
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-6">
                 <div class="form-group">
                     <label for="levelSelect">Select level</label>
@@ -113,7 +124,7 @@
                 </div>
             </div>
         </div>
-        <input type="submit" value="Submit" class="btn btn-primary">
+        <input type="submit" value="Submit" class="btn btn-primary mt-4">
     </form>
 
 </div>
@@ -127,6 +138,7 @@
             console.log(id);
             $('#subjectCategory').empty();
             $('#subjectCategory').append(`<option value ="0" disabled selected>Processing...</option>`);
+            $('#topicSelection').append(`<option value ="0" disabled selected>Processing...</option>`);
             $.ajax({
                 type: 'GET',
                 url: '/getcategory/' + id,
@@ -139,7 +151,7 @@
                     response.forEach(element => {
                         $('#subjectCategory').append(
                             `<option value="${element['id']}">${element['name']}</option>`
-                            );
+                        );
                     });
                 }
             });
@@ -161,7 +173,7 @@
                     response.forEach(element => {
                         $('#topicSelection').append(
                             `<option value="${element['id']}">${element['name']}</option>`
-                            );
+                        );
                     });
                 }
             });

@@ -21,7 +21,7 @@ class Lesson extends Model
     }
 
     public function subcategory() {
-        return $this->hasOneThrough('App\Subcategory', 'App\Topic');
+        return $this->hasOneThrough(Subcategory::class, Topic::class);
     }
 
     public function user() {

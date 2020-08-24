@@ -26,3 +26,27 @@ html {
     border-top: 1px solid rgba(255,255,255,0.20);
     margin: 1rem;
 }
+
+.btn-pink {
+    background-color: #D34F9D;
+}
+
+.btn-pink:hover {
+    background-color: #aa367a;
+}
+
+.btn-green {
+    background-color: #62BB46;
+}
+
+.btn-green:hover {
+    background-color: #3a8324;
+}
+
+.btn-primary {
+    background-color: #1EBDD3;
+}
+
+.btn-primary:hover {
+    background-color: #1291a1;
+}
