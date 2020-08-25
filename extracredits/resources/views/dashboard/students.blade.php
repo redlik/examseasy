@@ -37,17 +37,34 @@
                 <th scope="col" class="col-1">#</th>
                 <th scope="col" class="col-3">Name</th>
                 <th scope="col" class="col-3">Email</th>
-                <th scope="col" class="col-2">Credits</th>
-                <th scope="col" class="col-3">Operations</th>
+                <th scope="col" class="col-2">Registered</th>
+                <th scope="col" class="col-1">Credits</th>
+                <th scope="col" class="col-2">Operations</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($students as $student)
-            <tr class="">
+            @switch(true)
+                @case($student->credits == 0)
+                    <tr class="alert alert-danger">
+                    @break
+                @case($student->credits < 10)
+                <tr class="alert alert-warning">
+                    @break
+                @default
+                <tr class="">
+            @endswitch
+            
                 <th scope="row">{{ $student->id }}</th>
                 <td>{{ $student->name }}</td>
                 <td>{{ $student->email }}</td>
+                <td>{{ $student->created_at->format('d/m/Y') }}</td>
+                @if ($student->credits < 10)
+                <td class="text-danger font-weight-bold">{{ $student->credits }}</td>
+                @else
                 <td>{{ $student->credits }}</td>
+                @endif
+                
                 <td><a href="{{ route('user_panel', [$student->id]) }}" class="btn btn-green text-white">View details</a>
                 </td>
             </tr>

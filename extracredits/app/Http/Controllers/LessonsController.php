@@ -189,7 +189,7 @@ class LessonsController extends Controller
         $id = Auth::user()->id;
         $currentuser = User::find($id);
         $credits = $currentuser->credits;
-        $currentuser->credits = $credits -1;
+        $currentuser->credits = $credits - $current_lesson->credit_cost;
         $currentuser->lesson()->attach($lesson_id);
         $currentuser->save();
 
