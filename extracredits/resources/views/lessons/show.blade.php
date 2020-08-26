@@ -18,7 +18,7 @@
 @section('bottom_scripts')
 <script>
     var divWidth = document.getElementById('vimeo-player').clientWidth;
-    var link = 'https://vimeo.com/{{ $lesson->link}}';
+    var link = '{{ $lesson->link}}';
     var options = {
       url: link,
       width: divWidth,
