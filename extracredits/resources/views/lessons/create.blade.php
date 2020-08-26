@@ -68,6 +68,7 @@
                 <div class="form-group">
                     <label for="subjectSelect">Select subject</label>
                     <select name="subjectSelect" id="subjectSelect" class="form-control">
+                        <option value ="0" disabled selected>Select Subject</option>
                         @foreach ($subjects as $subject)
                         <option value="{{ $subject->id}}">{{ ucfirst($subject->name) }}</option>
                         @endforeach
