@@ -135,7 +135,7 @@ class LessonsController extends Controller
         
         $request->validate(['title' => 'required',
                             'description' => 'required',
-                            'link' => 'required|url',
+                            'link' => 'required',
                             ]);
 
         $lesson->title = $request->input('title');
