@@ -45,7 +45,7 @@
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    <label for="link">Link to video</label>
+                    <label for="link">Link to video (just the numbers after '/' )</label>
                     <input type="text" name="link" id="link" class="form-control"
                         placeholder="https://vimeo.com/234200580" />
                 </div>

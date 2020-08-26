@@ -63,7 +63,7 @@ class LessonsController extends Controller
         $request->validate(['thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', 
                             'title' => 'required|unique:lessons',
                             'description' => 'required',
-                            'link' => 'required|url',
+                            'link' => 'required',
                             ]);
 
         $thumbnail = $request->file('thumbnail');
