@@ -25,6 +25,15 @@
 
 <div class="col-12 col-md-9 overflow-auto px-md-4 mt-sm-4 mt-md-0">
     <h2>Edit "{{ $lesson->title }}" lesson</h2>
+    @if ($errors->any())
+    <div class="alert alert-danger" role="alert">
+        <ul id="errors list-unstyled">
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <form action="{{ action('LessonsController@update', [$lesson->id])}}" method="POST" role="form" enctype="multipart/form-data">
         @method('PATCH')
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
