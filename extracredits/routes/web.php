@@ -18,7 +18,7 @@ Route::get('/', 'PagesController@home');
 
 Auth::routes();
 
-Route::group(['middleware' => ['role:teacher|superadmin']], function () {
+Route::group(['middleware' => ['role:teacher|superadmin', 'auth']], function () {
     
     Route::get('/dashboard', 'PagesController@dashboard')->name('dashboard');
     Route::get('/dashboard/lessons', 'PagesController@dashboard_lessons')->name('dashboard.lessons');
