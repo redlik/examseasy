@@ -47,10 +47,10 @@
             <table class="table table-striped table-hover mt-3">
                 <thead>
                     <tr>
-                        <th scope="col" class="col-1">#</th>
-                        <th scope="col" class="col-6">Title</th>
-                        <th scope="col" class="col-2">Unlocked</th>
-                        <th scope="col" class="col-3">Operations</th>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Unlocked</th>
+                        <th scope="col">Operations</th>
                     </tr>
                 </thead>
                 <tbody>
