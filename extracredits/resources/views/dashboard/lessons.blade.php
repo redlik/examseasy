@@ -61,9 +61,9 @@
                             <span class="text-secondary"><small>{{ ucfirst($lesson->subject->name) }} >> {{ $lesson->topic->subcategory->name }} >> {{ $lesson->topic->name }}</small></span>
                             </td>
                         <td>{{ $lesson->user_count }}</td>
-                        <td><a href="{{ route('lesson_canonical_view', [$lesson->subject->name, $lesson->topic->subcategory->slug, $lesson->topic->slug, $lesson->slug]) }}" class="text-success mr-2">View</a>
-                            <a href="{{ url('/lesson', [$lesson->id, 'edit']) }}" class="text-primary mr-2">Edit</a>
-                            @if ($lesson->user_count < 1) <a href="{{ url('/remove', [$lesson->id]) }}" class="text-danger">Delete</a>
+                        <td><a href="{{ route('lesson_canonical_view', [$lesson->subject->name, $lesson->topic->subcategory->slug, $lesson->topic->slug, $lesson->slug]) }}" class="text-success mr-2" title="View lesson"><i class="far fa-eye"></i></a>
+                            <a href="{{ url('/lesson', [$lesson->id, 'edit']) }}" class="text-primary mr-2" title="Edit lesson"><i class="far fa-edit"></i></a>
+                            @if ($lesson->user_count < 1) <a href="{{ url('/remove', [$lesson->id]) }}" class="text-danger" title="Delete lesson"><i class="far fa-trash-alt"></i></a>
                                 @endif
                         </td>
                     </tr>
