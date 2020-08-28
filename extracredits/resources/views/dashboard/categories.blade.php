@@ -23,63 +23,65 @@
     </ul>
 </div>
 
-<div class="col-12 col-md-9 overflow-auto mt-sm-4 mt-md-0" height="100%">
-    <h2 class='font-weight-bold text-uppercase'>Categories & Topics</h2>
-    <ul class="list-group">
-        @foreach ($subjects as $subject)
-        <li class="list-group-item font-weight-bold d-flex justify-content-between align-items-center">
-            {{ ucfirst($subject->name) }}
-            <button class="badge badge-primary badge-pill p-2" data-toggle="modal"
-                data-target="#{{ $subject->name}}Modal">Add Category</button></li>
-        @foreach ($subcategories as $subcategory)
-            @if ($subcategory->subject_id == $subject->id)
-            <li class="list-group-item pl-5 d-flex justify-content-between align-items-center">{{ $subcategory->name }}
-                <button class="badge badge-success badge-pill p-2 topic-btn" data-toggle="modal" data-target="#topicsModal"
-                    data-category="{{ $subcategory->name }}" data-id="{{ $subcategory->id }}">Add Topic</button></li>
-                @foreach ($topics as $topic)
-                    @if ($topic->subcategory_id == $subcategory->id)
-                    <li class="list-group-item pl-5 d-flex justify-content-between align-items-center"><span
-                            class="pl-3 text-secondary font-italic">{{ $topic->name }}</span>
-                        <span class="badge badge-secondary badge-pill" data-toggle="modal" data-target="#topicsModal"
-                            data_id="{{ $subcategory->name }}">{{$topic->lesson->count() }} Lessons</span></li>
-                    @endif
-                @endforeach
-            @endif
-        @endforeach
-        <!-- Modal -->
-        <div class="modal fade" id="{{ $subject->name}}Modal" tabindex="-1" role="dialog"
-            aria-labelledby="categoryModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="categoryModalLabel">Create new category under
-                            <strong>{{ ucfirst($subject->name) }}</strong></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="{{ action('SubcategoryController@store')}}" method="POST" role="form"
-                            enctype="multipart/form-data">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                            <input type="hidden" name="subjectSelect" value="{{ $subject->id }}" />
+<div class="col-12 col-md-9 overflow-auto mt-sm-4 mt-md-0 pl-md-4 h-100 pb-4">
+    <div class="bg-white rounded shadow h-100 p-4 shadow-sm">
+        <h2 class='font-weight-bold text-uppercase'>Categories & Topics</h2>
+        <ul class="list-group">
+            @foreach ($subjects as $subject)
+            <li class="list-group-item font-weight-bold d-flex justify-content-between align-items-center">
+                {{ ucfirst($subject->name) }}
+                <button class="badge badge-primary badge-pill p-2" data-toggle="modal"
+                    data-target="#{{ $subject->name}}Modal">Add Category</button></li>
+            @foreach ($subcategories as $subcategory)
+                @if ($subcategory->subject_id == $subject->id)
+                <li class="list-group-item pl-5 d-flex justify-content-between align-items-center">{{ $subcategory->name }}
+                    <button class="badge badge-success badge-pill p-2 topic-btn" data-toggle="modal" data-target="#topicsModal"
+                        data-category="{{ $subcategory->name }}" data-id="{{ $subcategory->id }}">Add Topic</button></li>
+                    @foreach ($topics as $topic)
+                        @if ($topic->subcategory_id == $subcategory->id)
+                        <li class="list-group-item pl-5 d-flex justify-content-between align-items-center"><span
+                                class="pl-3 text-secondary font-italic">{{ $topic->name }}</span>
+                            <span class="badge badge-secondary badge-pill" data-toggle="modal" data-target="#topicsModal"
+                                data_id="{{ $subcategory->name }}">{{$topic->lesson->count() }} Lessons</span></li>
+                        @endif
+                    @endforeach
+                @endif
+            @endforeach
+            <!-- Modal -->
+            <div class="modal fade" id="{{ $subject->name}}Modal" tabindex="-1" role="dialog"
+                aria-labelledby="categoryModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="categoryModalLabel">Create new category under
+                                <strong>{{ ucfirst($subject->name) }}</strong></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{ action('SubcategoryController@store')}}" method="POST" role="form"
+                                enctype="multipart/form-data">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                <input type="hidden" name="subjectSelect" value="{{ $subject->id }}" />
 
-                            <div class="form-group">
-                                <label for="title">Name of the category</label>
-                                <input type="text" name="name" id="name" class="form-control" />
-                            </div>
+                                <div class="form-group">
+                                    <label for="title">Name of the category</label>
+                                    <input type="text" name="name" id="name" class="form-control" />
+                                </div>
 
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <input type="submit" value="Submit" class="btn btn-primary">
+                        </div>
+                        </form>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <input type="submit" value="Submit" class="btn btn-primary">
-                    </div>
-                    </form>
                 </div>
             </div>
-        </div>
-        @endforeach
-    </ul>
+            @endforeach
+        </ul>
+    </div>
 </div>
 
 <!--- Topics Modal --->

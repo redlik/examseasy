@@ -24,7 +24,7 @@
     </ul>
 
 </div>
-<div class="col-12 col-md-9 px-md-4 mt-sm-4 mt-md-0">
+<div class="col-12 col-md-9 p-md-4 mt-sm-4 mt-md-0 bg-white rounded">
     <div class="row">
         <div class="col-12 col-md-8">
             <h2 class="mb-4">List of Students</h2>

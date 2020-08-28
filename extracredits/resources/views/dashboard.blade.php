@@ -20,8 +20,10 @@
     </ul>
 
 </div>
-<div class="col-12 col-md-9">
-    <h2>Dashboard</h2>
-<p>Active students: {{ $active_students }}</p>
+<div class="col-12 col-md-9 pl-md-4">
+    <div class="bg-white rounded shadow h-100 p-4">
+        <h2>Dashboard</h2>
+        <p>Active students: {{ $active_students }}</p>
+    </div>
 </div>
 @endsection
