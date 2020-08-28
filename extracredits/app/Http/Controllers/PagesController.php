@@ -7,9 +7,10 @@ use App\Lesson;
 use App\Subcategory;
 use App\Topic;
 use Auth;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 
 class PagesController extends Controller
 {
@@ -30,14 +31,40 @@ class PagesController extends Controller
     public function dashboard_lessons() {
         $user = Auth::user();
         $lessons = Lesson::all();
-        $subjects = DB::table('subjects')->orderBy('name', 'desc');
-        return view('dashboard.lessons', compact( "user", "subjects", "lessons"));
+        $subjects = DB::table('subjects')->orderBy('name', 'asc')->get();
+        $subcategories = DB::table('subcategories')->orderBy('name', 'asc')->get();
+        return view('dashboard.lessons', compact( "user", "subjects", "lessons", "subcategories"));
     }
 
     public function dashboard_lessons_search(Request $request) {
         $search_query = $request->get('searchInput');
-        $lessons = Lesson::where( 'title', 'like', '%' . $search_query . '%' )->get();
+        $lessons = Lesson::where('title', 'like', '%' . $search_query . '%')->orWhere('description', 'like', '%' . $search_query . '%' )->get();
         return view('dashboard.lessons', compact("lessons", "search_query"));
+    }
+
+    public function dashboard_lessons_filter (Request $request) {
+        $filter = $request->get('selectFilter');
+        if (strpos($filter, 'sub-' ) !== false) {
+            $subject = (int)substr($filter, 4);
+            $lessons = Lesson::where('subject_id', $subject)->get();
+            $subjects = DB::table('subjects')->orderBy('name', 'asc')->get();
+            $subcategories = DB::table('subcategories')->orderBy('name', 'asc')->get();
+            $selected_subject = Subject::find($subject);
+            return view('dashboard.lessons', compact("lessons", "subjects", "subcategories", "selected_subject"));
+        } else {
+            $category = (int)substr($filter, 9);
+            // $subject = (int)
+            $lessons = Lesson::whereHas('topic', function ($builder) use ($category) {
+                $builder->where('subcategory_id', $category);
+            })->get();
+            $subjects = DB::table('subjects')->orderBy('name', 'asc')->get();
+            $subcategories = DB::table('subcategories')->orderBy('name', 'asc')->get();
+            $selected_category = Subcategory::find($category);
+            // dd($lessons);
+            return view('dashboard.lessons', compact("lessons", "subjects", "subcategories", "selected_category"));
+        }
+
+        
     }
 
     public function lesson_view($subject, $subcategory, $topic, $lesson_slug) {
