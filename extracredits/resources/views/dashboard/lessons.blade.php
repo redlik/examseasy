@@ -82,10 +82,18 @@
                     </div>
                 </form>
             </div>
+            @isset($selected_category)
             <div class="col-3">
                 <a href="{{ url('dashboard/lessons') }}" class="text-danger mt-3"><i class="fas fa-times-circle"></i> Clear
                     filter</a>
             </div>
+            @endisset
+            @isset($selected_subject)
+            <div class="col-3">
+                <a href="{{ url('dashboard/lessons') }}" class="text-danger mt-3"><i class="fas fa-times-circle"></i> Clear
+                    filter</a>
+            </div>
+            @endisset
         </div>
         <table class="table table-striped table-hover mt-3">
             <thead>

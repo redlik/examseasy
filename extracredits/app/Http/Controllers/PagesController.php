@@ -10,6 +10,7 @@ use Auth;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Database\Eloquent\Builder;
 
 class PagesController extends Controller
@@ -88,9 +89,15 @@ class PagesController extends Controller
     }
 
     public function user_panel($id) {
-        $user = User::where('id',$id)->first();
-        $lessons = Lesson::withCount('user')->get();
-        return view('user_panel', ['user' => $user, 'lessons' => $lessons]);
+        if ( $id != Auth::id() ) {
+            return response("<h2>You are not authorised to view this page.</h2>", 403);
+        }
+        else {
+            $user = User::where('id',$id)->first();
+            // $lessons = Lesson::withCount('user')->get();
+            $lessons = Lesson::has('user')->get();
+            return view('user_panel', ['user' => $user, 'lessons' => $lessons]);
+        }
     }
 
     public function buy_credits() {

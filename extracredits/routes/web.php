@@ -36,9 +36,9 @@ Route::group(['middleware' => ['role:teacher|superadmin', 'auth']], function () 
    
 });
 
-Route::group(['middleware' => ['role:student']], function () {
+Route::group(['middleware' => ['role:student|superadmin']], function () {
     
-    Route::get('/user/{id}', 'PagesController@user_panel')->name('user_panel')->middleware('auth');
+    Route::get('/user/student_{id}', 'PagesController@user_panel')->name('user_panel')->middleware('auth');
    
 });
 
