@@ -20,7 +20,7 @@
         <hr class="sidebar-rule">
         <li class="pl-3 mb-3"><i class="fas fa-chevron-right pr-1"></i> Emails</li>
         <hr class="sidebar-rule">
-        <li class="pl-3 mb-3"><i class="fas fa-chevron-right pr-1"></i> Coupons</li>
+        <li class="pl-3 mb-3"><a href="{{ route('dashboard.coupons') }}" class="text-white"><i class="fas fa-chevron-right pr-1"></i> Coupons</a></li>
     </ul>
 
 </div>
