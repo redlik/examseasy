@@ -118,7 +118,7 @@
                         <a href="{{ url('/lesson', [$lesson->id, 'edit']) }}" class="text-primary mr-2"
                             title="Edit lesson"><i class="far fa-edit"></i></a>
                         @if ($lesson->user_count < 1) <a href="{{ url('/remove', [$lesson->id]) }}" class="text-danger"
-                            title="Delete lesson"><i class="far fa-trash-alt"></i></a>
+                            title="Delete lesson" onclick="return confirm('Do you want to delete the lesson completely?')"><i class="far fa-trash-alt"></i></a>
                             @endif
                     </td>
                 </tr>
