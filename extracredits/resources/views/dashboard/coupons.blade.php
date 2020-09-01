@@ -71,7 +71,7 @@
                         @endif
                     </td>
                     <td>{{ $coupon->expiry ?? 'None'}}</td>
-                    <td>20</td>
+                    <td>XX</td>
                     <td>{{ $coupon->limit_of_uses ?? 'None'}}</td>
                     <td>@if ($coupon->enabled)
                         <a href="{{ route('dashboard.coupons.enable', [$coupon->id]) }}" class="btn btn-warning mr-2">Disable</a>
