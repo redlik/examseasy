@@ -143,11 +143,12 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <div class="form-group">
+                                    <label for="expiry_date">Expiry Date <em>(optional)</em></label>
                                     <div class="input-group date">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text"><i class="fas fa-calendar-alt"></i></div>
                                           </div>
-                                        <input type="text" name="expiry" class="form-control">
+                                        <input type="text" name="expiry" class="form-control" id="expiry_date">
                                     </div>
                                 </div>
                             </div>
@@ -194,9 +195,6 @@
             autoclose: true,
             todayHighlight: true
         });
-        function confirm() {
-            confirm("Are you sure you want to delete the coupon and its usage history");
-        }
     });
 
 </script>
