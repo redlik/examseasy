@@ -172,13 +172,13 @@ class LessonsController extends Controller
     {
         $lesson = Lesson::find($id);
         $lesson->delete();
-        return redirect('dashboard');
+        return redirect('dashboard/lessons');
     }
 
     public function remove($id) {
         $lesson = Lesson::find($id);
         $lesson->delete();
-        return redirect('dashboard');
+        return redirect('dashboard/lessons');
     }
 
     public static function isUnlocked($lesson_id) {
