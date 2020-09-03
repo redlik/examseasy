@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +43,7 @@ Route::group(['middleware' => ['role:teacher|superadmin', 'auth']], function () 
 Route::group(['middleware' => ['role:student|superadmin']], function () {
     
     Route::get('/user/student_{id}', 'PagesController@user_panel')->name('user_panel')->middleware('auth');
+    Route::post('/topup/store', 'TransactionController@store')->name('transaction.store')->middleware('auth');
    
 });
 
