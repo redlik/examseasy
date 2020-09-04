@@ -19,7 +19,7 @@ class CreateTransactionsTable extends Migration
             $table->string('stripeToken');
             $table->string('name_on_card');
             $table->integer('credit_topup');
-            $table->float('amount', 8, 2)->nullable();
+            $table->decimal('amount', 8, 2)->nullable();
             $table->string('email');
             $table->string('phone');
             $table->string('address');

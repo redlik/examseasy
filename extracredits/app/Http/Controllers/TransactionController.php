@@ -32,27 +32,25 @@ class TransactionController extends Controller
         }
         
         try {
-            // $charge = Stripe::charges()->create([
-            //     'amount' => $amount,
-            //     'currency' => 'EUR',
-            //     'source' => $request->stripeToken,
-            //     'description' => 'Exams Made Easy',
-            //     'receipt_email' => $request->email,
-            // ]);
+            $charge = Stripe::charges()->create([
+                'amount' => $amount,
+                'currency' => 'EUR',
+                'source' => $request->stripeToken,
+                'description' => 'Exams Made Easy',
+                'receipt_email' => $request->email,
+            ]);
                 
-                // var_dump($amount);
-                // die();
-
+                // Adding purchased credits to user account
                 $user = Auth::user();
                 $existing_credits = $user->credits;
                 $user->credits = $existing_credits + $credit;
                 $user->save();
-            
-                // $amount = (float)$amount;
+
+                //Saving transaction details
+                $transaction->amount = $amount;
                 $transaction->save();
 
                 $lessons = Lesson::withCount('user')->get();
-
                 return view('user_panel', ['user' => $user, 'lessons' => $lessons]);
             // return redirect()->route('confirmation.index')->with('success_message', 'Thank you! Your payment has been successfully accepted!');
         } catch (CardErrorException $e) {
