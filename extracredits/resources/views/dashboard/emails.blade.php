@@ -24,10 +24,9 @@
         <hr class="sidebar-rule">
         <li class="pl-3 mb-3"><a href="{{ route('dashboard.students') }}" class="text-white"><i
             class="fas fa-chevron-right pr-1"></i> Students</a></li>
-        <li class="pl-3 mb-3"><a href="{{ route('dashboard.transactions') }}" class="text-warning font-weight-bold"><i class="fas fa-chevron-right pr-1"></i> Transactions</a></li>
+        <li class="pl-3 mb-3"><a href="{{ route('dashboard.transactions') }}" class="text-white"><i class="fas fa-chevron-right pr-1"></i> Transactions</a></li>
         <hr class="sidebar-rule">
-        <li class="pl-3 mb-3"><a href="{{ route('dashboard.emails') }}" class="text-white"><i
-            class="fas fa-chevron-right pr-1"></i> Emails</a></li>
+        <li class="pl-3 mb-3"><a href="{{ route('dashboard.transactions') }}" class="text-warning font-weight-bold"><i class="fas fa-chevron-right pr-1"></i> Emails</a></li>
         <hr class="sidebar-rule">
         <li class="pl-3 mb-3"><a href="{{ route('dashboard.coupons') }}" class="text-white"><i
                     class="fas fa-chevron-right pr-1"></i> Coupons</a></li>
@@ -36,32 +35,8 @@
 
 <div class="col-12 col-md-9 overflow-auto mt-sm-4 mt-md-0 pl-md-4 h-100 pb-4">
     <div class="bg-white rounded shadow h-100 p-4 shadow-sm">
-        <h2 class='font-weight-bold text-uppercase mb-4'>List of transactions</h2>
-                <table class="table">
-                    <thead class="thead-dark rounded">
-                        <tr>
-                            <th scope="col">Date</th>
-                            <th scope="col">Charge</th>
-                            <th scope="col">Credit top-up</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($transactions as $transaction)
-                        <tr>
-                            <th scope="row">
-                                {{ $transaction->created_at->format('d/m/Y') }}<br>
-                            </th>
-                            <td>€{{ $transaction->amount }}</td>
-                            <td>{{ $transaction->credit_topup }}</td>
-                            <td>{{ $transaction->name_on_card }}</td>
-                            <td>{{ $transaction->email }}</td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                {{ $transactions->links() }}
+        <h2 class='font-weight-bold text-uppercase mb-4'>Emails</h2>
+                <p>Left to do ...</p>
     </div>
 
 </div>

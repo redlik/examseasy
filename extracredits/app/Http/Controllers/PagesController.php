@@ -94,6 +94,12 @@ class PagesController extends Controller
 
         return view('dashboard.transactions', compact("transactions"));
     }
+    
+    public function dashboard_emails() {
+        
+
+        return view('dashboard.emails');
+    }
 
     public function user_panel($id) {
         if ( $id != Auth::id() ) {
