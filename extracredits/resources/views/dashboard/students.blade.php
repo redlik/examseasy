@@ -16,7 +16,7 @@
         <hr class="sidebar-rule">
         <li class="pl-3 mb-3"><a href="{{ route('dashboard.students') }}" class="text-warning font-weight-bold"><i
                     class="fas fa-chevron-right pr-1"></i> Students</a></li>
-        <li class="pl-3 mb-3"><i class="fas fa-chevron-right pr-1"></i> Transactions</li>
+        <li class="pl-3 mb-3"><a href="{{ route('dashboard.transactions') }}" class="text-white"><i class="fas fa-chevron-right pr-1"></i> Transactions</a></li>
         <hr class="sidebar-rule">
         <li class="pl-3 mb-3"><i class="fas fa-chevron-right pr-1"></i> Emails</li>
         <hr class="sidebar-rule">

@@ -30,6 +30,7 @@ Route::group(['middleware' => ['role:teacher|superadmin', 'auth']], function () 
     Route::get('/dashboard/transactions', 'PagesController@dashboard_transactions')->name('dashboard.transactions');
     Route::get('/dashboard/emails', 'PagesController@dashboard_emails')->name('dashboard.emails');
     Route::get('/dashboard/coupons', 'CouponController@index')->name('dashboard.coupons');
+    Route::get('/dashboard/transactions', 'PagesController@dashboard_transactions')->name('dashboard.transactions');
     Route::get('/dashboard/coupons/enable/{id}', 'CouponController@enable')->name('dashboard.coupons.enable');
     Route::get('/dashboard/coupons/delete/{id}', 'CouponController@delete')->name('dashboard.coupons.delete');
     Route::post('/subcategory/create', 'SubcategoryController@store');

@@ -6,6 +6,7 @@ use App\User;
 use App\Lesson;
 use App\Subcategory;
 use App\Topic;
+use App\Transaction;
 use Auth;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
@@ -88,6 +89,12 @@ class PagesController extends Controller
         return view('dashboard.categories', compact("user", "subjects", "subcategories", "topics"));
     }
 
+    public function dashboard_transactions() {
+        $transactions = Transaction::paginate(25);
+
+        return view('dashboard.transactions', compact("transactions"));
+    }
+
     public function user_panel($id) {
         if ( $id != Auth::id() ) {
             return response("<h2>You are not authorised to view this page.</h2>", 403);
@@ -96,7 +103,8 @@ class PagesController extends Controller
             $user = User::where('id',$id)->first();
             // $lessons = Lesson::withCount('user')->get();
             $lessons = Lesson::has('user')->get();
-            return view('user_panel', ['user' => $user, 'lessons' => $lessons]);
+            $transactions = Transaction::has('user')->get();
+            return view('user_panel', compact("user", "lessons", "transactions"));
         }
     }
 

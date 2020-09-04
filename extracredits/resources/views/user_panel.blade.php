@@ -51,6 +51,31 @@
                         @endforeach
                     </tbody>
                 </table>
+            <h4 class="my-4">List of transactions</h4>
+                <table class="table">
+                    <thead class="thead-dark rounded">
+                        <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Charge</th>
+                            <th scope="col">Credit top-up</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($transactions as $transaction)
+                        <tr>
+                            <th scope="row">
+                                {{ $transaction->created_at->format('d/m/Y') }}<br>
+                            </th>
+                            <td>€{{ $transaction->amount }}</td>
+                            <td>{{ $transaction->credit_topup }}</td>
+                            <td>{{ $transaction->name_on_card }}</td>
+                            <td>{{ $transaction->email }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
                 
         </div>
     </div>
