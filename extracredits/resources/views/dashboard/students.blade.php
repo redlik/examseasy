@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="col-12 col-md-3 bg-dark rounded p-3 shadow">
+<div class="col-12 col-md-3 bg-dark rounded p-3 shadow" style="height:90%">
     <h4 class="text-white text-center text-uppercase">Dashboard</h4>
     <h6 class="text-white text-center">Hi, {{ Auth::user()->name ?? ''}}</h6>
     <hr class="sidebar-rule">
@@ -66,7 +66,7 @@
                 <td>{{ $student->credits }}</td>
                 @endif
                 
-                <td><a href="{{ route('user_panel', [$student->id]) }}" class="btn btn-green text-white">View details</a>
+                <td><a href="{{ route('dashboard.student.panel', [$student->id]) }}" class="btn btn-green text-white">View details</a>
                 </td>
             </tr>
             @endforeach

@@ -81,6 +81,13 @@ class PagesController extends Controller
         return view('dashboard.students', compact("students"));
     }
 
+    public function dashboard_student_panel($id) {
+        $user = User::where('id',$id)->first();
+        $lessons = Lesson::has('user')->get();
+        $transactions = Transaction::has('user')->get();
+        return view('dashboard.student_panel', compact("user", "lessons", "transactions"));
+    }
+
     public function dashboard_categories() {
         $user = Auth::user();
         $subjects = Subject::all();
