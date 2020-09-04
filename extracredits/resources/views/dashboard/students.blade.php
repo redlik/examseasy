@@ -35,12 +35,12 @@
     <table class="table table-striped table-hover">
         <thead>
             <tr>
-                <th scope="col" class="col-1">#</th>
-                <th scope="col" class="col-3">Name</th>
-                <th scope="col" class="col-3">Email</th>
-                <th scope="col" class="col-2">Registered</th>
-                <th scope="col" class="col-1">Credits</th>
-                <th scope="col" class="col-2">Operations</th>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Registered</th>
+                <th scope="col">Credits</th>
+                <th scope="col">Operations</th>
             </tr>
         </thead>
         <tbody>
