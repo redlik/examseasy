@@ -31,13 +31,13 @@ class TransactionController extends Controller
         }
         
         try {
-            // $charge = Stripe::charges()->create([
-            //     'amount' => $amount,
-            //     'currency' => 'EUR',
-            //     'source' => $request->stripeToken,
-            //     'description' => 'Exams Made Easy',
-            //     'receipt_email' => $request->email,
-            // ]);
+            $charge = Stripe::charges()->create([
+                'amount' => $amount,
+                'currency' => 'EUR',
+                'source' => $request->stripeToken,
+                'description' => 'Exams Made Easy',
+                'receipt_email' => $request->email,
+            ]);
                 
                 // Adding purchased credits to user account
                 $user = Auth::user();
