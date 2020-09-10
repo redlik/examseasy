@@ -50,7 +50,13 @@
                                     Buy more credits</a>
                             @else
                                 <a href="{{ route('is-unlocked', [$lesson->id]) }}" class="btn btn-warning"><i
-                                        class="fas fa-unlock mr-2"></i> Unlock for {{ $lesson->credit_cost }} credits</a>
+                                        class="fas fa-unlock mr-2"></i> Unlock for {{ $lesson->credit_cost }} 
+                                        @if ($lesson->credit_cost == 1)
+                                            credit
+                                        @else
+                                            credits
+                                        @endif
+                                        </a>
                             @endif
                         @endrole
                     @endauth
