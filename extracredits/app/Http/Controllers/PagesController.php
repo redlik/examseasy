@@ -91,8 +91,8 @@ class PagesController extends Controller
     public function dashboard_categories() {
         $user = Auth::user();
         $subjects = Subject::all();
-        $subcategories = Subcategory::orderBy('name', 'asc')->get();
-        $topics = Topic::orderBy('name', 'asc')->get();
+        $subcategories = Subcategory::orderBy('order_position', 'asc')->get();
+        $topics = Topic::orderBy('order_position', 'asc')->get();
         return view('dashboard.categories', compact("user", "subjects", "subcategories", "topics"));
     }
 

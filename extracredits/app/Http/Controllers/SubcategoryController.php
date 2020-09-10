@@ -20,6 +20,7 @@ class SubcategoryController extends Controller
         $subcategory->name = $request->input('name');
         $subcategory->slug = Str::slug($request->input('name'), '-');
         $subcategory->subject_id = $request->get('subjectSelect');
+        $subcategory->order_position = $request->get('subcategory_order_position');
         $subcategory->save();
 
         return redirect()->back();

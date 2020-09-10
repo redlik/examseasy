@@ -35,15 +35,16 @@
                     data-target="#{{ $subject->name}}Modal">Add Category</button></li>
             @foreach ($subcategories as $subcategory)
                 @if ($subcategory->subject_id == $subject->id)
-                <li class="list-group-item pl-5 d-flex justify-content-between align-items-center">{{ $subcategory->name }}
+                <li class="list-group-item pl-5 d-flex justify-content-between align-items-center"><span><span class="font-weight-bold">{{ $subcategory->order_position }}</span> - {{ $subcategory->name }}</span>
                     <button class="badge badge-success badge-pill p-2 topic-btn" data-toggle="modal" data-target="#topicsModal"
                         data-category="{{ $subcategory->name }}" data-id="{{ $subcategory->id }}">Add Topic</button></li>
                     @foreach ($topics as $topic)
                         @if ($topic->subcategory_id == $subcategory->id)
-                        <li class="list-group-item pl-5 d-flex justify-content-between align-items-center"><span
-                                class="pl-3 text-secondary font-italic">{{ $topic->name }}</span>
-                            <span class="badge badge-secondary badge-pill" data-toggle="modal" data-target="#topicsModal"
-                                data_id="{{ $subcategory->name }}">{{$topic->lesson->count() }} Lessons</span></li>
+                        <li class="list-group-item pl-5 d-flex justify-content-between align-items-center">
+                            <span class="text-secondary font-italic pl-3"><span class="font-weight-bold">{{ $topic->order_position }}</span> - {{ $topic->name }}</span>
+                                <div class="badge badge-secondary badge-pill p-2 ml-auto" data-toggle="modal" data-target="#topicsModal"
+                                data_id="{{ $subcategory->name }}">{{$topic->lesson->count() }} Lessons</div>
+                        </li>
                         @endif
                     @endforeach
                 @endif
@@ -67,8 +68,12 @@
                                 <input type="hidden" name="subjectSelect" value="{{ $subject->id }}" />
 
                                 <div class="form-group">
-                                    <label for="title">Name of the category</label>
+                                    <label for="name">Name of the category</label>
                                     <input type="text" name="name" id="name" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="subcategory_order_position">Order position</label>
+                                    <input type="text" name="subcategory_order_position" id="subcategory_order_position" class="form-control" placeholder="10"/>
                                 </div>
 
                         </div>
@@ -106,6 +111,10 @@
                     <div class="form-group">
                         <label for="title">Name of the topic</label>
                         <input type="text" name="name" id="name" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="topic_order_position">Order position</label>
+                        <input type="text" name="topic_order_position" id="topic_order_position" class="form-control" placeholder="10"/>
                     </div>
 
             </div>

@@ -15,6 +15,7 @@ class TopicController extends Controller
         $topic->name = $request->input('name');
         $topic->slug = Str::slug($request->input('name'), '-');
         $topic->subcategory_id = $request->get('subcategory_id');
+        $topic->order_position = $request->get('topic_order_position');
         $topic->save();
 
         return redirect()->back();
