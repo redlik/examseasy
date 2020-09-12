@@ -89,11 +89,23 @@ class PagesController extends Controller
     }
 
     public function dashboard_categories() {
-        $user = Auth::user();
+        // $subjects = DB::table('subjects')
+        //     ->orderBy('name', 'asc')
+        //     ->get();
+        $subjects = Subject::with('subcategory')->orderby('name', 'asc')->get();
+        $subcategories = Subcategory::withCount('subject')->get();
+        $topics = Topic::with('subcategory')->get();
+        return view('dashboard.categories', compact("subjects", "subcategories", "topics"));
+    }
+
+    public function dashboard_subjects($subject_name) {
         $subjects = Subject::all();
-        $subcategories = Subcategory::orderBy('order_position', 'asc')->get();
-        $topics = Topic::orderBy('order_position', 'asc')->get();
-        return view('dashboard.categories', compact("user", "subjects", "subcategories", "topics"));
+        $selected_subject = Subject::where('name', $subject_name)->first();
+        $subcategories = Subcategory::where('subject_id', $selected_subject->id)->orderby('order_position', 'asc')->get();
+        $topics = Topic::orderby('order_position', 'asc')->get();
+
+        return view('dashboard.subjects', compact("subjects", "selected_subject", "subcategories", "topics"));
+
     }
 
     public function dashboard_transactions() {

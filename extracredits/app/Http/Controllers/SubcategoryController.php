@@ -26,6 +26,25 @@ class SubcategoryController extends Controller
         return redirect()->back();
     }
 
+    public function update(Request $request) {
+        $subcategory = Subcategory::find($request->input('editSubcategoryId'));
+        $subcategory->name = $request->input('name');
+        $subcategory->order_position = (int)$request->get('subcategory_order_position');
+
+        $subcategory->save();
+
+        return redirect()->back();
+
+    }
+
+    public function destroy($category)
+    {
+        $subcategory = Subcategory::find($category);
+        $subcategory->delete();
+
+        return redirect()->back();
+    }
+
     public function getTopic($subcategory_id) {
         echo json_encode(DB::table('topics')->where('subcategory_id', $subcategory_id)->get());
     }

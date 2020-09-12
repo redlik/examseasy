@@ -9,7 +9,7 @@ class Subcategory extends Model
     protected $fillable = array('name', 'slug');
     
     public function subject() {
-        return $this->belongsTo('App\Subject');
+        return $this->belongsTo('App\Subject', 'subject_id');
     }
     
     public function topic() {

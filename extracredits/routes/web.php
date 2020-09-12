@@ -25,6 +25,7 @@ Route::group(['middleware' => ['role:teacher|superadmin', 'auth']], function () 
     Route::get('/dashboard/lessons', 'PagesController@dashboard_lessons')->name('dashboard.lessons');
     Route::get('/dashboard/search', 'PagesController@dashboard_lessons_search')->name('dashboard.lessons.search');
     Route::get('/dashboard/filter', 'PagesController@dashboard_lessons_filter')->name('dashboard.lessons.filter');
+    Route::get('/dashboard/subject/{name}', 'PagesController@dashboard_subjects')->name('dashboard.subjects');
     Route::get('/dashboard/categories', 'PagesController@dashboard_categories')->name('dashboard.categories');
     Route::get('/dashboard/students', 'PagesController@dashboard_students')->name('dashboard.students');
     Route::get('/dashboard/student/{id}', 'PagesController@dashboard_student_panel')->name('dashboard.student.panel');
@@ -36,10 +37,14 @@ Route::group(['middleware' => ['role:teacher|superadmin', 'auth']], function () 
     Route::get('/dashboard/coupons/enable/{id}', 'CouponController@enable')->name('dashboard.coupons.enable');
     Route::get('/dashboard/coupons/delete/{id}', 'CouponController@delete')->name('dashboard.coupons.delete');
     Route::post('/subcategory/create', 'SubcategoryController@store');
+    Route::post('/subcategory/update', 'SubcategoryController@update');
+    Route::get('/subcategory-remove/{category}', 'SubcategoryController@destroy');
     Route::post('/topic/create', 'TopicController@store');
     Route::post('/coupon/create', 'CouponController@store');
     Route::get('/getcategory/{id}', 'LessonsController@getCategory');
     Route::get('/gettopic/{id}', 'SubcategoryController@getTopic');
+    Route::get('/remove/{id}', 'LessonsController@remove')->name('remove');
+
    
 });
 
@@ -58,7 +63,6 @@ Route::get('/{subject}/{category}/{topic}/{lesson}', 'PagesController@lesson_vie
 
 Route::get('/lessons', 'LessonsController@index')->name('lessons-list');
 
-Route::get('/remove/{id}', 'LessonsController@remove')->name('remove');
 
 Route::get('/unlock/{id}', 'LessonsController@isUnlocked')->name('is-unlocked');
 
