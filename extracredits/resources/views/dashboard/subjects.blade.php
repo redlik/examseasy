@@ -52,7 +52,7 @@
                             @if ($subcategory->topic->count() < 1) <a href="{{ url('/subcategory-remove', [$subcategory->id]) }}" class="text-danger"
                                 title="Delete Category" onclick="return confirm('Do you want to delete the category completely?')"><i class="far fa-trash-alt"></i></a>
                             @else
-                            <a href="" class="text-secondary"
+                            <a href="#" class="text-secondary disabled"
                                 title="Delete not available, topics exist"><i class="far fa-trash-alt"></i></a>
                             @endif
                     </div>
@@ -65,9 +65,21 @@
                     @foreach ($topics as $topic)
                         @if ($topic->subcategory_id == $subcategory->id)
                         <li class="list-group-item pl-5 d-flex justify-content-between align-items-center">
+                            <div>
                             <span class="text-secondary font-italic pl-3"><span class="font-weight-bold">{{ $topic->order_position }}</span> - {{ $topic->name }}</span>
-                                <div class="badge badge-secondary badge-pill p-2 ml-auto" data-toggle="modal" data-target="#topicsModal"
-                                data_id="{{ $subcategory->name }}">{{$topic->lesson->count() }} Lessons</div>
+                            <span class="ml-4"><a class="editTopic" href="#" data-toggle="modal" data-target="#editTopicModal" 
+                                data-id="{{ $topic->id }}" 
+                                data-topic="{{ $topic->name }}" 
+                                data-position="{{ $topic->order_position }}">
+                                <i class="far fa-edit text-success"></i></a></span>
+                                @if ($topic->lesson->count() < 1) <a href="{{ url('/topic-remove', [$topic->id]) }}" class="text-danger"
+                                    title="Delete Topic" onclick="return confirm('Do you want to delete the topic completely?')"><i class="far fa-trash-alt"></i></a>
+                                @else
+                                <a href="#" class="text-secondary disabled"
+                                    title="Delete not available, lessons exist"><i class="far fa-trash-alt"></i></a>
+                                @endif
+                            </div>
+                            <div class="badge badge-secondary badge-pill p-2 ml-auto">{{$topic->lesson->count() }} Lessons</div>
                         </li>
                         @endif
                     @endforeach
@@ -93,11 +105,11 @@
 
                                 <div class="form-group">
                                     <label for="name">Name of the category</label>
-                                    <input type="text" name="name" id="name" class="form-control" />
+                                    <input type="text" name="name" id="name" class="form-control" required/>
                                 </div>
                                 <div class="form-group">
                                     <label for="subcategory_order_position">Order position</label>
-                                    <input type="text" name="subcategory_order_position" value=10 id="subcategory_order_position" class="form-control" placeholder="10"/>
+                                    <input type="text" name="subcategory_order_position" value=10 id="subcategory_order_position" class="form-control" placeholder="10" required/>
                                 </div>
 
                         </div>
@@ -133,11 +145,11 @@
 
                     <div class="form-group">
                         <label for="title">Name of the topic</label>
-                        <input type="text" name="name" id="name" class="form-control" />
+                        <input type="text" name="name" id="name" class="form-control" required/>
                     </div>
                     <div class="form-group">
                         <label for="topic_order_position">Order position</label>
-                        <input type="text" name="topic_order_position" id="topic_order_position" class="form-control" value=10 placeholder="10"/>
+                        <input type="text" name="topic_order_position" id="topic_order_position" class="form-control" value=10 placeholder="10" required/>
                     </div>
 
             </div>
@@ -169,11 +181,47 @@
 
                     <div class="form-group">
                         <label for="title">Edit name</label>
-                        <input type="text" name="name" id="subcategoryName" class="form-control" />
+                        <input type="text" name="name" id="subcategoryName" class="form-control" required/>
                     </div>
                     <div class="form-group">
                         <label for="category_order_position">Order position</label>
-                        <input type="text" name="subcategory_order_position" id="subcategoryPosition" class="form-control" />
+                        <input type="text" name="subcategory_order_position" id="subcategoryPosition" class="form-control" required/>
+                    </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <input type="submit" value="Save changes" class="btn btn-success">
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--- Edit Topic Modal --->
+<div class="modal fade" id="editTopicModal" tabindex="-1" role="dialog" aria-labelledby="topicsModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="categoryModalLabel">Edit topic</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ action('TopicController@update')}}" method="POST" role="form"
+                    enctype="multipart/form-data">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                    <input type="hidden" name="editTopicId" id="editTopicId" value="" />
+
+                    <div class="form-group">
+                        <label for="title">Edit name</label>
+                        <input type="text" name="name" id="topicName" class="form-control" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="topic_order_position">Order position</label>
+                        <input type="text" name="topic_order_position" id="topicPosition" class="form-control" required/>
                     </div>
 
             </div>
@@ -208,6 +256,16 @@
                 $("#editSubcategoryId").val(data_id);
                 $("#subcategoryName").val(data_name);
                 $("#subcategoryPosition").val(data_position);
+            });
+            $(".editTopic").click(function () {
+                var data_id = $(this).data('id');
+                var data_name = $(this).data('topic');
+                var data_position = $(this).data('position');
+                console.log(data_name);
+                console.log(data_id);
+                $("#editTopicId").val(data_id);
+                $("#topicName").val(data_name);
+                $("#topicPosition").val(data_position);
             });
         });
     });

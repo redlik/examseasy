@@ -40,6 +40,8 @@ Route::group(['middleware' => ['role:teacher|superadmin', 'auth']], function () 
     Route::post('/subcategory/update', 'SubcategoryController@update');
     Route::get('/subcategory-remove/{category}', 'SubcategoryController@destroy');
     Route::post('/topic/create', 'TopicController@store');
+    Route::post('/topic/update', 'TopicController@update');
+    Route::get('/topic-remove/{id}', 'TopicController@destroy');
     Route::post('/coupon/create', 'CouponController@store');
     Route::get('/getcategory/{id}', 'LessonsController@getCategory');
     Route::get('/gettopic/{id}', 'SubcategoryController@getTopic');

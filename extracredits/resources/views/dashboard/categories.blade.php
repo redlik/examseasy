@@ -37,7 +37,12 @@
             @foreach ($subjects as $subject)
             
             <li class="list-group-item font-weight-bold d-flex justify-content-between align-items-center">
-                {{ ucfirst($subject->name) }} - {{ $subject->subcategory()->count() }} categories
+                {{ ucfirst($subject->name) }} - {{ $subject->subcategory()->count() }} 
+                @if ( $subject->subcategory()->count() == 1)
+                    category
+                @else
+                    categories
+                @endif
                 <a href="{{ route('dashboard.subjects', [$subject->name]) }}" class="btn btn-green text-white" >View details</a></li>
             @endforeach
         </ul>

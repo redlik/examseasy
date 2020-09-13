@@ -20,4 +20,29 @@ class TopicController extends Controller
 
         return redirect()->back();
     }
+
+    public function update(Request $request) {
+        $request->validate(['name' => 'required', 
+                            'topic_order_position' => 'required',
+                            ]);
+
+
+        $topic = Topic::find($request->input('editTopicId'));
+        $topic->name = $request->input('name');
+        $topic->order_position = (int)$request->get('topic_order_position');
+
+        $topic->save();
+
+        return redirect()->back();
+
+    }
+
+    public function destroy($topic)
+    {
+        $topic = Topic::find($topic);
+        $topic->delete();
+
+        return redirect()->back();
+    }
+
 }
