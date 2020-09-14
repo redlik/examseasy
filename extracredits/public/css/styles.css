@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+
 .testimonial-card .card-up {
     height: 120px;
     overflow: hidden;
@@ -49,4 +53,20 @@ html {
 
 .btn-primary:hover {
     background-color: #1291a1;
+}
+
+.bg-blue {
+    background-color: #DCF3F7;
+}
+
+.bg-pink {
+    background-color: #D34F9D;
+}
+
+.main-heading {
+    font-family: 'Playfair Display', serif;
+}
+
+.font-weight-black {
+    font-weight: 900;
 }
