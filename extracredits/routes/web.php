@@ -46,6 +46,7 @@ Route::group(['middleware' => ['role:teacher|superadmin', 'auth']], function () 
     Route::get('/getcategory/{id}', 'LessonsController@getCategory');
     Route::get('/gettopic/{id}', 'SubcategoryController@getTopic');
     Route::get('/remove/{id}', 'LessonsController@remove')->name('remove');
+    
 
    
 });
@@ -54,6 +55,8 @@ Route::group(['middleware' => ['role:student|superadmin']], function () {
     
     Route::get('/user/student_{id}', 'PagesController@user_panel')->name('user_panel')->middleware('auth');
     Route::post('/topup/store', 'TransactionController@store')->name('transaction.store')->middleware('auth');
+    Route::get('/buycredits', 'PagesController@buy_credits')->name('buy_credits')->middleware('auth');
+    Route::post('/topup', 'PagesController@topup');
    
 });
 
@@ -72,9 +75,7 @@ Route::get('/subject/{id}', 'LessonsController@subjects')->name('subjects-view')
 
 Route::get('/subject-view', 'LessonsController@subjectsView')->name('subjectsView');
 
-Route::get('/buycredits', 'PagesController@buy_credits')->name('buy_credits')->middleware('auth');
 
-Route::post('/topup', 'PagesController@topup');
 
 // Route::get('test', function () {
 
@@ -89,14 +90,18 @@ Route::post('/topup', 'PagesController@topup');
 
 // });
 
-Route::get('how-it-works', function() {
+Route::get('/how-it-works', function() {
     return view('pages.howitworks');
 });
 
-Route::get('pricing', function() {
+Route::get('/pricing', function() {
     return view('pages.pricing');
 });
 
 Route::get('testimonials', function() {
     return view('pages.testimonials');
+});
+
+Route::get('/contact', function() {
+    return view('pages.contact');
 });

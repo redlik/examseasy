@@ -19,9 +19,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('') }}">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('how-it-works') }}">How it Works</a>
-                </li>
+                
                 {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ route('subjectsView') }}">All Lessons</a>
                 </li> --}}
@@ -44,11 +42,19 @@
                 </li>
                 <!--  Authentication Links -->
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ url('pricing') }}">Pricing</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('testimonials') }}">Testimonials</a>
+                </li> --}}
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('how-it-works') }}">How it Works</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('contact') }}">Contact us</a>
                 </li>
 
                 @guest

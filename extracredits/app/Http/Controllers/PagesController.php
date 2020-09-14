@@ -145,9 +145,10 @@ class PagesController extends Controller
         $user->credits = $new_credit;
         $user->save();
 
+        $transactions = Transaction::has('user')->get();    
         $lessons = Lesson::withCount('user')->get();
 
-        return view('user_panel', ['user' => $user, 'lessons' => $lessons]);
+        return view('user_panel', compact("user", "lessons", "transactions"));
 
     }
 }

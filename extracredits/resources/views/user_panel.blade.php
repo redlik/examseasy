@@ -29,7 +29,7 @@
                     <thead class="thead-dark rounded">
                         <tr>
                             <th scope="col">Title</th>
-                            <th scope="col">Unlocked on</th>
+                            {{-- <th scope="col">Unlocked on</th> --}}
                             <th scope="col">Credit cost</th>
                             <th scope="col">Operations</th>
                         </tr>
@@ -42,7 +42,7 @@
                                 <span class="text-secondary"><small>{{ ucfirst($lesson->subject->name) }} >>
                                         {{ $lesson->topic->subcategory->name }} >> {{ $lesson->topic->name }}</small></span>
                             </th>
-                            <td>{{ Auth::user()->lesson()->first()->pivot->created_at->format('d/m/Y') }}</td>
+                            {{-- <td>{{ Auth::user()->lesson->first()->pivot->created_at->format('d/m/Y') }}</td> --}}
                             <td>{{ $lesson->credit_cost }}</td>
                             <td><a href="{{ route('lesson_canonical_view', [$lesson->subject->name, $lesson->topic->subcategory->slug, $lesson->topic->slug, $lesson->slug]) }}"
                                     class="text-success mr-2" title="View lesson"><i class="far fa-eye"></i> View lesson</a>

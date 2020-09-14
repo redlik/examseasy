@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
 
 
 .testimonial-card .card-up {
@@ -69,4 +69,28 @@ html {
 
 .font-weight-black {
     font-weight: 900;
+}
+
+.big-number {
+    font-weight: 900;
+    color: white;
+    width: 90px;
+    height: 90px;
+    background-color: #aa367a;
+    border-radius: 50%;
+    font-size: 3rem;
+    text-align: center;
+    line-height: 90px;
+}
+
+.green-dots {
+    /* background-color: #1EBDD3; */
+    border: #1EBDD3 dotted 1px;
+    margin-bottom: 2rem;
+}
+
+.text-burgundy {
+    color: #783266;
+    font-weight: 900;
+    font-size: 2rem;
 }

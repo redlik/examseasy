@@ -34,7 +34,7 @@
                     height="200px">
             </div>
             <div class="col-sm-12 col-md-9">
-                <h3 class="mb-4">User name: <strong>{{ Auth::user()->name }}</strong></h3>
+                <h3 class="mb-4">User name: <strong>{{ $user->name }}</strong></h3>
                 <h4>Number of credits: <strong>{{ $user->credits }}</strong></h4>
                 <h6 class="my-3">Email: <strong>{{ $user->email }}</strong></h6>
                 <h6>Registration date: <strong>{{ $user->created_at->format('d/m/Y') }}</strong></h6>
