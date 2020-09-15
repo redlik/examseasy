@@ -39,6 +39,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $dates = 
+        ['expiry_date'];
+
     public function lesson() {
         return $this->belongsToMany('App\Lesson')->withTimestamps();
     }

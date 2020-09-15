@@ -8,6 +8,7 @@ use App\Subcategory;
 use App\Topic;
 use App\Transaction;
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
@@ -84,8 +85,15 @@ class PagesController extends Controller
     public function dashboard_student_panel($id) {
         $user = User::where('id',$id)->first();
         $lessons = Lesson::has('user')->get();
+        $today = Carbon::now();
         $transactions = Transaction::has('user')->get();
-        return view('dashboard.student_panel', compact("user", "lessons", "transactions"));
+        if (Carbon::parse($user->expiry_date)->greaterThan($today) ) {
+            $valid = Carbon::parse($user->expiry_date)->diffInDays($today);
+        }
+        else {
+            $valid = "Expired";
+        }
+        return view('dashboard.student_panel', compact("user", "lessons", "transactions", "valid"));
     }
 
     public function dashboard_categories() {
