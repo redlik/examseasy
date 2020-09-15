@@ -13,6 +13,7 @@
             <a href="{{ route('buy_credits') }}" class="btn btn-success mt-2">Buy more credits</a>
             <h6 class="my-3">Email: <strong>{{ $user->email }}</strong></h6>
             <h6>Registration date: <strong>{{ $user->created_at->format('d/m/Y') }}</strong></h6>
+            <h6>Expiry date: <strong>{{ $user->expiry_date->format('d/m/Y') }} - {{ $valid }} days left</strong></h6>
         </div>
     </div>
     <div class="row">

@@ -137,7 +137,14 @@ class PagesController extends Controller
             // $lessons = Lesson::withCount('user')->get();
             $lessons = Lesson::has('user')->get();
             $transactions = Transaction::has('user')->get();
-            return view('user_panel', compact("user", "lessons", "transactions"));
+            $today = Carbon::now();
+            if (Carbon::parse($user->expiry_date)->greaterThan($today) ) {
+                $valid = Carbon::parse($user->expiry_date)->diffInDays($today);
+            }
+            else {
+                $valid = "Expired";
+            }
+            return view('user_panel', compact("user", "lessons", "transactions", "valid"));
         }
     }
 
