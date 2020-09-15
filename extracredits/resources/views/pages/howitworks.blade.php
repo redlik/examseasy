@@ -46,7 +46,7 @@
             <p>
                 All of the lessons are split between subjects, categories and topics to help you navigate the large library of content. Using your credit allowance unlock the lessons you’d like to watch. They will be available to see as long your account is active. We are constantly adding new content so keep coming back to the site regularly. If you wish you can sign up to our email list to be informed whenever a new content arrives. We are monitoring each account activity so please be kind and don’t share your login with anyone else. By purchasing the credits you support the tutors and allow us to produce more content.
             </p>
-            <a href="{{ route('register') }}" class="btn btn-success text-white px-2 my-2 text-uppercase">View all lessons</a>    
+            <a href="/subjects" class="btn btn-success text-white px-2 my-2 text-uppercase">View all lessons</a>    
         </div>
         <div class="col-12 col-md-4">
             <img src="{{ asset('images/step3.svg') }}" alt="" class="img-fluid">
