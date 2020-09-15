@@ -13,7 +13,7 @@ class ContactFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -30,7 +30,8 @@ class ContactFormRequest extends FormRequest
         ];
     }
 
-    public function messages(){
+    public function messages()
+    {
         return [
         'required' => 'The :attribute field is required.',
         'email' => 'The :attribute must be a valid :attribute address'
