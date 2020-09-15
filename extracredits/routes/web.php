@@ -72,6 +72,8 @@ Route::get('/lessons', 'LessonsController@index')->name('lessons-list');
 Route::get('/unlock/{id}', 'LessonsController@isUnlocked')->name('is-unlocked');
 
 Route::get('/subject/{id}', 'LessonsController@subjects')->name('subjects-view');
+Route::get('/{subject}/{id}', 'LessonsController@subject_category')->name('subject.category');
+Route::get('/{subject}/{category}/{topic}', 'LessonsController@subject_category_topic')->name('subject.topic');
 
 Route::get('/subject-view', 'LessonsController@subjectsView')->name('subjectsView');
 

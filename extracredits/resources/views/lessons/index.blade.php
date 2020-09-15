@@ -7,12 +7,12 @@
 @endsection
 
 @section('content')
-<div class="col">
-    @role('student')
-        <p>Hi, {{ Auth::user()->name }}</p>
-    @else
-        <p>You're not student</p>
-    @endrole
+<div class="col-12 col-md-3">
+    <h5>In this section</h5>
+
+</div>
+
+<div class="col-12 col-md-9">
     @if ($subject ?? '')
     <h2>All lessons in {{ ucfirst($subject)}}</h2>
     @else
@@ -22,7 +22,7 @@
     <div class="row">
         @foreach ($lessons as $lesson)
         <div class="col-md-12 col-lg-4 ">
-            <div class="card">
+            <div class="card mb-3">
                 <img src="/images/thumbnails/{{ $lesson->thumbnail }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{ $lesson->title }}</h5>

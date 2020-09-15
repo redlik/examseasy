@@ -200,15 +200,34 @@ class LessonsController extends Controller
         if (Auth::user()) {
             $user = Auth::user();
             $credits = $user->credits;
-            $subject_name = $subject_name;
-            $subject = Subject::where('name', $subject_name)->first();
-            $subject_id = $subject->id;
-            $lessons = Lesson::where('subject_id', $subject_id)->get();
-            return view('lessons/index', ['lessons' => $lessons, 'subject'=>$subject_name, 'credits'=>$credits]);
         }
         else {
-          return redirect()->route('login'); 
+            $credits = 0;
         }
+        $subject = Subject::where('name', $subject_name)->first();
+        $subject_id = $subject->id;
+        $subcategories = Subcategory::where('subject_id', $subject_id)->has('topic')->orderBy('order_position', 'asc')->get();
+        $lessons = Lesson::where('subject_id', $subject_id)->get();
+        $topics = Topic::has('subcategory')->has('lesson')->orderBy('order_position', 'asc')->get();
+        return view('lessons.subject-view', compact('lessons', 'subject', 'credits', 'subcategories', 'topics'));
+        
+        // else {
+        //   return redirect()->route('login'); 
+        // }
+    }
+
+    public function subject_category($subject, $category) {
+        $subject = Subject::where('name', $subject)->first();
+        $category = Subcategory::where('slug', $category)->first();
+        $topics = Topic::where('subcategory_id', $category->id)->has('lesson')->get();
+        $lessons = Lesson::with('topic')->get();
+        return view('lessons.subject-category', compact('category', 'topics', 'lessons'));
+    }
+    
+    public function subject_category_topic($subject, $category, $topic) {
+        $topic = Topic::where('slug', $topic)->first();
+        $lessons = Lesson::where('topic_id', $topic->id)->get();
+        return view('lessons.subject-category-topic', compact('topic', 'lessons'));
     }
 
     public function subjectsView() {

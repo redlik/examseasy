@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
-
+@font-face {
+    font-family: 'Font Awesome';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("webfonts/fa-regular-400.eot");
+    src: url("webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("webfonts/fa-regular-400.woff2") format("woff2"), url("webfonts/fa-regular-400.woff") format("woff"), url("webfonts/fa-regular-400.ttf") format("truetype"), url("webfonts/fa-regular-400.svg#fontawesome") format("svg"); 
+}
 
 .testimonial-card .card-up {
     height: 120px;
@@ -69,6 +76,7 @@ html {
 
 .font-weight-black {
     font-weight: 900;
+    font-style: normal;
 }
 
 .big-number {
@@ -94,3 +102,52 @@ html {
     font-weight: 900;
     font-size: 2rem;
 }
+
+.links-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar-menu > li {
+    position: relative;
+}
+
+.open-menu {
+    width: 25px;
+    height: 25px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    right: 8px;
+    top: 12px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 15px;
+    -webkit-transition: color 0.1s ease-out, background-color 0.1s ease-out;
+    transition: color 0.1s ease-out, background-color 0.1s ease-out;
+    z-index: 2;
+    color: #3a8324;
+}
+
+.open-menu[aria-expanded='true'] i::before {
+    content: "\f056" !important;
+    font-size: 16px;
+    left: 5px;
+    color: #aa367a;
+}
+
+a.unlink {
+    color: inherit;
+  }
+a.unlink:hover {
+    color: inherit;
+  }
