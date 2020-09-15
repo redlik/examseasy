@@ -29,15 +29,16 @@
                         Subjects <span class="caret"></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('subjects-view', ['irish']) }}">Irish</a>
-                        <a class="dropdown-item" href="{{ route('subjects-view', ['english']) }}">English</a>
-                        <a class="dropdown-item" href="{{ route('subjects-view', ['history']) }}">History</a>
-                        <a class="dropdown-item" href="{{ route('subjects-view', ['geography']) }}">Geography</a>
-                        <a class="dropdown-item" href="{{ route('subjects-view', ['biology']) }}">Biology</a>
+                        <a class="dropdown-item" href="/subjects">All Subjects</a>
                         <a class="dropdown-item" href="{{ route('subjects-view', ['accounting']) }}">Accounting</a>
+                        <a class="dropdown-item" href="{{ route('subjects-view', ['biology']) }}">Biology</a>
                         <a class="dropdown-item" href="{{ route('subjects-view', ['business']) }}">Business</a>
-                        <a class="dropdown-item" href="{{ route('subjects-view', ['economics']) }}">Economics</a>
                         <a class="dropdown-item" href="{{ route('subjects-view', ['construction']) }}">Construction</a>
+                        <a class="dropdown-item" href="{{ route('subjects-view', ['economics']) }}">Economics</a>
+                        <a class="dropdown-item" href="{{ route('subjects-view', ['english']) }}">English</a>
+                        <a class="dropdown-item" href="{{ route('subjects-view', ['geography']) }}">Geography</a>
+                        <a class="dropdown-item" href="{{ route('subjects-view', ['history']) }}">History</a>
+                        <a class="dropdown-item" href="{{ route('subjects-view', ['irish']) }}">Irish</a>
                     </div>
                 </li>
                 <!--  Authentication Links -->

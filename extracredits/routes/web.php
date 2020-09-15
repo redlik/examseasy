@@ -92,6 +92,8 @@ Route::get('/subject-view', 'LessonsController@subjectsView')->name('subjectsVie
 
 // });
 
+Route::get('/subjects', 'PagesController@subjects')->name('pages.subjects');
+
 Route::get('/how-it-works', function() {
     return view('pages.howitworks');
 });

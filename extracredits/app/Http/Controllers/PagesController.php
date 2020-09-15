@@ -164,6 +164,11 @@ class PagesController extends Controller
         $lessons = Lesson::withCount('user')->get();
 
         return view('user_panel', compact("user", "lessons", "transactions"));
+    }
 
+    public function subjects() {
+        $subjects = Subject::orderby('name', 'asc')->get();
+
+        return view('pages.subjects', compact('subjects'));
     }
 }
