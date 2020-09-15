@@ -21,7 +21,7 @@
 <div class="col-12 col-md-9">
     <div class="container">
         <div class="row">
-            <h2 class="main-heading">All lessons in {{ $category->name }}</h2>
+            <h2 class="main-heading">{{ $category->name }}</h2>
             <hr class="green-dots mb-4 w-100">
         </div>
         <div class="row">

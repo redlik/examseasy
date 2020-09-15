@@ -13,7 +13,7 @@
     <h5 class="text-uppercase font-weight-black">In this section</h5>
     <ul class="list-unstyled sidebar-menu">
     @foreach ($lessons as $lesson)
-        <li><a href="#{{ $lesson->slug }}" class="unlink">{{ $lesson->name }}</a></li>
+        <li><a href="#{{ $lesson->slug }}" class="unlink">{{ $lesson->title }}</a></li>
     @endforeach
     </ul>
 </div>
@@ -21,7 +21,7 @@
 <div class="col-12 col-md-9">
     <div class="container">
         <div class="row">
-            <h2 class="main-heading">All lessons in {{ $topic->name }}</h2>
+            <h2 class="main-heading">{{ $topic->name }}</h2>
             <hr class="green-dots mb-4 w-100">
         </div>
         <div class="row">

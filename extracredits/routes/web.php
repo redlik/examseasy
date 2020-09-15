@@ -64,7 +64,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/lesson', 'LessonsController')->middleware('auth');
 
-Route::get('/{subject}/{category}/{topic}/{lesson}', 'PagesController@lesson_view')->name('lesson_canonical_view');
+Route::get('/{subject}/{category}/{topic}/{lesson}', 'PagesController@lesson_view')->name('lesson_canonical_view')->middleware('auth');
 
 Route::get('/lessons', 'LessonsController@index')->name('lessons-list');
 
