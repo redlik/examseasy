@@ -70,6 +70,14 @@ html {
     background-color: #D34F9D;
 }
 
+.text-pink {
+    color: #D34F9D;
+}
+
+.text-teal {
+    color: #1291a1;
+}
+
 .main-heading {
     font-family: 'Playfair Display', serif;
 }
@@ -151,3 +159,19 @@ a.unlink {
 a.unlink:hover {
     color: inherit;
   }
+
+.display-5 {
+    font-size: 2.7rem;
+}
+
+.display-6 {
+    font-size: 1.15rem;
+}
+
+.footer-nav .nav-link {
+    color: white;
+}
+
+.footer-nav .nav-link:hover {
+    color: #999;
+}

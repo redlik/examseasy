@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-100">
 
 <head>
     <meta charset="utf-8">
@@ -29,21 +29,17 @@
 
 </head>
 
-<body>
-    <div id="app">
+<body class="d-flex flex-column h-100">
+        <main role="main" style="padding-bottom: 40px">
         @include('partials/nav')
 
-        <main class="py-4">
             <div class="container">
                 <div class="row">
                     @yield('content')
                 </div>
             </div>
         </main>
-    </div>
-    <footer>
-
-    </footer>
+        @include('partials/footer')
     @yield('bottom_scripts')
     
 </body>
