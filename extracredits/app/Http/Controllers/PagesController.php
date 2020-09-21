@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Database\Eloquent\Builder;
 
 class PagesController extends Controller
@@ -94,6 +95,14 @@ class PagesController extends Controller
             $valid = "Expired";
         }
         return view('dashboard.student_panel', compact("user", "lessons", "transactions", "valid"));
+    }
+
+    public function dashboard_student_add_credits(Request $request) {
+        $user = User::where('id', (int)$request->input('student_id'))->first();
+        $user->credits = $user->credits + $request->input('creditTopupRadio');
+        $user->save();
+
+        return redirect()->back();
     }
 
     public function dashboard_categories() {

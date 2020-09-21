@@ -29,6 +29,7 @@ Route::group(['middleware' => ['role:teacher|superadmin', 'auth']], function () 
     Route::get('/dashboard/categories', 'PagesController@dashboard_categories')->name('dashboard.categories');
     Route::get('/dashboard/students', 'PagesController@dashboard_students')->name('dashboard.students');
     Route::get('/dashboard/student/{id}', 'PagesController@dashboard_student_panel')->name('dashboard.student.panel');
+    Route::post('/dashboard/student/addcredits', 'PagesController@dashboard_student_add_credits')->name('dashboard.student.addcredits');
     Route::get('/dashboard/transactions', 'PagesController@dashboard_transactions')->name('dashboard.transactions');
     Route::get('/dashboard/emails', 'PagesController@dashboard_emails')->name('dashboard.emails');
     Route::get('/dashboard/coupons', 'CouponController@index')->name('dashboard.coupons');
