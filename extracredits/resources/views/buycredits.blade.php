@@ -64,7 +64,7 @@
     }
 
     /* Buttons and links */
-    button {
+    /* button {
         background: #5469d4;
         color: #ffffff;
         font-family: Arial, sans-serif;
@@ -78,7 +78,7 @@
         transition: all 0.2s ease;
         box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
         width: 100%;
-    }
+    } */
 
     button:hover {
         filter: contrast(115%);
@@ -172,30 +172,65 @@
         }
     }
 
+        /* HIDE RADIO */
+    [type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    }
+
+    /* IMAGE STYLES */
+    [type=radio] + img {
+    cursor: pointer;
+    outline: 1px solid #696969;
+
+    }
+
+    /* CHECKED STYLES */
+    [type=radio]:checked + img {
+    outline: 2px solid #CF5299;
+    box-shadow: 2px 2px 5px 4px #afafaf;
+    }
+
 </style>
 @endsection
 
 @section('content')
-<div class="col-9">
+    <div class="col-12 col-md-9 mx-auto my-4">
+        <h1 class="text-center main-heading display-5 mb-3">Top up your account</h1>
+        <h6 class="text-center text-secondary">If you just starting or want to add some extra credits to your account - use the form below to make the purchase. The credits will be added to your account so you can unlock more content to learn.
+        </h6>
+    </div>
+<div class="col-12 col-md-9 mx-auto">
     <form action="{{ action('TransactionController@store') }}" method="POST" role="form" id="payment-form">
       @csrf
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="credit_topup" id="credit5" value="5" checked>
-            <label class="form-check-label" for="credit5">5 credits - €39.99</label>
+            <label>
+                <input class="form-check-input" type="radio" name="credit_topup" id="credit5" value="5" checked>
+                <img src="{{ asset('images/credits5.svg') }}" alt="" style="width:150px">
+            </label>
+            {{-- <label class="form-check-label" for="credit5">5 credits - €39.99</label> --}}
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="credit_topup" id="credit15" value="15">
-            <label class="form-check-label" for="credit15">15 credits - €99.99</label>
+            <label>
+                <input class="form-check-input" type="radio" name="credit_topup" id="credit15" value="15">
+                <img src="{{ asset('images/credits15.svg') }}" alt="" style="width:150px">
+            </label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="credit_topup" id="credit50" value="50">
-            <label class="form-check-label" for="credit50">50 credits - €249.99</label>
+            <label>
+                <input class="form-check-input" type="radio" name="credit_topup" id="credit50" value="50">
+                <img src="{{ asset('images/credits50.svg') }}" alt="" style="width:150px">
+            </label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="credit_topup" id="credit100" value="100">
-            <label class="form-check-label" for="credit100">100 credits - €349.99</label>
+            <label>
+                <input class="form-check-input" type="radio" name="credit_topup" id="credit100" value="100">
+                <img src="{{ asset('images/credits100.svg') }}" alt="" style="width:150px">
+            </label>
         </div>
-        <div class="form-group">
+        <div class="form-group mt-4">
             <label for="nameOnCard">Name on the card</label>
             <input type="text" class="form-control" id="name_on_card" aria-describedby="emailHelp" name="name_on_card" required>
         </div>
@@ -486,7 +521,7 @@
         </div>
         <div class="spacer"></div>
 
-        <button type="submit" id="complete-order" class="button-primary full-width">Buy credit top-up</button>
+        <button type="submit" id="complete-order" class="btn btn-primary px-3 display-6 shadow mt-2">Buy credit top-up</button>
         <p id="card-error" role="alert"></p>
         <p class="result-message hidden">
             Payment succeeded, see the result in your
