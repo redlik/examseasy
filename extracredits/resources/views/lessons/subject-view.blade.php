@@ -3,7 +3,7 @@
 @section('show_credits')
     @auth
         @role('student')
-        <li class="mb-sm-4 mb-md-0"><strong>Credits: {{ $credits }}</strong></li>
+        <li class="mb-sm-4 mb-md-0 display-6"><strong>Credits: {{ Auth::user()->credits }}</strong></li>
         @endrole
     @endauth
 @endsection

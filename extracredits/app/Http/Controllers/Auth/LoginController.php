@@ -40,6 +40,7 @@ class LoginController extends Controller
     // }
     protected function authenticated($request, $user){
         if ($user->hasRole('student')) {
+            Auth::logoutOtherDevices(request('password'));
             return redirect('/subjects');
         } else {
             return redirect('/dashboard');
