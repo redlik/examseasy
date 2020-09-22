@@ -193,7 +193,8 @@ class LessonsController extends Controller
         $currentuser->lesson()->attach($lesson_id);
         $currentuser->save();
 
-        return view('lessons.subjects', ['subjects' => $subjects, 'credits' => $credits]);
+        // return view('lessons.subjects', ['subjects' => $subjects, 'credits' => $credits]);
+        return redirect()->back();
     }
 
     public function subjects($subject_name) {

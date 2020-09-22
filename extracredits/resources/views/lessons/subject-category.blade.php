@@ -3,7 +3,7 @@
 @section('show_credits')
     @auth
         @role('student')
-        <li class="mb-sm-4 mb-md-0"><strong>Credits: {{ $credits }}</strong></li>
+        <li class="mb-sm-4 mb-md-0"><strong>Credits: {{ Auth::user()->credits }}</strong></li>
         @endrole
     @endauth
 @endsection
@@ -37,7 +37,7 @@
                                         <h5 class="card-title">{{ $lesson->title }}</h5>
                                         <p class="card-text">{{ Str::words($lesson->description, 12, '  ...') }}</p>
                                         @role('student')
-                                            @if ($credits < $lesson->credit_cost)
+                                            @if (Auth::user()->credits < $lesson->credit_cost)
                                                 <p><small class="text-danger mb-3">You don't have enough credits to unlock this lesson</small></p>
                                             @endif
                                         @endrole
@@ -54,7 +54,7 @@
                                                 @if (user_unlocked($lesson->id) )
                                                     <a href="{{ route('lesson_canonical_view', [$lesson->subject->name, $lesson->topic->subcategory->slug, $lesson->topic->slug, $lesson->slug]) }}" class="btn btn-success">View <i
                                                             class="fas fa-tv ml-2"></i></a>
-                                                @elseif ($credits == 0)
+                                                @elseif (Auth::user()->credits == 0)
                                                     <a href="{{ route('buy_credits') }}" class="btn btn-danger"><i class="fas fa-cart-plus mr-2"></i>
                                                         Buy more credits</a>
                                                 @else
