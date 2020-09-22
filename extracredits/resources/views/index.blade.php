@@ -121,7 +121,7 @@
             <h2 class="main-heading display-5">Let's get started!</h2>
         </div>
         <div class="col-12 col-md-3 my-3">
-            <button class="btn btn-light display-6 font-weight-bold text-uppercase d-block mx-auto shadow px-4">Sign Up Now!</button>
+            <a href="{{ route('register') }}" class="btn btn-light display-6 font-weight-bold text-uppercase d-block mx-auto shadow px-4 w-75">Sign Up Now!</a>
         </div>
     </div>
 

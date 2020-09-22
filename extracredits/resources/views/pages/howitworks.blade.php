@@ -15,10 +15,10 @@
                 Create new account at Exams Made Easy. It’s very simple - we just need your name and email address. You email and password will be used to login into the website, we won’t spam you with offers nor pass your details to any third party services. Your account will be active for 24 months from the date of the registration.
             </p>
             @guest
-            <a href="{{ route('register') }}" class="btn btn-pink text-white px-2 my-2 text-uppercase">Register new account</a>    
+            <a href="{{ route('register') }}" class="btn btn-pink text-white display-6 font-weight-bold text-uppercase d-inline-block shadow px-4">Register new account</a>    
             @endguest
         </div>
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-4 mt-sm-4 mt-md-0">
             <img src="{{ asset('images/step1.svg') }}" alt="" class="img-fluid">
         </div>
     </div>
@@ -34,7 +34,7 @@
             <a href="{{ route('buy_credits') }}" class="btn btn-success text-white px-2 my-2 text-uppercase">Top up your account</a>    
             @endrole
         </div>
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-4 mt-sm-4 mt-md-0">
             <img src="{{ asset('images/step2.svg') }}" alt="" class="img-fluid">
         </div>
     </div>
@@ -46,9 +46,9 @@
             <p>
                 All of the lessons are split between subjects, categories and topics to help you navigate the large library of content. Using your credit allowance unlock the lessons you’d like to watch. They will be available to see as long your account is active. We are constantly adding new content so keep coming back to the site regularly. If you wish you can sign up to our email list to be informed whenever a new content arrives. We are monitoring each account activity so please be kind and don’t share your login with anyone else. By purchasing the credits you support the tutors and allow us to produce more content.
             </p>
-            <a href="/subjects" class="btn btn-success text-white px-2 my-2 text-uppercase">View all lessons</a>    
+            <a href="/subjects" class="btn btn-success text-white text-white display-6 font-weight-bold text-uppercase d-inline-block shadow px-4 my-2">View all lessons</a>    
         </div>
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-4 mt-sm-4 mt-md-0">
             <img src="{{ asset('images/step3.svg') }}" alt="" class="img-fluid">
         </div>
     </div>
@@ -60,9 +60,9 @@
             <p>
                 We would love to hear from you. If you have any questions or wish to see any specific content please use the form on the contact page and we will get back to you as fast as we can. Your opinion is important to us.
             </p>
-            <a href="{{ url('contact') }}" class="btn btn-success text-white px-2 my-2 text-uppercase">Contact us</a>    
+            <a href="{{ url('contact') }}" class="btn btn-success text-white text-white display-6 font-weight-bold text-uppercase d-inline-block shadow px-4 my-2">Contact us</a>    
         </div>
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-4 mt-sm-4 mt-md-0">
             <img src="{{ asset('images/step4.svg') }}" alt="" class="img-fluid">
         </div>
     </div>

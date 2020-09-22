@@ -54,6 +54,14 @@ html {
     background-color: #3a8324;
 }
 
+.btn-success {
+    background-color: #62BB46;
+}
+
+.btn-success:hover {
+    background-color: #3a8324;
+}
+
 .btn-primary {
     background-color: #1EBDD3;
 }
@@ -90,8 +98,8 @@ html {
 .big-number {
     font-weight: 900;
     color: white;
-    width: 90px;
-    height: 90px;
+    width: 5.5rem;
+    height: 5.5rem;
     background-color: #aa367a;
     border-radius: 50%;
     font-size: 3rem;
@@ -174,4 +182,13 @@ a.unlink:hover {
 
 .footer-nav .nav-link:hover {
     color: #999;
+}
+
+@media only screen and (max-width: 767.98px) {
+    .big-number {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
 }
