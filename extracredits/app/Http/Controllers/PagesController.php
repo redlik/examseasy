@@ -181,4 +181,12 @@ class PagesController extends Controller
 
         return view('pages.subjects', compact('subjects'));
     }
+
+    public function myvideos() {
+        $user = Auth::user();
+        $lessons = User::find($user->id)->lesson()->orderby('subject_id', 'asc')->get();
+
+        return view('pages.myvideos', compact('lessons'));
+
+    }
 }

@@ -58,6 +58,7 @@ Route::group(['middleware' => ['role:student|superadmin']], function () {
     Route::post('/topup/store', 'TransactionController@store')->name('transaction.store')->middleware('auth');
     Route::get('/buycredits', 'PagesController@buy_credits')->name('buy_credits')->middleware('auth');
     Route::post('/topup', 'PagesController@topup');
+    Route::get('/myvideos', 'PagesController@myvideos')->name('pages.myvideos');
    
 });
 
