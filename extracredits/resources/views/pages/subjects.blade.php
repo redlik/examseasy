@@ -21,8 +21,8 @@
         <div class="col-12 col-md-9 mx-auto bg-white rounded shadow p-3">
             <div class="row">
                 @foreach ($subjects as $subject)
-                <div class="col-12 col-sm-6 col-md-4 p-1">
-                    <div class="bg-light p-2 rounded shadow">
+                <div class="col-12 col-sm-6 col-md-4 p-1 ">
+                    <div class="bg-light p-2 rounded shadow subjects">
                     <a href="{{ route('subjects-view', [$subject->name]) }}">  <img src="images/thumbnails/{{$subject->name}}.png" class="img-fluid" alt="{{ $subject->name }}"></a>
                     </div>
                   </div>

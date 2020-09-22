@@ -184,6 +184,11 @@ a.unlink:hover {
     color: #999;
 }
 
+.subjects:hover {
+    box-shadow: 0 0 1rem rgba(0,0,0,.575)!important;
+    background-color: rgba(0,0,0,.275);
+}
+
 @media only screen and (max-width: 767.98px) {
     .big-number {
         width: 2.5rem;
