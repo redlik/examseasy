@@ -28,6 +28,7 @@
             <div class="col-12">
                 @foreach ($topics as $main_topic)
                     <h5 id="{{ $main_topic->slug }}" class="font-weight-bold text-uppercase">{{ $main_topic->name }}</h5>
+                    <div class="row">
                         @foreach ($lessons as $lesson)
                             @if ($lesson->topic_id == $main_topic->id)
                             <div class="col-12 col-md-4 col-lg-4 ">
@@ -74,6 +75,7 @@
                             </div>
                             @endif
                         @endforeach
+                    </div>
                 @endforeach
             </div>
         </div>

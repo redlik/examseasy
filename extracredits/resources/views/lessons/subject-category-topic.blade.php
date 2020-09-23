@@ -25,16 +25,15 @@
             <hr class="green-dots mb-4 w-100">
         </div>
         <div class="row">
-            <div class="col-12">
                 @foreach ($lessons as $main_lesson)
                             <div class="col-12 col-md-4 col-lg-4 ">
-                                <div class="card mb-3">
-                                    <img src="/images/thumbnails/{{ $lesson->thumbnail }}" class="card-img-top" alt="...">
+                                <div class="card mb-3" id="{{ $lesson->slug }}">
+                                    <img src="/images/thumbnails/{{ $main_lesson->thumbnail }}" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ $lesson->title }}</h5>
-                                        <p class="card-text">{{ Str::words($lesson->description, 12, '  ...') }}</p>
+                                        <h5 class="card-title">{{ $main_lesson->title }}</h5>
+                                        <p class="card-text">{{ Str::words($main_lesson->description, 12, '  ...') }}</p>
                                         @role('student')
-                                            @if ( Auth::user()->credits < $lesson->credit_cost)
+                                            @if ( Auth::user()->credits < $main_lesson->credit_cost)
                                                 <p><small class="text-danger mb-3">You don't have enough credits to unlock this lesson</small></p>
                                             @endif
                                         @endrole
@@ -45,19 +44,19 @@
 
                                         @auth
                                             @role('teacher|superadmin')
-                                            <a href="{{ route('lesson_canonical_view', [$lesson->subject->name, $lesson->topic->subcategory->slug, $lesson->topic->slug, $lesson->slug]) }}" class="btn btn-success">View <i
+                                            <a href="{{ route('lesson_canonical_view', [$main_lesson->subject->name, $main_lesson->topic->subcategory->slug, $main_lesson->topic->slug, $lesson->slug]) }}" class="btn btn-success">View <i
                                                 class="fas fa-tv ml-2"></i></a>
                                             @else
-                                                @if (user_unlocked($lesson->id) )
-                                                    <a href="{{ route('lesson_canonical_view', [$lesson->subject->name, $lesson->topic->subcategory->slug, $lesson->topic->slug, $lesson->slug]) }}" class="btn btn-success">View <i
+                                                @if (user_unlocked($main_lesson->id) )
+                                                    <a href="{{ route('lesson_canonical_view', [$main_lesson->subject->name, $main_lesson->topic->subcategory->slug, $main_lesson->topic->slug, $lesson->slug]) }}" class="btn btn-success">View <i
                                                             class="fas fa-tv ml-2"></i></a>
                                                 @elseif ( Auth::user()->credits == 0)
                                                     <a href="{{ route('buy_credits') }}" class="btn btn-danger"><i class="fas fa-cart-plus mr-2"></i>
                                                         Buy more credits</a>
                                                 @else
-                                                    <a href="{{ route('is-unlocked', [$lesson->id]) }}" class="btn btn-warning"><i
-                                                            class="fas fa-unlock mr-2"></i> Unlock for {{ $lesson->credit_cost }} 
-                                                            @if ($lesson->credit_cost == 1)
+                                                    <a href="{{ route('is-unlocked', [$main_lesson->id]) }}" class="btn btn-warning"><i
+                                                            class="fas fa-unlock mr-2"></i> Unlock for {{ $main_lesson->credit_cost }} 
+                                                            @if ($main_lesson->credit_cost == 1)
                                                                 credit
                                                             @else
                                                                 credits
@@ -70,7 +69,6 @@
                                 </div>
                             </div>
                 @endforeach
-            </div>
         </div>
             
     
