@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-12">
                 @foreach ($lessons as $main_lesson)
-                            <div class="col-md-12 col-lg-4 ">
+                            <div class="col-12 col-md-4 col-lg-4 ">
                                 <div class="card mb-3">
                                     <img src="/images/thumbnails/{{ $lesson->thumbnail }}" class="card-img-top" alt="...">
                                     <div class="card-body">
