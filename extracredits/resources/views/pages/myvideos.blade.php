@@ -13,13 +13,8 @@
 </div>
 @endguest
 @role('student')
-<div class="col-12 col-md-3">
-    <h5>In this section</h5>
-
-</div>
-
-<div class="col-12 col-md-9">
-    <h2>Your unlocked videos</h2>
+<div class="col-12">
+    <h2 class="main-heading">Your unlocked videos</h2>
 
     <div class="row">
         @foreach ($lessons as $lesson)

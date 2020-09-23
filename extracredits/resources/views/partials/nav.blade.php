@@ -80,7 +80,7 @@
                         <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
                         <a class="dropdown-item" href="{{ url('/lesson/create') }}">Create new Lesson</a>
                         @else
-                        <a class="dropdown-item" href="">My Videos</a>
+                        <a class="dropdown-item" href="{{ route('pages.myvideos') }}">My Videos</a>
                         <a class="dropdown-item" href="{{ route('user_panel', ['id' => Auth::user()->id]) }}">Student Dashboard</a>
                         @endunlessrole
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
