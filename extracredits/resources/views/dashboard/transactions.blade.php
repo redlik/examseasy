@@ -41,8 +41,9 @@
                     <thead class="thead-dark rounded">
                         <tr>
                             <th scope="col">Date</th>
+                            <th scope="col">User</th>
                             <th scope="col">Charge</th>
-                            <th scope="col">Credit top-up</th>
+                            <th scope="col">Credits</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
                         </tr>
@@ -53,6 +54,7 @@
                             <th scope="row">
                                 {{ $transaction->created_at->format('d/m/Y') }}<br>
                             </th>
+                            <td>{{ $transaction->user->name }}</td>
                             <td>€{{ $transaction->amount }}</td>
                             <td>{{ $transaction->credit_topup }}</td>
                             <td>{{ $transaction->name_on_card }}</td>
