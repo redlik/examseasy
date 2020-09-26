@@ -95,6 +95,7 @@
             </div>
             @endisset
         </div>
+        <a href="{{ url('/lesson/create') }}" class="btn btn-danger text-right"><i class="fas fa-plus mr-2"></i> Add New Lesson</a>
         <table class="table table-striped table-hover mt-3">
             <thead>
                 <tr>
@@ -125,7 +126,7 @@
                 @endforeach
             </tbody>
         </table>
-        <a href="{{ url('/lesson/create') }}" class="btn btn-danger text-right"><i class="fas fa-plus mr-2"></i> Add New Lesson</a>
+        {{ $lessons->links() }}
     </div>
 </div>
 @endsection

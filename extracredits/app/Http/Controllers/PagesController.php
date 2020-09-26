@@ -34,7 +34,7 @@ class PagesController extends Controller
 
     public function dashboard_lessons() {
         $user = Auth::user();
-        $lessons = Lesson::all();
+        $lessons = Lesson::paginate(20);
         $subjects = DB::table('subjects')->orderBy('name', 'asc')->get();
         $subcategories = DB::table('subcategories')->orderBy('name', 'asc')->get();
         return view('dashboard.lessons', compact( "user", "subjects", "lessons", "subcategories"));
