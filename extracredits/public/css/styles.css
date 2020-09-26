@@ -196,4 +196,8 @@ a.unlink:hover {
         font-size: 2rem;
         line-height: 2.5rem;
     }
+
+    .sticky-top {
+        position: relative;
+    }
 }
