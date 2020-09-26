@@ -34,7 +34,7 @@ class PagesController extends Controller
 
     public function dashboard_lessons() {
         $user = Auth::user();
-        $lessons = Lesson::paginate(20);
+        $lessons = Lesson::paginate(25);
         $subjects = DB::table('subjects')->orderBy('name', 'asc')->get();
         $subcategories = DB::table('subcategories')->orderBy('name', 'asc')->get();
         return view('dashboard.lessons', compact( "user", "subjects", "lessons", "subcategories"));
@@ -43,7 +43,9 @@ class PagesController extends Controller
     public function dashboard_lessons_search(Request $request) {
         $search_query = $request->get('searchInput');
         $lessons = Lesson::where('title', 'like', '%' . $search_query . '%')->orWhere('description', 'like', '%' . $search_query . '%' )->get();
-        return view('dashboard.lessons', compact("lessons", "search_query"));
+        $subjects = DB::table('subjects')->orderBy('name', 'asc')->get();
+        $subcategories = DB::table('subcategories')->orderBy('name', 'asc')->get();
+        return view('dashboard.lessons', compact("lessons", "search_query", "subjects", "subcategories"));
     }
 
     public function dashboard_lessons_filter (Request $request) {

@@ -126,7 +126,9 @@
                 @endforeach
             </tbody>
         </table>
-        {{ $lessons->links() }}
+        @if($lessons instanceof \Illuminate\Pagination\LengthAwarePaginator )
+            {{$lessons->links()}}
+        @endif 
     </div>
 </div>
 @endsection
