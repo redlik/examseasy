@@ -14,6 +14,9 @@ class TransactionController extends Controller
         $credit = (int)$request->get('credit_topup');
         $transaction = new Transaction($request->all());
         switch ($credit) {
+            case 1:
+                $amount = 9.99;
+                break;
             case 5:
                 $amount = 39.99;
                 break;

@@ -205,30 +205,37 @@
 <div class="col-12 col-md-9 mx-auto">
     <form action="{{ action('TransactionController@store') }}" method="POST" role="form" id="payment-form">
       @csrf
-        <div class="form-check form-check-inline">
-            <label>
-                <input class="form-check-input" type="radio" name="credit_topup" id="credit5" value="5" checked>
-                <img src="{{ asset('images/credits5.svg') }}" alt="" style="width:150px">
-            </label>
-            {{-- <label class="form-check-label" for="credit5">5 credits - €39.99</label> --}}
-        </div>
-        <div class="form-check form-check-inline">
-            <label>
-                <input class="form-check-input" type="radio" name="credit_topup" id="credit15" value="15">
-                <img src="{{ asset('images/credits15.svg') }}" alt="" style="width:150px">
-            </label>
-        </div>
-        <div class="form-check form-check-inline">
-            <label>
-                <input class="form-check-input" type="radio" name="credit_topup" id="credit50" value="50">
-                <img src="{{ asset('images/credits50.svg') }}" alt="" style="width:150px">
-            </label>
-        </div>
-        <div class="form-check form-check-inline">
-            <label>
-                <input class="form-check-input" type="radio" name="credit_topup" id="credit100" value="100">
-                <img src="{{ asset('images/credits100.svg') }}" alt="" style="width:150px">
-            </label>
+      <div class="row d-flex justify-content-sm-center justify-content-md-start ">
+            <div class="form-check form-check-inline mb-3 mx-sm-auto mx-lg-2">
+                <label>
+                    <input class="form-check-input" type="radio" name="credit_topup" id="credit1" value="1" checked>
+                    <img src="{{ asset('images/credits1.svg') }}" alt="" style="width:150px">
+                </label>
+            </div>
+            <div class="form-check form-check-inline mb-3 mx-sm-auto mx-lg-2">
+                <label>
+                    <input class="form-check-input" type="radio" name="credit_topup" id="credit5" value="5" checked>
+                    <img src="{{ asset('images/credits5.svg') }}" alt="" style="width:150px">
+                </label>
+            </div>
+            <div class="form-check form-check-inline mb-3 mx-sm-auto mx-lg-2">
+                <label>
+                    <input class="form-check-input" type="radio" name="credit_topup" id="credit15" value="15">
+                    <img src="{{ asset('images/credits15.svg') }}" alt="" style="width:150px">
+                </label>
+            </div>
+            <div class="form-check form-check-inline mb-3 mx-sm-auto mx-lg-2">
+                <label>
+                    <input class="form-check-input" type="radio" name="credit_topup" id="credit50" value="50">
+                    <img src="{{ asset('images/credits50.svg') }}" alt="" style="width:150px">
+                </label>
+            </div>
+            <div class="form-check form-check-inline mb-3 mx-sm-auto mx-lg-2">
+                <label>
+                    <input class="form-check-input" type="radio" name="credit_topup" id="credit100" value="100">
+                    <img src="{{ asset('images/credits100.svg') }}" alt="" style="width:150px">
+                </label>
+            </div>
         </div>
         <div class="form-group mt-4">
             <label for="nameOnCard">Name on the card</label>
