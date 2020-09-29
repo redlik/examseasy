@@ -18,10 +18,8 @@
         <div class="py-3">
             <h3 class="display-4 main-heading text-teal">Study your way</h3>
             <h2 class="display-2 main-heading text-teal">to success</h2>
-            <p class="my-3 display-6">ExtraCredit is an online service trusted by thousands of second-level students and
-                their
-                parents across Ireland when preparing for exams. It is the modern alternative to grinds. <strong>Our
-                    unique credit system allows to only unlock the contact you need.</strong></p>
+            <h5 class="font-weight-bold" style="font-size: 150%">Tired of paying for content you don’t need?</h5>
+            <p class="my-3 display-6">Examsmadeeasy.ie is an online service that gives you the freedom to personalise your revision schedule. Our videos are delivered by our team of experienced teachers and are tailored to each subject and its required content, section by section and topic by topic.<br/> <strong>Our unique credit system allows you to only unlock the content that you need.</strong></p>
 
             <a href="{{ route('register') }}" class="btn btn-pink text-white p-3 my-4 font-weight-bold display-6 shadow">SIGN-UP NOW</a>
         </div>
@@ -49,12 +47,12 @@
         <div class="col-12 col-md-4 text-center px-4">
             <img src="{{ asset('images/sheet.svg') }}" height="77px" class="mb-3" alt="">
             <h4 class="text-uppercase font-weight-black">Real Exams Questions</h4>
-            <p>All lessons are based on previous exams. Unlock only those you need to study.</p>
+            <p>All video content is based on previous State examination Papers. You only unlock the content that you need to study.</p>
         </div>
         <div class="col-12 col-md-4 text-center">
             <img src="{{ asset('images/tutorial.svg') }}" height="77px" class="mb-3" alt="">
             <h4 class="text-uppercase font-weight-black">Evergrowing library</h4>
-            <p>We have started with over 200 lessons but our library will grow as we are adding new content regularly.
+            <p>With over 120 lessons uploaded to date, our library of content will continue to grow as we constantly add new content.
             </p>
         </div>
     </div>
@@ -64,7 +62,7 @@
     <div class="row mb-4">
         <div class="col-12">
             <h2 class="main-heading text-center display-5">
-                Sample content to help you get the taste...
+                Free Subject Content
             </h2>
         </div>
     </div>
@@ -97,11 +95,7 @@
         <div class="col-12 col-md-6 text-left order-sm-2 order-md-1">
             <h2 class="main-heading display-5 my-3">Simple pricing</h2>
             <p class="display-6">
-                Our unique credit system allow registered users to unlock only the content they want to see. There’s no
-                pay-for-all mechanism or any monthly fee. Each lesson have a 1 or 2 credit value and your credits will
-                be used to unlock them and view the content. You can top up anytime you need more credits and we
-                provided couple of credit packages to pick from. The content you've unlocked stays that way till your
-                account is no longer active.
+                Our unique credit system allows registered users to unlock only the content that they need.  There is no pay-for- all mechanic and no monthly fee.  Each lesson will have a 1 or 2 credit value, depending on the length of the video presentation.  Your credits are used to unlock this content for 24 months and allows you to view the content unlocked any time you want. You can top up with extra credits anytime you need more from the range of credit packages that we offer.
             </p>
         </div>
         <div class="col-12 col-md-6 order-sm-1 order-md-2">

@@ -12,7 +12,7 @@
         <div class="col-10 col-md-6">
             <h3 class="text-burgundy">Register the account</h3>
             <p>
-                Create new account at Exams Made Easy. It’s very simple - we just need your name and email address. You email and password will be used to login into the website, we won’t spam you with offers nor pass your details to any third party services. Your account will be active for 24 months from the date of the registration.
+                Create your new account at ExamsMadeEasy.ie. It is remarkably simple; we just need your name and email address.  We will not spam you with incessant offers and we will not pass on your details to any third-party services. Your account is active for 24 months from the date of your initial registration.
             </p>
             @guest
             <a href="{{ route('register') }}" class="btn btn-pink text-white display-6 font-weight-bold text-uppercase d-inline-block shadow px-4">Register new account</a>    
@@ -28,7 +28,7 @@
         <div class="col-10 col-md-6">
             <h3 class="text-burgundy">Credit top-up</h3>
             <p>
-                Our unique credit system allow registered users to unlock only the content they want to see. There’s no pay-for-all mechanism or any monthly fee. Each lesson have a 1 or 2 credit value and your credits will be used to unlock them and view the content. The current number of credits available is displayed at the top of the screen or inside your profile page. You will see a top up button there as well. You can top up anytime you need more credits and we provided couple of credit packages to pick from.
+                Our unique credit system allows registered users to unlock only the content that they need. There is no pay-for-all mechanism and there is no monthly fee. Video content will have a 1 or 2 credit value, you use your acquired credits to unlock them. Once unlocked they are yours to view as long as your account is active. Your student profile homepage will display your current number of credits, with a top up option should you need more credits at any time. We offer a comprehensive range of credit package options, ranging from 1 credit to an unlimited credit option.
             </p>
             @role('student')
             <a href="{{ route('buy_credits') }}" class="btn btn-success text-white px-2 my-2 text-uppercase">Top up your account</a>    
@@ -44,7 +44,7 @@
         <div class="col-10 col-md-6">
             <h3 class="text-burgundy">Unlock the lessons</h3>
             <p>
-                All of the lessons are split between subjects, categories and topics to help you navigate the large library of content. Using your credit allowance unlock the lessons you’d like to watch. They will be available to see as long your account is active. We are constantly adding new content so keep coming back to the site regularly. If you wish you can sign up to our email list to be informed whenever a new content arrives. We are monitoring each account activity so please be kind and don’t share your login with anyone else. By purchasing the credits you support the tutors and allow us to produce more content.
+                Videos are split between subjects, categories, and topics to help you navigate quickly to the content that you need. Once unlocked the content is available as long as your account is active. We are constantly adding new content to increase the library of content available to you the student. Once registered you can, if you wish, sign up to our email list to be informed when new content is posted to the site. We do monitor account activity so please be kind and do not share your personal login details with anyone else. By purchasing credits and registering with ExamsMadeEasy.ie you are supporting the tutors in creating original content.
             </p>
             <a href="/subjects" class="btn btn-success text-white text-white display-6 font-weight-bold text-uppercase d-inline-block shadow px-4 my-2">View all lessons</a>    
         </div>
@@ -58,7 +58,7 @@
         <div class="col-10 col-md-6">
             <h3 class="text-burgundy">Feedback</h3>
             <p>
-                We would love to hear from you. If you have any questions or wish to see any specific content please use the form on the contact page and we will get back to you as fast as we can. Your opinion is important to us.
+                We would love to hear from you.  If you have any questions or would like to see specific content in a particular subject area produced please contact us. You can use the form on the contact us page and we will get back to you as quickly as possible. Your opinion is important to us as we strive to improve the quality and breadth of content available. Thank you.
             </p>
             <a href="{{ url('contact') }}" class="btn btn-success text-white text-white display-6 font-weight-bold text-uppercase d-inline-block shadow px-4 my-2">Contact us</a>    
         </div>
