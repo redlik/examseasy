@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
+@section('extra_styles')
+<link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
+@endsection
+
 @section('extra_scripts')
 <script src="{{ asset('js/html5lightbox.js') }}"></script>
+<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 @endsection
 
 @section('content')
@@ -66,20 +72,32 @@
             </h2>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12 col-md-6 col-lg-3">
+    <div class="row owl-carousel owl-theme owl-loaded owl-drag">
+        <div class="col-12">
             <a href="https://player.vimeo.com/video/453378723" class="html5lightbox" title="Irish Sample Video">
                 <img src="{{ asset('images/irish_sample.png') }}" class="img-fluid"></a>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12">
             <a href="https://player.vimeo.com/video/453899480" class="html5lightbox" title="Geography Sample Video">
                 <img src="{{ asset('images/geography_sample.png') }}" class="img-fluid"></a>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12">
             <a href="https://player.vimeo.com/video/453091289" class="html5lightbox" title="Biology Sample Video">
                 <img src="{{ asset('images/biology_sample.png') }}" class="img-fluid"></a>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12">
+            <a href="https://player.vimeo.com/video/461587553" class="html5lightbox" title="Accounting Sample Video">
+                <img src="{{ asset('images/accounting_sample.png') }}" class="img-fluid"></a>
+        </div>
+        <div class="col-12">
+            <a href="https://player.vimeo.com/video/461587553" class="html5lightbox" title="Accounting Sample Video">
+                <img src="{{ asset('images/accounting_sample.png') }}" class="img-fluid"></a>
+        </div>
+        <div class="col-12">
+            <a href="https://player.vimeo.com/video/461587553" class="html5lightbox" title="Accounting Sample Video">
+                <img src="{{ asset('images/accounting_sample.png') }}" class="img-fluid"></a>
+        </div>
+        <div class="col-12">
             <a href="https://player.vimeo.com/video/461587553" class="html5lightbox" title="Accounting Sample Video">
                 <img src="{{ asset('images/accounting_sample.png') }}" class="img-fluid"></a>
         </div>
@@ -121,4 +139,31 @@
 
 </section>
 
+@endsection
+
+@section('bottom_scripts')
+<script>
+    $(document).ready(function(){
+        $('.owl-carousel').owlCarousel({
+            loop:true,
+            margin:10,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:true
+                },
+                600:{
+                    items:2,
+                    nav:true
+                },
+                1000:{
+                    items:3,
+                    nav:true,
+                    loop:false
+                }
+            }
+        })
+      });
+</script>
 @endsection
