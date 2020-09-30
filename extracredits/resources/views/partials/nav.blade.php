@@ -53,6 +53,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('how-it-works') }}">How it Works</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('pricing') }}">Pricing</a>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('contact') }}">Contact us</a>

@@ -80,7 +80,7 @@
                 <img src="{{ asset('images/biology_sample.png') }}" class="img-fluid"></a>
         </div>
         <div class="col-12 col-md-6 col-lg-3">
-            <a href="https://player.vimeo.com/video/454688432" class="html5lightbox" title="Accounting Sample Video">
+            <a href="https://player.vimeo.com/video/461587553" class="html5lightbox" title="Accounting Sample Video">
                 <img src="{{ asset('images/accounting_sample.png') }}" class="img-fluid"></a>
         </div>
     </div>

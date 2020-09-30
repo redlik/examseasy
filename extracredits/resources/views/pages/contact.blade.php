@@ -4,7 +4,7 @@
 <div class="col-12">
     <div class="col-12 mb-4">
         <h1 class="text-center main-heading display-3 mb-3">Contact us</h1>
-        <h5 class="text-center text-secondary">We love to hear your feedback, about the service, the content or anyting
+        <h5 class="text-center text-secondary">We love to hear your feedback, about the service, the content or anything
             in between. <br />Drop us a message in the form below and we promise to get back to you as soon as we can.
         </h5>
     </div>

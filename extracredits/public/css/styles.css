@@ -200,4 +200,8 @@ a.unlink:hover {
     .sticky-top {
         position: relative;
     }
+
+    .display-3 {
+        font-size: 2.5rem;;
+    }
 }
