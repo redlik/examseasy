@@ -20,36 +20,10 @@
                     <a class="nav-link" href="{{ url('') }}">Home</a>
                 </li>
                 
-                {{-- <li class="nav-item">
-                    <a class="nav-link" href="{{ route('subjectsView') }}">All Lessons</a>
-                </li> --}}
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        Subjects <span class="caret"></span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/subjects">All Subjects</a>
-                        <a class="dropdown-item" href="{{ route('subjects-view', ['accounting']) }}">Accounting</a>
-                        <a class="dropdown-item" href="{{ route('subjects-view', ['biology']) }}">Biology</a>
-                        <a class="dropdown-item" href="{{ route('subjects-view', ['business']) }}">Business</a>
-                        <a class="dropdown-item" href="{{ route('subjects-view', ['construction']) }}">Construction</a>
-                        <a class="dropdown-item" href="{{ route('subjects-view', ['economics']) }}">Economics</a>
-                        <a class="dropdown-item" href="{{ route('subjects-view', ['english']) }}">English</a>
-                        <a class="dropdown-item" href="{{ route('subjects-view', ['geography']) }}">Geography</a>
-                        <a class="dropdown-item" href="{{ route('subjects-view', ['history']) }}">History</a>
-                        <a class="dropdown-item" href="{{ route('subjects-view', ['irish']) }}">Irish</a>
-                    </div>
-                </li>
-                <!--  Authentication Links -->
-
-                {{-- <li class="nav-item">
-                    <a class="nav-link" href="{{ url('pricing') }}">Pricing</a>
-                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('testimonials') }}">Testimonials</a>
-                </li> --}}
-
+                    <a class="nav-link" href="/subjects">Subjects</a>
+                </li>
+               
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('how-it-works') }}">How it Works</a>
                 </li>
