@@ -131,7 +131,7 @@ html {
 
 .open-menu {
     width: 25px;
-    height: 25px;
+    height: 45px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -143,8 +143,8 @@ html {
     justify-content: center;
     cursor: pointer;
     position: absolute;
-    right: 8px;
-    top: 12px;
+    right: 20px;
+    top: 30px;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     font-size: 15px;
