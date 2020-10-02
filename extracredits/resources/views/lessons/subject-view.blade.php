@@ -18,42 +18,48 @@
         </div>
     </div>
     <div class="row">
-        @foreach ($subcategories as $subcategory)
-
         <div class="col-12 col-md-6">
-            <div class="d-flex justify-content-between align-items-center bg-light rounded shaddow-sm mt-2">
-            <h5 class="font-weight-bold text-uppercase p-2">{{ $subcategory->name }}</h5>
-                @if ($subcategory->topic->count()>0)
-                <div class="open-menu collapsed p-2" data-toggle="collapse" data-target="#collapse-{{ $subcategory->slug }}" role="heading" aria-expanded="false"><i class="fa fa-plus-circle"></i></div>
-                @endif
-            </div>
+            <!-- start of loop -->
+            @foreach ($subcategories as $subcategory)
+                <div class="d-flex justify-content-between align-items-center bg-light rounded shaddow-sm mt-2 w-100 position-relative">
+                    <h5 class="font-weight-bold text-uppercase p-2">{{ $subcategory->name }}</h5>
+                        @if ($subcategory->topic->count()>0)
+                        <div class="open-menu collapsed p-2" data-toggle="collapse" data-target="#collapse-{{ $subcategory->slug }}" role="heading" aria-expanded="false"><i class="fa fa-plus-circle"></i></div>
+                        @endif
+                </div>
             <div class="collapse" id="collapse-{{ $subcategory->slug }}" aria-expanded="false" style="height:0px">
                 <ul class="list-group list-group-flush">
                     @foreach ($topics as $topic)
-                    @if ($topic->subcategory_id == $subcategory->id)
-                    <li class="list-group-item">
-                        <div class="d-flex justify-content-between">
-                            <div><a href="{{  route('subject.topic', [$subject->name, $subcategory->slug, $topic->slug])}}"
-                                    class="unlink text-uppercase font-weight-bold"><span
-                                        class="text-teal">{{ $topic->name }} <i
-                                            class="fas fa-arrow-alt-circle-right"></i></span></a></div>
-                            <div style="white-space: nowrap">{{ $topic->lesson->count() }}
-                                @if ($topic->lesson->count() == 1)
-                                Lesson
-                                @else
-                                Lessons
-                                @endif
+                        @if ($topic->subcategory_id == $subcategory->id)
+                            <li class="list-group-item">
+                                <div class="d-flex justify-content-between">
+                                    <div><a href="{{  route('subject.topic', [$subject->name, $subcategory->slug, $topic->slug])}}"
+                                            class="unlink text-uppercase font-weight-bold"><span
+                                                class="text-teal">{{ $topic->name }} <i
+                                                    class="fas fa-arrow-alt-circle-right"></i></span></a></div>
+                                    <div style="white-space: nowrap">{{ $topic->lesson->count() }}
+                                        @if ($topic->lesson->count() == 1)
+                                            Lesson
+                                        @else
+                                            Lessons
+                                        @endif
 
-                            </div>
-                        </div>
-                    </li>
-                    @endif
+                                    </div>
+                                </div>
+                            </li>
+                        @endif
+                        
                     @endforeach
                 </ul>
             </div>
-        </div>
+            @if ($loop->iteration == intdiv($loop->count, 2))
+        </div>    
+        <!-- middle of loop -->
+        <div class="col-12 col-md-6">  
+            @endif
+        <!-- end of main loop -->
         @endforeach
-        </ul>
+        </div>
     </div>
 
 </div>
