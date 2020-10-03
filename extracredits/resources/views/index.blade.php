@@ -90,16 +90,8 @@
                 <img src="{{ asset('images/accounting_sample.png') }}" class="img-fluid"></a>
         </div>
         <div class="col-12">
-            <a href="https://player.vimeo.com/video/461587553" class="html5lightbox" title="Accounting Sample Video">
-                <img src="{{ asset('images/accounting_sample.png') }}" class="img-fluid"></a>
-        </div>
-        <div class="col-12">
-            <a href="https://player.vimeo.com/video/461587553" class="html5lightbox" title="Accounting Sample Video">
-                <img src="{{ asset('images/accounting_sample.png') }}" class="img-fluid"></a>
-        </div>
-        <div class="col-12">
-            <a href="https://player.vimeo.com/video/461587553" class="html5lightbox" title="Accounting Sample Video">
-                <img src="{{ asset('images/accounting_sample.png') }}" class="img-fluid"></a>
+            <a href="https://player.vimeo.com/video/464263515" class="html5lightbox" title="Business Sample Video">
+                <img src="{{ asset('images/business_sample.png') }}" class="img-fluid"></a>
         </div>
     </div>
     <hr class="my-5">

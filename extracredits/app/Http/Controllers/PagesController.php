@@ -89,7 +89,7 @@ class PagesController extends Controller
         $user = User::where('id',$id)->first();
         $lessons = Lesson::has('user')->get();
         $today = Carbon::now();
-        $transactions = Transaction::has('user')->get();
+        $transactions = Transaction::where('user_id', $user)->get();
         if (Carbon::parse($user->expiry_date)->greaterThan($today) ) {
             $valid = Carbon::parse($user->expiry_date)->diffInDays($today);
         }
