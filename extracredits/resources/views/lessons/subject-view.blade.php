@@ -13,12 +13,12 @@
 <div class="container bg-white rounded-lg shadow p-3">
     <div class="row">
         <div class="col-12 text-center">
-            <h3 class="text-uppercase font-weight-black">{{ ucfirst($subject->name) }} lessons</h3>
+            <h1 class="text-uppercase font-weight-black">{{ ucfirst($subject->name) }} lessons</h1>
             <p>Click on individual topic to view lessons</p>
         </div>
     </div>
     <div class="row">
-        <div class="col-9 mx-auto">
+        <div class="col-12 col-md-9 mx-auto">
             @foreach ($subcategories as $subcategory)
                 <div class="d-flex justify-content-between align-items-center bg-light rounded shaddow-sm mt-2 w-100 position-relative">
                     <h5 class="font-weight-bold text-uppercase p-2">{{ $subcategory->name }}</h5>

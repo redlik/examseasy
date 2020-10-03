@@ -226,9 +226,10 @@ class LessonsController extends Controller
     }
     
     public function subject_category_topic($subject, $category, $topic) {
+        $subject = Subject::where('name', $subject)->first();
         $topic = Topic::where('slug', $topic)->first();
         $lessons = Lesson::where('topic_id', $topic->id)->get();
-        return view('lessons.subject-category-topic', compact('topic', 'lessons'));
+        return view('lessons.subject-category-topic', compact('subject', 'topic', 'lessons'));
     }
 
     public function subjectsView() {
