@@ -30,7 +30,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('pricing') }}">Pricing</a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('about') }}">About us</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('contact') }}">Contact us</a>
                 </li>

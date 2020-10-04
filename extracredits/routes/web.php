@@ -108,5 +108,9 @@ Route::get('testimonials', function() {
     return view('pages.testimonials');
 });
 
+Route::get('/about', function() {
+    return view('pages.about');
+});
+
 Route::get('/contact', 'ContactController@show');
 Route::post('/contact', 'ContactController@mailContactForm');
