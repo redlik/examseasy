@@ -97,6 +97,10 @@
             <a href="https://player.vimeo.com/video/453044427" class="html5lightbox" title="Construction Sample Video">
                 <img src="{{ asset('images/construction_sample.png') }}" class="img-fluid"></a>
         </div>
+        <div class="col-12">
+            <a href="https://player.vimeo.com/video/464780279" class="html5lightbox" title="History Sample Video">
+                <img src="{{ asset('images/history_sample.png') }}" class="img-fluid"></a>
+        </div>
     </div>
     <hr class="my-5">
 </section>

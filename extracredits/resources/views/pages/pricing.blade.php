@@ -8,7 +8,7 @@
 <div class="container">
     <div class="row text-center">
             <div class="col-12 col-md-6 col-lg-4 mb-3">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-header">
                         <h2 class="text-center font-weight-bold">1 Credit</h2>
                     </div>
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4 mb-3">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-header">
                         <h2 class="text-center font-weight-bold">5 Credits</h2>
                     </div>
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4 mb-3">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-header">
                         <h2 class="text-center font-weight-bold">15 Credits</h2>
                     </div>
@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4 mb-3">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-header">
                         <h2 class="text-center font-weight-bold">50 Credits</h2>
                     </div>
@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4 mb-3">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-header">
                         <h2 class="text-center font-weight-bold">100 Credits</h2>
                     </div>
@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4 mb-3">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-header">
                         <h2 class="text-center font-weight-bold">UNLIMITED</h2>
                     </div>
