@@ -4,8 +4,6 @@
 <div class="col-12">
     <div class="col-12 mb-4">
         <h1 class="text-center main-heading display-3 mb-3">Meet the team</h1>
-        <h5 class="text-center text-secondary">???.
-        </h5>
     </div>
 </div>
 <div class="container">
@@ -19,6 +17,18 @@
             <img src="images/cian.jpg" class="img-fluid rounded-circle mb-3 shadow" alt="" style="height: 14rem">
             <h4 class="font-weight-bold">Cian Mac Eoin</h4>
             <p>Cian Mac Eoin is a native Irish speaker from Corca Dhuibhne Gaeltacht in County Kerry. Teaching for the last 5 years, he is passionate about the Irish language and strives to maximise student potential in both oral and written Irish. Cian has state examinations correcting experience and currently works as a SEC Irish oral examiner.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-9 col-lg-4 mx-auto mb-3">
+            <img src="images/mary.jpg" class="img-fluid rounded-circle mb-3 shadow" alt="" style="height: 14rem">
+            <h4 class="font-weight-bold">Mary O’Connor</h4>
+            <p>Mary has over 25 years’ experience as a Higher Level Leaving Certificate Maths teacher. Using her vast experience as a teacher she hopes to highlight common issues and mistakes made to ensure students obtain the maximum marks in each question.</p>
+        </div>
+        <div class="col-9 col-lg-4 mx-auto mb-3">
+            <img src="images/laura.jpg" class="img-fluid rounded-circle mb-3 shadow" alt="" style="height: 14rem">
+            <h4 class="font-weight-bold">Laura Willis</h4>
+            <p>Laura is an engineering student. She have achieved all A1’s in her university exams as well as scoring over 98% in her Higher Level Leaving Certificate Maths. Her aim is to use the experience as a student to create exam focused videos that will help students achieve their potential in both papers 1 and 2 of Higher Level Maths</p>
         </div>
     </div>
     <div class="row">
