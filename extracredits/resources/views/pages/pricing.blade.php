@@ -69,7 +69,7 @@
                     </div>
                     <div class="card-body text-center">
                         <h4 class="card-title text-center">€499.99</h4>
-                        <a href="" class="btn btn-primary disabled">Comig Soon</a>
+                        <a href="" class="btn btn-primary disabled">Coming Soon</a>
                     </div>
                 </div>
             </div>

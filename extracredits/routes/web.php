@@ -112,5 +112,13 @@ Route::get('/about', function() {
     return view('pages.about');
 });
 
+Route::get('/privacy', function() {
+    return view('pages.privacy');
+});
+
+Route::get('/terms', function() {
+    return view('pages.terms');
+});
+
 Route::get('/contact', 'ContactController@show');
 Route::post('/contact', 'ContactController@mailContactForm');
