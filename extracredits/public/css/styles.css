@@ -185,7 +185,7 @@ a.unlink:hover {
 }
 
 .subjects:hover {
-    box-shadow: 0 0 1rem rgba(0,0,0,.575)!important;
+    box-shadow: 0 0 0.5rem rgba(0,0,0,.375)!important;
     background-color: rgba(0,0,0,.275);
 }
 

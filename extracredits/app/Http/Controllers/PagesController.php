@@ -180,7 +180,7 @@ class PagesController extends Controller
 
     public function subjects() {
         $subjects = Subject::orderby('name', 'asc')->get();
-
+        $subjects = $subjects->whereNotIn('id', 8);
         return view('pages.subjects', compact('subjects'));
     }
 
