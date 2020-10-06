@@ -168,7 +168,7 @@
                 1000:{
                     items:3,
                     nav:true,
-                    loop:false
+                    loop:true
                 }
             }
         })
