@@ -16,7 +16,7 @@
         <div class="col-9 col-lg-4 mx-auto mb-3">
             <img src="images/cian.jpg" class="img-fluid rounded-circle mb-3 shadow" alt="" style="height: 14rem">
             <h4 class="font-weight-bold">Cian Mac Eoin</h4>
-            <p>Cian Mac Eoin is a native Irish speaker from Corca Dhuibhne Gaeltacht in County Kerry. Teaching for the last 5 years, he is passionate about the Irish language and strives to maximise student potential in both oral and written Irish. Cian has state examinations correcting experience and currently works as a SEC Irish oral examiner.</p>
+            <p>Cian Mac Eoin is a native Irish speaker from the Corca Dhuibhne Gaeltacht in County Kerry. Teaching for the last 5 years, Cian is passionate about the Irish language and strives to maximise student potential in both oral and written Irish. Cian has corrected for the State Examinations Commission and also works as a SEC Irish oral examiner.</p>
         </div>
     </div>
     <div class="row">
@@ -28,7 +28,7 @@
         <div class="col-9 col-lg-4 mx-auto mb-3">
             <img src="images/laura.jpg" class="img-fluid rounded-circle mb-3 shadow" alt="" style="height: 14rem">
             <h4 class="font-weight-bold">Laura Willis</h4>
-            <p>Laura is an engineering student. She have achieved all A1’s in her university exams as well as scoring over 98% in her Higher Level Leaving Certificate Maths. Her aim is to use the experience as a student to create exam focused videos that will help students achieve their potential in both papers 1 and 2 of Higher Level Maths</p>
+            <p>Laura is an engineering student. She has achieved all A1’s in her university exams as well as scoring over 98% in her Higher Level Leaving Certificate Maths. Her aim is to use the experience as a student to create exam focused videos that will help students achieve their potential in both papers 1 and 2 of Higher Level Maths</p>
         </div>
     </div>
     <div class="row">
