@@ -105,6 +105,10 @@
             <a href="https://player.vimeo.com/video/464794240" class="html5lightbox" title="Maths Sample Video">
                 <img src="{{ asset('images/maths_sample.png') }}" class="img-fluid"></a>
         </div>
+        <div class="col-12">
+            <a href="https://player.vimeo.com/video/465356070" class="html5lightbox" title="English Sample Video">
+                <img src="{{ asset('images/english_sample.png') }}" class="img-fluid"></a>
+        </div>
     </div>
     <hr class="my-5">
 </section>
