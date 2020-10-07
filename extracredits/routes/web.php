@@ -120,5 +120,9 @@ Route::get('/terms', function() {
     return view('pages.terms');
 });
 
+Route::get('/livewire', function() {
+    return view('livewire');
+});
+
 Route::get('/contact', 'ContactController@show');
 Route::post('/contact', 'ContactController@mailContactForm');
