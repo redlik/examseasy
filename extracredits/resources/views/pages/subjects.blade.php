@@ -18,7 +18,7 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-12 col-md-9 mx-auto bg-white rounded shadow p-3">
+        <div class="col-12 bg-white rounded shadow p-3">
             <div class="row">
                 @foreach ($subjects as $subject)
                 <div class="col-12 col-sm-6 col-md-4 p-2 ">
