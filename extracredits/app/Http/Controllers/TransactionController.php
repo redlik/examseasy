@@ -34,7 +34,8 @@ class TransactionController extends Controller
         }
 
         try {
-            $charge = Stripe::charges()->create([
+            $stripe = Stripe::make();
+            $charge = $stripe->charges()->create([
                 'amount' => $amount,
                 'currency' => 'EUR',
                 'source' => $request->stripeToken,

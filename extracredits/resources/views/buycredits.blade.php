@@ -203,6 +203,16 @@
         </h6>
     </div>
 <div class="col-12 col-md-9 mx-auto">
+            @if(count($errors) > 0)
+            <div class="spacer"></div>
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{!! $error !!}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     <form action="{{ action('TransactionController@store') }}" method="POST" role="form" id="payment-form">
       @csrf
       <div class="row d-flex justify-content-sm-center justify-content-md-start ">
