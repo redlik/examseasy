@@ -15,7 +15,7 @@ class TransactionController extends Controller
         $transaction = new Transaction($request->all());
         switch ($credit) {
             case 1:
-                $amount = 1.00;
+                $amount = 9.99;
                 break;
             case 5:
                 $amount = 39.99;
@@ -56,9 +56,9 @@ class TransactionController extends Controller
 
                 // session(['success_message' => 'Thank you for the purchase, the credits has been added to your account']);
                 $request->session()->flash('success_message', 'Thank you for the purchase, the credits has been added to your account');
-
+                $transactions = Transaction::where('user_id', Auth::id())->first();
                 $lessons = Lesson::withCount('user')->get();
-                return view('user_panel', ['user' => $user, 'lessons' => $lessons]);
+                return view('user_panel', ['user' => $user, 'lessons' => $lessons, 'transactions' => $transactions]);
             // return redirect()->route('confirmation.index')->with('success_message', 'Thank you! Your payment has been successfully accepted!');
         } catch (CardErrorException $e) {
             return back()->withErrors('Error! ' . $e->getMessage());
