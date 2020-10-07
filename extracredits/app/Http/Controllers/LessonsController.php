@@ -68,12 +68,12 @@ class LessonsController extends Controller
 
         $thumbnail = $request->file('thumbnail');
         $thumbnail_name = $thumbnail->getClientOriginalName();
-
+        $hash = Str::random(4);
         $new_filename = time().'-'.$thumbnail_name;
 
         $lesson = new Lesson();
         $lesson->title = $request->input('title');
-        $lesson->slug = Str::slug($request->input('title'), '-');
+        $lesson->slug = $hash."-".Str::slug($request->input('title'), '-');
         $lesson->link = $request->input('link');
         $lesson->thumbnail = $new_filename;
         $lesson->description = $request->input('description');
@@ -132,6 +132,7 @@ class LessonsController extends Controller
     public function update(Request $request, $id)
     {
         $lesson = Lesson::find($id);
+        $hash = Str::random(4);
         
         $request->validate(['title' => 'required',
                             'description' => 'required',
@@ -139,7 +140,7 @@ class LessonsController extends Controller
                             ]);
 
         $lesson->title = $request->input('title');
-        $lesson->slug = Str::slug($request->input('title'), '-');
+        $lesson->slug = $hash."-".Str::slug($request->input('title'), '-');
         $lesson->link = $request->input('link');
         $lesson->description = $request->input('description');
         $lesson->subject_id = $request->get('subjectSelect');
