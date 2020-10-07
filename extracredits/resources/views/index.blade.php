@@ -135,13 +135,25 @@
 
 </section>
 
-<section class="container bg-pink rounded-lg">
+<section class="container bg-pink rounded-lg mb-4">
     <div class="row d-flex align-items-center">
         <div class="col-12 col-md-9 text-white text-center p-2">
             <h2 class="main-heading display-5">Let's get started!</h2>
         </div>
         <div class="col-12 col-md-3 my-3">
             <a href="{{ route('register') }}" class="btn btn-light display-6 font-weight-bold text-uppercase d-block mx-auto shadow px-4 w-75">Sign Up Now!</a>
+        </div>
+    </div>
+
+</section>
+<section class="container mt-4">
+    <div class="d-flex align-items-center">
+        <div class="mx-auto">
+            <p class="text-center display-6 font-weight-bold">All questions courtesy of <a href="https://educate.ie" target="_blank">educate.ie</a><br/>
+            If you'd like to purchase exam papers mentioned in our videos click on the logo below</p>
+            <a href="https://educate.ie" target="_blank">
+            <img src="{{ asset('images/educate-logo.png') }}" class="mx-auto d-block" alt="educate logo" style="width:300px">
+            </a>
         </div>
     </div>
 
