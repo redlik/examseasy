@@ -5,6 +5,7 @@ use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Cartalyst\Stripe\Exception\CardErrorException;
 use App\Transaction;
 use App\Lesson;
+use App\User;
 use Illuminate\Http\Request;
 use Auth;
 
