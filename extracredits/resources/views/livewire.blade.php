@@ -9,6 +9,6 @@
 @endsection
 
 
-@section('bottom_styles')
+@section('bottom_scripts')
     @livewireScripts
 @endsection
