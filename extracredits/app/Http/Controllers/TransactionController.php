@@ -15,7 +15,7 @@ class TransactionController extends Controller
         $transaction = new Transaction($request->all());
         switch ($credit) {
             case 1:
-                $amount = 9.99;
+                $amount = 1.00;
                 break;
             case 5:
                 $amount = 39.99;
@@ -32,7 +32,7 @@ class TransactionController extends Controller
             default:
                 $amount = 39.99;
         }
-        
+
         try {
             $charge = Stripe::charges()->create([
                 'amount' => $amount,
@@ -41,7 +41,7 @@ class TransactionController extends Controller
                 'description' => 'Exams Made Easy',
                 'receipt_email' => $request->email,
             ]);
-                
+
                 // Adding purchased credits to user account
                 $user = Auth::user();
                 $existing_credits = $user->credits;
