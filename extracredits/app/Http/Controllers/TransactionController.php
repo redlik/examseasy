@@ -56,7 +56,7 @@ class TransactionController extends Controller
 
                 // session(['success_message' => 'Thank you for the purchase, the credits has been added to your account']);
                 $request->session()->flash('success_message', 'Thank you for the purchase, the credits has been added to your account');
-                $transactions = Transaction::where('user_id', Auth::id())->first();
+                $transactions = Transaction::where('user_id', Auth::id())->get();
                 $lessons = Lesson::withCount('user')->get();
                 return view('user_panel', ['user' => $user, 'lessons' => $lessons, 'transactions' => $transactions]);
             // return redirect()->route('confirmation.index')->with('success_message', 'Thank you! Your payment has been successfully accepted!');
