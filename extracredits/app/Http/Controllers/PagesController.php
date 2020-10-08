@@ -75,8 +75,15 @@ class PagesController extends Controller
 
     public function lesson_view($subject, $subcategory, $topic, $lesson_slug) {
         $lesson = Lesson::where('slug', $lesson_slug)->first();
+        $unlocked = "Doesn't work";
+        if ($lesson->user()->exists(Auth::id())) {
+            $unlocked = true;
+        }
+        else {
+            $unlocked = false;
+        }
 
-        return view('lessons.show', ['lesson' => $lesson]);
+        return view('lessons.show', ['lesson' => $lesson, 'unlocked' => $unlocked]);
     }
 
     public function dashboard_students() {
