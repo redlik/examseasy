@@ -14,7 +14,16 @@
 <div class="container mb-3">
     <div class="row">
         <div class="col-12 bg-pink text-center text-white rounded shadow-sm">
-            <h3 class='pt-1'>New content added regularly!</h3>
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <h3 class='pt-1'>New videos added regularly!</h3>
+                  </div>
+                  <div class="carousel-item">
+                    <h3 class='pt-1'>Focus on Leaving Certificate content</h3>
+                  </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -25,9 +34,14 @@
             <h3 class="display-4 main-heading text-teal">Study your way</h3>
             <h2 class="display-2 main-heading text-teal">to success</h2>
             <h5 class="font-weight-bold" style="font-size: 150%">Tired of paying for content you don’t need?</h5>
-            <p class="my-3 display-6">Examsmadeeasy.ie is an online service that gives you the freedom to personalise your revision schedule. Our videos are delivered by our team of experienced teachers and are tailored to each subject and its required content, section by section and topic by topic.<br/> <strong>Our unique credit system allows you to only unlock the content that you need.</strong></p>
+            <p class="my-3 display-6">
+                <ul>
+                    <li class="display-6">Our unique credit system allows you to unlock only the content you need </li>
+                    <li class="display-6">Freedom to personalise your revision schedule</li>
+                </ul>
+            </p>
 
-            <a href="{{ route('register') }}" class="btn btn-pink text-white p-3 my-4 font-weight-bold display-6 shadow">SIGN-UP NOW</a>
+            <a href="{{ route('register') }}" class="btn btn-pink text-white p-2 px-3 my-4 font-weight-bold display-6 shadow">SIGN-UP NOW</a>
         </div>
 
     </div>
@@ -52,14 +66,26 @@
         </div>
         <div class="col-12 col-md-4 text-center px-4">
             <img src="{{ asset('images/sheet.svg') }}" height="77px" class="mb-3" alt="">
-            <h4 class="text-uppercase font-weight-black">Real Exams Questions</h4>
+            <h4 class="text-uppercase font-weight-black">Real Exam Questions</h4>
             <p>All video content is based on previous State examination Papers. You only unlock the content that you need to study.</p>
         </div>
         <div class="col-12 col-md-4 text-center">
             <img src="{{ asset('images/tutorial.svg') }}" height="77px" class="mb-3" alt="">
-            <h4 class="text-uppercase font-weight-black">Evergrowing library</h4>
+            <h4 class="text-uppercase font-weight-black">Expanding Library</h4>
             <p>With over 120 lessons uploaded to date, our library of content will continue to grow as we constantly add new content.
             </p>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12 col-md-4 text-center mx-auto">
+            <img src="{{ asset('images/atom.svg') }}" height="77px" class="mb-3" alt="">
+            <h4 class="text-uppercase font-weight-black">Freedom of Choice</h4>
+            <p>Choose the content that is relevant to your needs. Exam&nbsprevision on the go to suit your busy lifestyle.</p>
+        </div>
+        <div class="col-12 col-md-4 text-center mx-auto">
+            <img src="{{ asset('images/rating.svg') }}" height="77px" class="mb-3" alt="">
+            <h4 class="text-uppercase font-weight-black">Value</h4>
+            <p>We value your time and money. We have a range of credit options to suit all budgets</p>
         </div>
     </div>
 </section>
