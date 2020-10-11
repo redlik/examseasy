@@ -211,7 +211,8 @@ class LessonsController extends Controller
         $subcategories = Subcategory::where('subject_id', $subject_id)->has('topic')->orderBy('order_position', 'asc')->get();
         $lessons = Lesson::where('subject_id', $subject_id)->get();
         $topics = Topic::has('subcategory')->has('lesson')->orderBy('order_position', 'asc')->get();
-        return view('lessons.subject-view', compact('lessons', 'subject', 'credits', 'subcategories', 'topics'));
+        $hiddenSubjects = [8,10];
+        return view('lessons.subject-view', compact('lessons', 'subject', 'credits', 'subcategories', 'topics', 'hiddenSubjects'));
         
         // else {
         //   return redirect()->route('login'); 

@@ -187,7 +187,7 @@ class PagesController extends Controller
 
     public function subjects() {
         $subjects = Subject::orderby('name', 'asc')->get();
-        $subjects = $subjects->whereNotIn('id', 8);
+        // $subjects = $subjects->whereNotIn('id', [8, 10]);
         return view('pages.subjects', compact('subjects'));
     }
 
