@@ -112,7 +112,7 @@
                 <img src="{{ asset('images/biology_sample.png') }}" class="img-fluid"></a>
         </div>
         <div class="col-12">
-            <a href="https://player.vimeo.com/video/461587553" class="html5lightbox" title="Accounting Sample Video">
+            <a href="https://player.vimeo.com/video/465687118" class="html5lightbox" title="Accounting Sample Video">
                 <img src="{{ asset('images/accounting_sample.png') }}" class="img-fluid"></a>
         </div>
         <div class="col-12">
