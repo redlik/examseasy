@@ -65,6 +65,7 @@
                             </div>
                         </div>
                     </form>
+                    <p class="text-center mx-auto mt-4">Don't have the account yet?  <a href="{{ route('register') }}">Sign up here</a></p>
                 </div>
             </div>
         </div>
