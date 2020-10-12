@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('show_credits')
-@auth
-@role('student')
-<li class="mb-sm-4 mb-md-0 display-6"><strong>Credits: {{ Auth::user()->credits }}</strong></li>
-@endrole
-@endauth
+    @auth
+        @role('student')
+        <li class="mb-sm-4 mb-md-0 display-6"><strong>Credits: {{ Auth::user()->credits }}</strong></li>
+        @endrole
+    @endauth
 @endsection
 
 @section('content')
