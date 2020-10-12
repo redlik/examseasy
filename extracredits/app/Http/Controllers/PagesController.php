@@ -28,10 +28,12 @@ class PagesController extends Controller
         $user = Auth::user();
         $subjects = Subject::all();
         $unlocked_lessons = Lesson::has('user')->get();
+        $best_lessons = Lesson::withCount('user')->orderBy('user_count', 'desc')->paginate(25);
+        $lessons_number = DB::table('lessons')->count();
         $users = User::all();
         $transactions_number = DB::table('transactions')->count();
         $transactions = Transaction::all();
-        return view('dashboard', compact('user', 'unlocked_lessons', 'subjects', 'active_students', 'transactions_number', 'transactions'));
+        return view('dashboard', compact('user', 'unlocked_lessons', 'subjects', 'active_students', 'transactions_number', 'transactions', 'lessons_number', 'best_lessons'));
     }
 
     public function dashboard_lessons() {
