@@ -24,7 +24,7 @@
                                 <div class="container p-0">
                                     <div class="row">
                                         <div class="col-12 col-md-4 rounded">
-                                            <img src="/images/thumbnails/{{ $lesson->thumbnail }}" class="img-fluid rounded-left" alt="{{ $lesson->title }}" style="height:100%">
+                                            <img src="/images/thumbnails/{{ $lesson->thumbnail }}" class="img-fluid rounded-left" alt="{{ $lesson->title }}">
                                         </div>
                                         <div class="col-12 col-md-8 d-flex py-3 p-sm-3 align-items-start flex-column">
                                             <div class="mb-auto p-sm-2">
