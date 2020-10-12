@@ -27,9 +27,11 @@ class PagesController extends Controller
         $active_students = count(User::role('student')->get());
         $user = Auth::user();
         $subjects = Subject::all();
-        $lessons = Lesson::withCount('user')->get();
+        $unlocked_lessons = Lesson::has('user')->get();
         $users = User::all();
-        return view('dashboard', ['user' => $user, 'lessons'=> $lessons, 'users'=>$users, 'subjects' => $subjects, 'active_students' => $active_students]);
+        $transactions_number = DB::table('transactions')->count();
+        $transactions = Transaction::all();
+        return view('dashboard', compact('user', 'unlocked_lessons', 'subjects', 'active_students', 'transactions_number', 'transactions'));
     }
 
     public function dashboard_lessons() {

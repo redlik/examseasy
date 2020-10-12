@@ -24,6 +24,9 @@
     <div class="bg-white rounded shadow h-100 p-4">
         <h2>Dashboard</h2>
         <p>Active students: {{ $active_students }}</p>
+        <p>Number of Transactions: {{ $transactions->count() }}</p>
+        <p>Income: €{{$transactions->sum('amount') }}</p>
+        <p>Number of Unlocked Lessons: {{ $unlocked_lessons->count() }}</p>
     </div>
 </div>
 @endsection

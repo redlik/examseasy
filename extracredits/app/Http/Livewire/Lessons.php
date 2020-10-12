@@ -23,7 +23,9 @@ class Lessons extends Component
         $subject = $this->subject;
         $query = Lesson::where('title', 'like', '%'.$this->search.'%')->when($subject, function ($query, $subject){
             return $query->where('subject_id', $subject);
-        })->has('user', '=', Auth::id())
+        })->whereHas('user', function ($query) {
+            $query->where('users.id', auth()->id());
+        })
         ->get();
 
         $subjects = Subject::orderBy('name', 'asc')->get();
