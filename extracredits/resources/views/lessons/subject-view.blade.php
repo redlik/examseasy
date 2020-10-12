@@ -20,9 +20,9 @@
     <div class="row">
         <div class="col-12 col-md-9 mx-auto">
             @if (in_array($subject->id, $hiddenSubjects))
-            <div class="text-center mx-auto mt-4 text-success">
-                <h4>Content coming soon</h4>
-                <p>Check this page again in a while as we're adding new content on a daily basis</p>
+            <div class="text-center mx-auto mt-4 text-secondary">
+                <img src="{{ asset('images/coming-soon.svg')}}" alt="coming soon icon">
+                <h3 class="mt-3">Content coming soon</h3>
             </div>
             @else
             @foreach ($subcategories as $subcategory)
