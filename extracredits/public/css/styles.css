@@ -107,6 +107,24 @@ html {
     line-height: 90px;
 }
 
+.text-small {
+    font-size: 0.8rem;
+}
+
+.credit-number {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-left: 10px;
+    color: #783266;
+
+}
+
+.credit-box {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 10px;
+}
+
 .green-dots {
     /* background-color: #1EBDD3; */
     border: #1EBDD3 dotted 1px;

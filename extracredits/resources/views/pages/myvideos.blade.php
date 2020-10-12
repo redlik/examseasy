@@ -1,8 +1,14 @@
 @extends('layouts.app')
 
+@section('extra_styles')
+    @livewireStyles
+@endsection
+
 @section('show_credits')
     @auth
-    <li class="mb-sm-4 mb-md-0"><strong>Credits: {{ Auth::user()->credits }} </strong></li>
+        @role('student')
+        <div class="credit-box d-flex align-items-center"><div class="text-secondary text-small text-center">Credits <br/>remaining:</div><div class="credit-number">{{ Auth::user()->credits }}</div></div>
+        @endrole
     @endauth
 @endsection
 
@@ -13,27 +19,16 @@
 </div>
 @endguest
 @role('student')
-<div class="col-12">
-    <h2 class="main-heading">Your unlocked videos</h2>
+<div class="col-12 bg-white rounded shadow-sm p-2 p-4">
+    <h1 class="text-uppercase font-weight-black text-center mb-3">Your unlocked videos</h1>
 
     <div class="row">
-        @foreach ($lessons as $lesson)
-        <div class="col-md-12 col-lg-4 ">
-            <div class="card mb-3">
-                <img src="/images/thumbnails/{{ $lesson->thumbnail }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $lesson->title }}</h5>
-                    <p class="card-text">{{ Str::words($lesson->description, 12, '  ...') }}</p>
-                                <a href="{{ route('lesson_canonical_view', [$lesson->subject->name, $lesson->topic->subcategory->slug, $lesson->topic->slug, $lesson->slug]) }}" class="btn btn-success">View <i
-                                        class="fas fa-tv ml-2"></i></a>
-                </div>
-            </div>
-        </div>
-        @endforeach
-
+        <livewire:lessons>
     </div>
-    <ul>
-    </ul>
 </div>
 @endrole
+@endsection
+
+@section('bottom_scripts')
+    @livewireScripts
 @endsection

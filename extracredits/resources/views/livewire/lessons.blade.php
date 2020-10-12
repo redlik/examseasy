@@ -24,10 +24,15 @@
         <tbody>
             @foreach ($lessons as $lesson)
             <tr>
-                <th scope="row">
+                <th scope="row" class="d-flex">
+                    <div class="mr-2 d-none d-md-block">
+                    <img src="/images/thumbnails/{{ $lesson->thumbnail }}" class="rounded shadow-sm" alt="{{ $lesson->title }}" style="height: 65px">
+                    </div>
+                    <div class="">
                     {{ $lesson->title }}<br>
                     <span class="text-secondary"><small>{{ ucfirst($lesson->subject->name) }} >>
-                            {{ $lesson->topic->subcategory->name }} >> {{ $lesson->topic->name }}</small></span>
+                            {{ $lesson->topic->name }}</small></span>
+                    </div>
                 </th>
                 <td>{{ ucfirst($lesson->subject->name) }}</td>
                 <td><a href="{{ route('lesson_canonical_view', [$lesson->subject->name, $lesson->topic->subcategory->slug, $lesson->topic->slug, $lesson->slug]) }}"
