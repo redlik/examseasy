@@ -124,8 +124,8 @@
                 <table class="table table-striped">
                     <thead class="thead-dark">
                       <tr>
-                        <th scope="col" class="col-9">Title</th>
-                        <th scope="col" class="col-3">No. of unlocks</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">No. of unlocks</th>
                       </tr>
                     </thead>
                     <tbody>

@@ -24,12 +24,13 @@
                                 <div class="container p-0">
                                     <div class="row">
                                         <div class="col-12 col-md-4 rounded">
-                                            <img src="/images/thumbnails/{{ $lesson->thumbnail }}" class="img-fluid rounded-left" alt="{{ $lesson->title }}">
+                                            <img src="/images/thumbnails/{{ $lesson->thumbnail }}" class="img-fluid rounded-left" alt="{{ $lesson->title }}" style="height:100%">
                                         </div>
                                         <div class="col-12 col-md-8 d-flex py-3 p-sm-3 align-items-start flex-column">
                                             <div class="mb-auto p-sm-2">
                                                 <h5 class="display-6 font-weight-bold">{{ $lesson->title }}</h5>
-                                                <p class="card-text">{{ Str::words($lesson->description, 20, '  ...') }}</p>
+                                                <p class="card-text">{{ Str::words($lesson->description, 20, '  ...') }}<br/>
+                                                <span class="font-weight-bold">Credit cost: {{ $lesson->credit_cost }}</span></p>
                                             </div>
                                            <div class="p-sm-2">
                                                @role('student')
@@ -39,7 +40,7 @@
                                                @endrole
        
                                                @guest
-                                                   <a href="{{ route('login') }}" class="btn btn-warning">Login to view</a>
+                                                   <a href="{{ route('login') }}" class="btn btn-warning">Login/Register to view</a>
                                                @endguest
        
                                                @auth

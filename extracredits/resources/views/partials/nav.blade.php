@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm mb-4">
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{ asset('images/eme-logo.svg') }}" alt="Extra Credits logo" class="brand-logo">
@@ -59,6 +59,7 @@
                         <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
                         <a class="dropdown-item" href="{{ url('/lesson/create') }}">Create new Lesson</a>
                         @else
+                        <a class="dropdown-item" href="{{ route('buy_credits') }}">Buy Credits</a>
                         <a class="dropdown-item" href="{{ route('pages.myvideos') }}">My Videos</a>
                         <a class="dropdown-item" href="{{ route('user_panel', ['id' => Auth::user()->id]) }}">Student Dashboard</a>
                         @endunlessrole
