@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'email' => 'user@email.com',
-    'name' => 'UserName',
+    'email' => 'examsmadeeasyireland@gmail.com',
+    'name' => 'Exams Made Easy',
 ];
