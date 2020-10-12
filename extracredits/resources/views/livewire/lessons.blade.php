@@ -12,9 +12,31 @@
             <input class="form-control" wire:model="search" type="search" name="search" placeholder="Search lessons by title...">
         </div>
     </div>
-    <ul>
-        @foreach ($lessons as $lesson)
-            <li>{{ $lesson->title }}
-        @endforeach
-    </ul>
+    <table class="table">
+        <thead class="thead-dark rounded">
+            <tr>
+                <th scope="col">Title</th>
+                {{-- <th scope="col">Unlocked on</th> --}}
+                <th scope="col">Subject</th>
+                <th scope="col">Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($lessons as $lesson)
+            <tr>
+                <th scope="row">
+                    {{ $lesson->title }}<br>
+                    <span class="text-secondary"><small>{{ ucfirst($lesson->subject->name) }} >>
+                            {{ $lesson->topic->subcategory->name }} >> {{ $lesson->topic->name }}</small></span>
+                </th>
+                <td>{{ ucfirst($lesson->subject->name) }}</td>
+                <td><a href="{{ route('lesson_canonical_view', [$lesson->subject->name, $lesson->topic->subcategory->slug, $lesson->topic->slug, $lesson->slug]) }}"
+                        class="text-success mr-2" title="View lesson"><i class="far fa-eye"></i> View lesson</a>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>
+
+                

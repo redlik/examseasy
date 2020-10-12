@@ -25,7 +25,7 @@ class Lessons extends Component
             return $query->where('subject_id', $subject);
         })->whereHas('user', function ($query) {
             $query->where('users.id', auth()->id());
-        })
+        })->orderBy('title', 'asc')
         ->get();
 
         $subjects = Subject::orderBy('name', 'asc')->get();
