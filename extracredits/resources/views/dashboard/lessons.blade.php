@@ -113,13 +113,17 @@
                         <span class="text-secondary"><small>{{ ucfirst($lesson->subject->name) }} >>
                                 {{ $lesson->topic->subcategory->name }} >> {{ $lesson->topic->name }}</small></span>
                     </td>
-                    <td>{{ $lesson->user_count }}</td>
+                    <td>{{ $lesson->user->count() }}</td>
                     <td><a href="{{ route('lesson_canonical_view', [$lesson->subject->name, $lesson->topic->subcategory->slug, $lesson->topic->slug, $lesson->slug]) }}"
                             class="text-success mr-2" title="View lesson"><i class="far fa-eye"></i></a>
                         <a href="{{ url('/lesson', [$lesson->id, 'edit']) }}" class="text-primary mr-2"
                             title="Edit lesson"><i class="far fa-edit"></i></a>
-                        @if ($lesson->user_count < 1) <a href="{{ url('/remove', [$lesson->id]) }}" class="text-danger"
+                        @if ($lesson->user->count() < 1) <a href="{{ url('/remove', [$lesson->id]) }}" class="text-danger"
                             title="Delete lesson" onclick="return confirm('Do you want to delete the lesson completely?')"><i class="far fa-trash-alt"></i></a>
+                            @else
+                            <a href="" class="text-secondary"
+                                title="Delete not possible, lesson unlocked"><i class="far fa-trash-alt"></i></a>
+
                             @endif
                     </td>
                 </tr>
