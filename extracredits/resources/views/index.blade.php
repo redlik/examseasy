@@ -45,8 +45,12 @@
                     <li class="display-6">Freedom to personalise your revision schedule</li>
                 </ul>
             </p>
-
-            <a href="{{ route('register') }}" class="btn btn-pink text-white p-2 px-3 my-4 font-weight-bold display-6 shadow">SIGN-UP NOW</a>
+            @guest
+            <a href="{{ route('register') }}" class="btn btn-pink text-white p-2 px-3 my-4 mr-4 font-weight-bold display-6 shadow">SIGN-UP NOW</a>
+            @endguest
+            @role('student')
+                <a href="{{ route('buy_credits') }}" class="btn btn-green text-white p-2 px-3 my-4 font-weight-bold display-6 shadow"> <i class="fas fa-cart-plus mr-2"></i> BUY CREDITS</a>
+            @endrole
         </div>
 
     </div>
