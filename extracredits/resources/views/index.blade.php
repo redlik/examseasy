@@ -52,9 +52,9 @@
     </div>
 </div>
 <div class="col-md-6 col-sm-12 text-center">
-    <a href="https://player.vimeo.com/video/453378723" class="html5lightbox" title="Introduction video">
+    <a href="https://player.vimeo.com/video/467333894" class="html5lightbox" title="Introduction video">
     <img src="{{ asset('images/home-hero.svg') }}" alt="extra credit home page">
-    <button class="btn btn-primary mt-3"><i class="fas fa-play"></i> Play intro video</button>
+    <button class="btn btn-primary mt-3"><i class="fas fa-play"></i> Introduction video</button>
     </a>
 </div>
 
