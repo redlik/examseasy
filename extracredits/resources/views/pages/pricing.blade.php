@@ -14,10 +14,20 @@
 @section('content')
 <div class="col-12 mb-4">
     <h1 class="text-center main-heading display-3">Pricing</h1>
+    @guest
     <h4 class="text-center text-secondary">Our pricing is simple. Buy credits to unlock lessons. No hidden or recurring
         charges.</h4>
+    @endguest
 </div>
 <div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h6>If you'd like to top-up your account now - click on the button below</h6>
+            @role('student')
+                <a href="{{ route('buy_credits') }}" class="btn btn-green text-white p-2 px-3 my-4 ml-4 font-weight-bold display-6 shadow"><i class="fas fa-cart-plus mr-2"></i> BUY CREDITS</a>
+            @endrole
+        </div>
+    </div>
     <div class="row text-center">
         <div class="col-12 col-md-6 col-lg-4 mb-3">
             <div class="card shadow">
@@ -98,14 +108,7 @@
         </div>
 
     </div>
-    <div class="row">
-        <div class="col-12 text-center">
-            <h4>If you'd like to top-up your account - click on the button below</h4>
-            @role('student')
-                <a href="{{ route('buy_credits') }}" class="btn btn-green text-white p-2 px-3 my-4 ml-4 font-weight-bold display-6 shadow"><i class="fas fa-cart-plus mr-2"></i> BUY CREDITS</a>
-            @endrole
-        </div>
-    </div>
+    
 
 </div>
 
