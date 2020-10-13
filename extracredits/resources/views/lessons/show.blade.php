@@ -26,6 +26,10 @@
         @endif
       @endisset
     @endrole
+
+    @role('teacher|superadmin')
+      <div id="vimeo-player"></div>
+    @endrole
     
     <h1 class="font-weight-bold my-2">{{ $lesson->title}}</h1>
     <a href="{{ route('subjects-view', [$lesson->subject->name]) }}">{{ ucfirst($lesson->subject->name) }}</a> >> <a href="{{  route('subject.topic', [$lesson->subject->name, $lesson->topic->subcategory->slug, $lesson->topic->slug])}}">{{ $lesson->topic->name }}</a>
