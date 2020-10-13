@@ -3,6 +3,11 @@
 @section('extra_styles')
 <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
 <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
+<style>
+    #html5-watermark {
+        display: none !important;
+    }
+</style>
 @endsection
 
 @section('extra_scripts')
@@ -46,8 +51,11 @@
 
     </div>
 </div>
-<div class="col-md-6 col-sm-12">
+<div class="col-md-6 col-sm-12 text-center">
+    <a href="https://player.vimeo.com/video/453378723" class="html5lightbox" title="Introduction video">
     <img src="{{ asset('images/home-hero.svg') }}" alt="extra credit home page">
+    <button class="btn btn-primary mt-3"><i class="fas fa-play"></i> Play intro video</button>
+    </a>
 </div>
 
 <section class="bg-blue my-4 py-4 container rounded shadow-sm">
