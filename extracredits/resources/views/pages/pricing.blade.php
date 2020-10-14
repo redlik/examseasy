@@ -36,6 +36,7 @@
                 </div>
                 <div class="card-body text-center">
                     <h4 class="card-title text-center">€9.99</h4>
+                    <p class="font-weight-bold"><small>€9.99 per video</small></p>
                     @guest
                     <a href="{{ route('register') }}" class="btn btn-primary">Sign up now</a>
                     @endguest
@@ -49,6 +50,7 @@
                 </div>
                 <div class="card-body text-center">
                     <h4 class="card-title text-center">€39.99</h4>
+                    <p class="font-weight-bold"><small>€7.99 per video</small></p>
                     @guest
                     <a href="{{ route('register') }}" class="btn btn-primary">Sign up now</a>
                     @endguest
@@ -63,6 +65,7 @@
                 </div>
                 <div class="card-body text-center">
                     <h4 class="card-title text-center">€99.99</h4>
+                    <p class="font-weight-bold"><small>€6.60 per video</small></p>
                     @guest
                     <a href="{{ route('register') }}" class="btn btn-primary">Sign up now</a>
                     @endguest
@@ -76,6 +79,7 @@
                 </div>
                 <div class="card-body text-center">
                     <h4 class="card-title text-center">€249.99</h4>
+                    <p class="font-weight-bold"><small>€5.00 per video</small></p>
                     @guest
                     <a href="{{ route('register') }}" class="btn btn-primary">Sign up now</a>
                     @endguest
@@ -89,6 +93,7 @@
                 </div>
                 <div class="card-body text-center">
                     <h4 class="card-title text-center">€349.99</h4>
+                    <p class="font-weight-bold"><small>€3.49 per video</small></p>
                     @guest
                     <a href="{{ route('register') }}" class="btn btn-primary">Sign up now</a>
                     @endguest
