@@ -36,7 +36,7 @@
                 </div>
                 <div class="card-body text-center">
                     <h4 class="card-title text-center">€9.99</h4>
-                    <p class="font-weight-bold"><small>€9.99 per video</small></p>
+                    <p class="font-weight-bold"><small>€9.99 per credit<sup>*</sup></small></p>
                     @guest
                     <a href="{{ route('register') }}" class="btn btn-primary">Sign up now</a>
                     @endguest
@@ -50,7 +50,7 @@
                 </div>
                 <div class="card-body text-center">
                     <h4 class="card-title text-center">€39.99</h4>
-                    <p class="font-weight-bold"><small>€7.99 per video</small></p>
+                    <p class="font-weight-bold"><small>€7.99 per credit<sup>*</sup></small></p>
                     @guest
                     <a href="{{ route('register') }}" class="btn btn-primary">Sign up now</a>
                     @endguest
@@ -65,7 +65,7 @@
                 </div>
                 <div class="card-body text-center">
                     <h4 class="card-title text-center">€99.99</h4>
-                    <p class="font-weight-bold"><small>€6.60 per video</small></p>
+                    <p class="font-weight-bold"><small>€6.60 per credit<sup>*</sup></small></p>
                     @guest
                     <a href="{{ route('register') }}" class="btn btn-primary">Sign up now</a>
                     @endguest
@@ -79,7 +79,7 @@
                 </div>
                 <div class="card-body text-center">
                     <h4 class="card-title text-center">€249.99</h4>
-                    <p class="font-weight-bold"><small>€5.00 per video</small></p>
+                    <p class="font-weight-bold"><small>€5.00 per credit<sup>*</sup></small></p>
                     @guest
                     <a href="{{ route('register') }}" class="btn btn-primary">Sign up now</a>
                     @endguest
@@ -93,7 +93,7 @@
                 </div>
                 <div class="card-body text-center">
                     <h4 class="card-title text-center">€349.99</h4>
-                    <p class="font-weight-bold"><small>€3.49 per video</small></p>
+                    <p class="font-weight-bold"><small>€3.49 per credit<sup>*</sup></small></p>
                     @guest
                     <a href="{{ route('register') }}" class="btn btn-primary">Sign up now</a>
                     @endguest
@@ -107,11 +107,15 @@
                 </div>
                 <div class="card-body text-center">
                     <h4 class="card-title text-center">€499.99</h4>
+                    <p class="font-weight-bold"><small>Unlimited access to all videos</small></p>
                     <a href="" class="btn btn-primary disabled">Coming Soon</a>
                 </div>
             </div>
         </div>
 
+    </div>
+    <div class="row text-center">
+        <p class="mx-auto">* Most of our videos have 1 credit cost but there are few, longer ones, which will cost 2 credits from you allowance.</p>
     </div>
     
 
