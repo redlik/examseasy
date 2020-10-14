@@ -115,7 +115,7 @@
 
     </div>
     <div class="row text-center">
-        <p class="mx-auto">* Most of our videos have 1 credit cost but there are few, longer ones, which will cost 2 credits from you allowance.</p>
+        <p class="mx-auto">* Most of our videos have 1 credit cost but there are few, longer ones, which will cost 2 credits from your allowance.</p>
     </div>
     
 
