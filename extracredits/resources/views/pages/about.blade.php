@@ -50,9 +50,9 @@
             <p>Labhras White returned to teaching Science and Biology in 2010 having previously worked in the private and public sectors as a qualified Ecologist and Conservationist.  He taught in the UK for 6 years where he delivered both AS and A2 Biology. Labhras has been teaching Leaving Certificate Biology since his return to Ireland in 2016. He has a passion for Science and Biology, and hopes that this is transmitted in his subject content.</p>
         </div>
         <div class="col-9 col-lg-4 mx-auto mb-3">
-            <img src="images/eamon.jpg" class="img-fluid rounded-circle mb-3 shadow" alt="" style="height: 14rem">
-            <h4 class="font-weight-bold">Eamon O Connor</h4>
-            <p>Eamon O Connor has vast classroom experience, with over 14 years of teaching Business and Maths, both in Ireland and in the UK. He has a passion for maximising student performance under exam conditions. Having worked with the State Exams Commission as an Assistant Examiner, he will offer numerous hints and tips to enable students to reach their full potential in the Leaving Certificate Business examination.</p>
+            <img src="images/mags.jpg" class="img-fluid rounded-circle mb-3 shadow" alt="" style="height: 14rem">
+            <h4 class="font-weight-bold">Mags Alley</h4>
+            <p>Mags has been teaching both Chemistry and Mathematics for over a decade. She has extensive experience with both the State Examinations Commission and in conducting Chemistry Christmas and Easter revision courses. Having achieved a Masters in Education of Chemistry, Mags focuses on driving and motivating her students by providing them with the tools required to breakdown the chemistry paper to unlock their maximum potential.</p>
         </div>
     </div>
     <div class="row">
@@ -61,7 +61,10 @@
             <h4 class="font-weight-bold">Vincent Foley</h4>
             <p>Vincent Foley has been teaching both leaving certificate English and History since 1997. As well as lengthy classroom experience, he has worked for the Sate Exams Commission as an Assistant Examiner for 12 years. Vincent has hosted numerous student seminars, teacher workshops and revision courses. He has written and contributed to several leaving certificate texts for Folens Publishers. </p>
         </div>
-        <div class="col-9 col-lg-4 mx-auto">
+        <div class="col-9 col-lg-4 mx-auto mb-3">
+            <img src="images/eamon.jpg" class="img-fluid rounded-circle mb-3 shadow" alt="" style="height: 14rem">
+            <h4 class="font-weight-bold">Eamon O Connor</h4>
+            <p>Eamon O Connor has vast classroom experience, with over 14 years of teaching Business and Maths, both in Ireland and in the UK. He has a passion for maximising student performance under exam conditions. Having worked with the State Exams Commission as an Assistant Examiner, he will offer numerous hints and tips to enable students to reach their full potential in the Leaving Certificate Business examination.</p>
         </div>
     </div>
 </div>
