@@ -136,6 +136,10 @@
                 <img src="{{ asset('images/construction_sample.png') }}" class="img-fluid"></a>
         </div>
         <div class="col-12">
+            <a href="https://player.vimeo.com/video/469312386" class="html5lightbox" title="Maths Sample Video">
+                <img src="{{ asset('images/maths_sample.png') }}" class="img-fluid"></a>
+        </div>
+        <div class="col-12">
             <a href="https://player.vimeo.com/video/464780279" class="html5lightbox" title="History Sample Video">
                 <img src="{{ asset('images/history_sample.png') }}" class="img-fluid"></a>
         </div>
