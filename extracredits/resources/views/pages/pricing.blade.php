@@ -108,7 +108,9 @@
                 <div class="card-body text-center">
                     <h4 class="card-title text-center">€499.99</h4>
                     <p class="font-weight-bold"><small>Unlimited access to all videos</small></p>
-                    <a href="" class="btn btn-primary disabled">Coming Soon</a>
+                    @guest
+                    <a href="{{ route('register') }}" class="btn btn-primary">Sign up now</a>
+                    @endguest
                 </div>
             </div>
         </div>
