@@ -98,7 +98,7 @@ class PagesController extends Controller
 
     public function dashboard_student_panel($id) {
         $user = User::where('id',$id)->first();
-        $lessons = Lesson::has('user')->get();
+        $lessons = User::find($id)->lesson()->get();
         $today = Carbon::now();
         $transactions = Transaction::where('user_id', $user->id)->get();
         if (Carbon::parse($user->expiry_date)->greaterThan($today) ) {
