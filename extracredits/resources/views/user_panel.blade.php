@@ -1,11 +1,7 @@
 @extends('layouts.app')
 
 @section('show_credits')
-    @auth
-        @role('student')
-        <div class="credit-box d-flex align-items-center"><div class="text-secondary text-small text-center">Credits <br/>remaining:</div><div class="credit-number">{{ Auth::user()->credits }}</div></div>
-        @endrole
-    @endauth
+    
 @endsection
 
 @section('content')
@@ -17,8 +13,12 @@
         </div>
         <div class="col-sm-12 col-md-9">
             <h3 class="mb-4">User name: <strong>{{ Auth::user()->name }}</strong></h3>
-            <h4>Number of credits: <strong>{{ $user->credits }}</strong></h4>
-            <a href="{{ route('buy_credits') }}" class="btn btn-success mt-2">Buy more credits</a>
+            @if (Auth::user()->unlimited == 1)
+                <h4 class="unlimited">Unlimited Access</h4>
+            @else
+                <h4>Number of credits: <strong>{{ $user->credits }}</strong></h4>
+                <a href="{{ route('buy_credits') }}" class="btn btn-success mt-2">Buy more credits</a>
+            @endif
             <h6 class="my-3">Email: <strong>{{ $user->email }}</strong></h6>
             <h6>Registration date: <strong>{{ $user->created_at->format('d/m/Y') }}</strong></h6>
             <h6>Expiry date: <strong>{{ $user->expiry_date->format('d/m/Y') }} - {{ $valid ?? '' }} days left</strong></h6>
@@ -33,33 +33,37 @@
                 {{ session()->get('success_message') }}
             </div>
             @endif
-            <h4 class="my-4">List of unlocked content</h4>
-                <table class="table">
-                    <thead class="thead-dark rounded">
-                        <tr>
-                            <th scope="col">Title</th>
-                            {{-- <th scope="col">Unlocked on</th> --}}
-                            <th scope="col">Credit cost</th>
-                            <th scope="col">Operations</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($lessons as $lesson)
-                        <tr>
-                            <th scope="row">
-                                {{ $lesson->title }}<br>
-                                <span class="text-secondary"><small>{{ ucfirst($lesson->subject->name) }} >>
-                                        {{ $lesson->topic->subcategory->name }} >> {{ $lesson->topic->name }}</small></span>
-                            </th>
-                            {{-- <td>{{ Auth::user()->lesson->first()->pivot->created_at->format('d/m/Y') }}</td> --}}
-                            <td>{{ $lesson->credit_cost }}</td>
-                            <td><a href="{{ route('lesson_canonical_view', [$lesson->subject->name, $lesson->topic->subcategory->slug, $lesson->topic->slug, $lesson->slug]) }}"
-                                    class="text-success mr-2" title="View lesson"><i class="far fa-eye"></i> View lesson</a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+            @if (Auth::user()->unlimited == 0)
+                <div id="lessons-table">
+                    <h4 class="my-4">List of unlocked content</h4>
+                    <table class="table">
+                        <thead class="thead-dark rounded">
+                            <tr>
+                                <th scope="col">Title</th>
+                                {{-- <th scope="col">Unlocked on</th> --}}
+                                <th scope="col">Credit cost</th>
+                                <th scope="col">Operations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($lessons as $lesson)
+                            <tr>
+                                <th scope="row">
+                                    {{ $lesson->title }}<br>
+                                    <span class="text-secondary"><small>{{ ucfirst($lesson->subject->name) }} >>
+                                            {{ $lesson->topic->subcategory->name }} >> {{ $lesson->topic->name }}</small></span>
+                                </th>
+                                {{-- <td>{{ Auth::user()->lesson->first()->pivot->created_at->format('d/m/Y') }}</td> --}}
+                                <td>{{ $lesson->credit_cost }}</td>
+                                <td><a href="{{ route('lesson_canonical_view', [$lesson->subject->name, $lesson->topic->subcategory->slug, $lesson->topic->slug, $lesson->slug]) }}"
+                                        class="text-success mr-2" title="View lesson"><i class="far fa-eye"></i> View lesson</a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            @endif
             <h4 class="my-4">List of transactions</h4>
                 <table class="table">
                     <thead class="thead-dark rounded">

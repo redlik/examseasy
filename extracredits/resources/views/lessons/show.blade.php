@@ -5,26 +5,26 @@
 @endsection
 
 @section('show_credits')
-    @auth
-        @role('student')
-        <div class="credit-box d-flex align-items-center"><div class="text-secondary text-small text-center">Credits <br/>remaining:</div><div class="credit-number">{{ Auth::user()->credits }}</div></div>
-        @endrole
-    @endauth
+  <x-creditbox />
 @endsection
 
 @section('content')
 <div class="col bg-white rounded shadow-sm p-2">
     @role('student')
-      @isset($unlocked)
-        @if ($unlocked)
-          <div id="vimeo-player"></div>
-        @else
-        <div class="d-flex justify-content-center align-items-center" style="height:300px">
-            <i class="far fa-frown-open mr-2" style="font-size: 5rem; color: #bfbfbf"></i>
-            <h3 class="text-center">Looks like you have't unlocked that video with your credits. </br/>Go back and unlock it first.</h3>
-        </div>
-        @endif
-      @endisset
+      @if (Auth::user()->unlimited == 1)
+        <div id="vimeo-player"></div>
+      @else
+        @isset($unlocked)
+          @if ($unlocked)
+            <div id="vimeo-player"></div>
+          @else
+          <div class="d-flex justify-content-center align-items-center" style="height:300px">
+              <i class="far fa-frown-open mr-2" style="font-size: 5rem; color: #bfbfbf"></i>
+              <h3 class="text-center">Looks like you have't unlocked that video with your credits. </br/>Go back and unlock it first.</h3>
+          </div>
+          @endif
+        @endisset
+      @endif
     @endrole
 
     @role('teacher|superadmin')

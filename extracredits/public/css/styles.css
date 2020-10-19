@@ -119,6 +119,11 @@ html {
 
 }
 
+.unlimited {
+    font-weight: 700;
+    color: #783266;
+}
+
 .credit-box {
     background-color: #f5f5f5;
     padding: 10px;

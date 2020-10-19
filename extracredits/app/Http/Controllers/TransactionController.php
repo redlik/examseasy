@@ -30,6 +30,9 @@ class TransactionController extends Controller
             case 100:
                 $amount = 349.99;
                 break;
+            case 999:
+                $amount = 499.99;
+                break;
             default:
                 $amount = 39.99;
         }
@@ -50,13 +53,21 @@ class TransactionController extends Controller
                 $user->credits = $existing_credits + $credit;
                 $user->save();
 
+                // Adding unlimited if selected 
+                if ($credit == 999) {
+                    $user->unlimited = 1;
+                    $user->save();
+                    $request->session()->flash('success_message', 'Thank you for the purchase, you have now unlimited access to all current and future videos');
+                } else {
+                    $request->session()->flash('success_message', 'Thank you for the purchase, the credits has been added to your account');
+                }
+
                 //Saving transaction details
                 $transaction->user_id = Auth::id();
                 $transaction->amount = $amount;
                 $transaction->save();
 
                 // session(['success_message' => 'Thank you for the purchase, the credits has been added to your account']);
-                $request->session()->flash('success_message', 'Thank you for the purchase, the credits has been added to your account');
                 $transactions = Transaction::where('user_id', Auth::id())->get();
                 $lessons = User::find(Auth::id())->lesson()->get();
                 return view('user_panel', ['user' => $user, 'lessons' => $lessons, 'transactions' => $transactions]);
