@@ -1,14 +1,7 @@
 @extends('layouts.app')
 
 @section('show_credits')
-@auth
-@role('student')
-<div class="credit-box d-flex align-items-center">
-    <div class="text-secondary text-small text-center">Credits <br />remaining:</div>
-    <div class="credit-number">{{ Auth::user()->credits }}</div>
-</div>
-@endrole
-@endauth
+    <x-creditbox />
 @endsection
 
 @section('content')
