@@ -15,8 +15,8 @@
 <div class="container">
     <div class="row">
         <div class="col-12 text-center">
-            <h6>If you'd like to top-up your account now - click on the button below</h6>
             @role('student')
+            <h6>If you'd like to top-up your account now - click on the button below</h6>
                 <a href="{{ route('buy_credits') }}" class="btn btn-green text-white p-2 px-3 my-4 ml-4 font-weight-bold display-6 shadow"><i class="fas fa-cart-plus mr-2"></i> BUY CREDITS</a>
             @endrole
         </div>
