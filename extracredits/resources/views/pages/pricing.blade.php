@@ -15,8 +15,8 @@
 <div class="container">
     <div class="row">
         <div class="col-12 text-center">
-            <h6>If you'd like to top-up your account now - click on the button below</h6>
             @role('student')
+            <h6>If you'd like to top-up your account now - click on the button below</h6>
                 <a href="{{ route('buy_credits') }}" class="btn btn-green text-white p-2 px-3 my-4 ml-4 font-weight-bold display-6 shadow"><i class="fas fa-cart-plus mr-2"></i> BUY CREDITS</a>
             @endrole
         </div>
@@ -28,8 +28,8 @@
                     <h2 class="text-center font-weight-bold">1 Credit</h2>
                 </div>
                 <div class="card-body text-center">
-                    <h4 class="card-title text-center">€9.99</h4>
-                    <p class="font-weight-bold"><small>€9.99 per credit<sup>*</sup></small></p>
+                    <h4 class="card-title text-center">€4.99</h4>
+                    <p class="font-weight-bold"><small>€4.99 per credit<sup>*</sup></small></p>
                     @guest
                     <a href="{{ route('register') }}" class="btn btn-primary">Sign up now</a>
                     @endguest
@@ -42,8 +42,8 @@
                     <h2 class="text-center font-weight-bold">5 Credits</h2>
                 </div>
                 <div class="card-body text-center">
-                    <h4 class="card-title text-center">€39.99</h4>
-                    <p class="font-weight-bold"><small>€7.99 per credit<sup>*</sup></small></p>
+                    <h4 class="card-title text-center">€19.99</h4>
+                    <p class="font-weight-bold"><small>€3.99 per credit<sup>*</sup></small></p>
                     @guest
                     <a href="{{ route('register') }}" class="btn btn-primary">Sign up now</a>
                     @endguest
@@ -57,8 +57,8 @@
                     <h2 class="text-center font-weight-bold">15 Credits</h2>
                 </div>
                 <div class="card-body text-center">
-                    <h4 class="card-title text-center">€99.99</h4>
-                    <p class="font-weight-bold"><small>€6.60 per credit<sup>*</sup></small></p>
+                    <h4 class="card-title text-center">€49.99</h4>
+                    <p class="font-weight-bold"><small>€3.34 per credit<sup>*</sup></small></p>
                     @guest
                     <a href="{{ route('register') }}" class="btn btn-primary">Sign up now</a>
                     @endguest
@@ -71,8 +71,8 @@
                     <h2 class="text-center font-weight-bold">50 Credits</h2>
                 </div>
                 <div class="card-body text-center">
-                    <h4 class="card-title text-center">€249.99</h4>
-                    <p class="font-weight-bold"><small>€5.00 per credit<sup>*</sup></small></p>
+                    <h4 class="card-title text-center">€149.99</h4>
+                    <p class="font-weight-bold"><small>€2.99 per credit<sup>*</sup></small></p>
                     @guest
                     <a href="{{ route('register') }}" class="btn btn-primary">Sign up now</a>
                     @endguest
@@ -85,8 +85,8 @@
                     <h2 class="text-center font-weight-bold">100 Credits</h2>
                 </div>
                 <div class="card-body text-center">
-                    <h4 class="card-title text-center">€349.99</h4>
-                    <p class="font-weight-bold"><small>€3.49 per credit<sup>*</sup></small></p>
+                    <h4 class="card-title text-center">€249.99</h4>
+                    <p class="font-weight-bold"><small>€2.49 per credit<sup>*</sup></small></p>
                     @guest
                     <a href="{{ route('register') }}" class="btn btn-primary">Sign up now</a>
                     @endguest

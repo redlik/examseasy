@@ -16,25 +16,25 @@ class TransactionController extends Controller
         $transaction = new Transaction($request->all());
         switch ($credit) {
             case 1:
-                $amount = 9.99;
+                $amount = 4.99;
                 break;
             case 5:
-                $amount = 39.99;
+                $amount = 19.99;
                 break;
             case 15:
-                $amount = 99.99;
+                $amount = 49.99;
                 break;
             case 50:
-                $amount = 249.99;
+                $amount = 149.99;
                 break;
             case 100:
-                $amount = 349.99;
+                $amount = 249.99;
                 break;
             case 999:
                 $amount = 499.99;
                 break;
             default:
-                $amount = 39.99;
+                $amount = 19.99;
         }
 
         try {
