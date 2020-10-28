@@ -71,7 +71,7 @@
             </tr>
             @endforeach
         </tbody>
-        {{ $students->links() }}
     </table>
+    {{ $students->links() }}
 </div>
 @endsection
