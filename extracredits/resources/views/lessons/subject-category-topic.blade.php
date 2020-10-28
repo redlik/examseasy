@@ -26,11 +26,8 @@
                                             <div class="mb-auto p-sm-2">
                                                 <h5 class="display-6 font-weight-bold">{{ $lesson->title }}</h5>
                                                 <p class="card-text">{{ Str::words($lesson->description, 20, '  ...') }}<br/>
-                                                    @auth
-                                                        @if (Auth::user()->unlimited == 0)
+                                                   
                                                         <span class="font-weight-bold">Credit cost: {{ $lesson->credit_cost }}</span></p>
-                                                        @endif
-                                                    @endauth
                                             </div>
                                            <div class="p-sm-2">
                                                @role('student')
