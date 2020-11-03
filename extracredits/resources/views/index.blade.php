@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('meta')
+    @include('meta::manager', [
+        'title'         => 'Exams Made Easy - Leaving Cert Exams Preparation',
+        'description'   => 'Exams Made Easy will help you prepare for the Leaving Cert exam. We go through all previous exam questions in very detail',
+        'image'         => 'images/eme-logo.svg',
+    ])
+@endsection
+
 @section('extra_styles')
 <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
 <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
@@ -79,7 +87,7 @@
         <div class="col-12 col-md-4 text-center px-4">
             <img src="{{ asset('images/sheet.svg') }}" height="77px" class="mb-3" alt="">
             <h4 class="text-uppercase font-weight-black">Real Exam Questions</h4>
-            <p>All video content is based on previous State examination Papers. You only unlock the content that you need to study.</p>
+            <p>All video content is based on previous State Examination Papers. You only unlock the content that you need to study.</p>
         </div>
         <div class="col-12 col-md-4 text-center">
             <img src="{{ asset('images/tutorial.svg') }}" height="77px" class="mb-3" alt="">

@@ -8,8 +8,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- Block search indeing -->
-    <meta name="robots" content="noindex">
+    <!-- SEO Manager -->
+    @yield('meta')
 
     <title>Exams Made Easy</title>
 
