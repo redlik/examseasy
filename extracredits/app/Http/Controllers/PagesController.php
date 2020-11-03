@@ -91,7 +91,7 @@ class PagesController extends Controller
     }
 
     public function dashboard_students() {
-        $students = User::role('student')->get();
+        $students = User::role('student')->paginate(25);
 
         return view('dashboard.students', compact("students"));
     }
@@ -191,7 +191,6 @@ class PagesController extends Controller
 
     public function subjects() {
         $subjects = Subject::orderby('name', 'asc')->get();
-        // $subjects = $subjects->whereNotIn('id', [8, 10]);
         return view('pages.subjects', compact('subjects'));
     }
 
