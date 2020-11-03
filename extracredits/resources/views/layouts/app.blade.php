@@ -8,9 +8,6 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- Block search indeing -->
-    <meta name="robots" content="noindex">
-
     <title>Exams Made Easy</title>
 
     <!-- Scripts -->
