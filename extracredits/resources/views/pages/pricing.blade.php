@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('meta')
+    @include('meta::manager', [
+        'title'         => 'Pricing | Exams Made Easy - Leaving Cert Exams Preparation',
+        'description'   => 'Our unique credit system allows you to unlock only the content you want to see. No monthly fees.',
+        'image'         => 'images/eme-logo.svg',
+    ])
+@endsection
+
 @section('show_credits')
     <x-creditbox />
 @endsection

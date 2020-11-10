@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('meta')
+    @include('meta::manager', [
+        'title'         => 'Subjects | Exams Made Easy - Leaving Cert Exams Subjects',
+        'description'   => 'Leaving Cert and Junior Cert exam paper questions listed by subject and topics. Join now!',
+        'image'         => 'images/eme-logo.svg',
+    ])
+@endsection
+
 @section('show_credits')
     <x-creditbox />
 @endsection
@@ -8,7 +16,7 @@
 <div class="col-12">
     <div class="col-12 mb-4">
         <h1 class="text-center main-heading display-3 mb-3">Subjects</h1>
-        <h5 class="text-center text-secondary">All the lessons are divided into main subjects. Click on any icon to view the details.
+        <h5 class="text-center text-secondary">All the lessons are divided into main subjects. Click on subject's icon to view the details.
         </h5>
         @if(session()->has('first_time'))
         <div class="alert alert-warning alert-dismissible fade show text-center font-weight-bold" role="alert">

@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('meta')
+    @include('meta::manager', [
+        'title'         => 'How it works | Exams Made Easy - Leaving Cert Exams Preparation',
+        'description'   => 'Leaving Exams video tutorials',
+        'image'         => 'images/eme-logo.svg',
+    ])
+@endsection
+
 @section('content')
 <div class="col-12 mb-4">
     <h1 class="text-center main-heading display-3">How it works</h1>
