@@ -15,7 +15,7 @@ class AddFullNameToSubject extends Migration
     {
         Schema::table('subjects', function (Blueprint $table) {
            
-            $table->boolean('full_name')->after('name')->nullable();
+            $table->string('full_name')->after('name')->nullable();
         });
     }
 
