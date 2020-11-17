@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-12 text-center mb-4">
                 <h1 class="text-uppercase font-weight-black">{{ ucfirst($topic->name) }}</h1>
-                <p>Go back to <a href="{{ route('subjects-view', [$subject->name]) }}">{{ ucfirst($subject->name) }}</a></p>
+                <p>Go back to <a href="{{ route('subjects-view', [$subject->name]) }}">{{ ucfirst($subject->full_name) }}</a></p>
             </div>
         </div>
         <div class="row">
