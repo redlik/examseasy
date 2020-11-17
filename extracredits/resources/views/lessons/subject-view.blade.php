@@ -9,7 +9,7 @@
 <div class="container bg-white rounded-lg shadow p-3">
     <div class="row">
         <div class="col-12 text-center">
-            <h1 class="text-uppercase font-weight-black">{{ ucfirst($subject->name) }} lessons</h1>
+            <h1 class="text-uppercase font-weight-black">{{ ucfirst($subject->full_name) }} lessons</h1>
             <p>Click on individual topic to view lessons</p>
         </div>
     </div>
