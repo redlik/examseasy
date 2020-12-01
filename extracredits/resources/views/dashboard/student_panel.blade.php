@@ -132,23 +132,23 @@
                 <div class="modal-body">
                     @csrf
                     <input type="hidden" name="student_id" value={{ $user->id }} />
-                    <div class="custom-control custom-radio custom-control-inline">
+                    <div class="custom-control custom-radio custom-control-inline mb-2">
                         <input type="radio" id="credits1" name="creditTopupRadio" class="custom-control-input" checked value=1>
                         <label class="custom-control-label" for="credits1">+1 Credit</label>
                     </div>
-                    <div class="custom-control custom-radio custom-control-inline">
+                    <div class="custom-control custom-radio custom-control-inline mb-2">
                         <input type="radio" id="credits5" name="creditTopupRadio" class="custom-control-input"  value=5>
                         <label class="custom-control-label" for="credits5">+5 Credits</label>
                     </div>
-                    <div class="custom-control custom-radio custom-control-inline">
+                    <div class="custom-control custom-radio custom-control-inline mb-2">
                         <input type="radio" id="credits10" name="creditTopupRadio" class="custom-control-input"  value=10>
                         <label class="custom-control-label" for="credits10">+10 Credits</label>
                     </div>
-                    <div class="custom-control custom-radio custom-control-inline">
+                    <div class="custom-control custom-radio custom-control-inline mb-2">
                         <input type="radio" id="credits25" name="creditTopupRadio" class="custom-control-input" value=25>
                         <label class="custom-control-label" for="credits25">+25 Credits</label>
                     </div>
-                    <div class="custom-control custom-radio custom-control-inline">
+                    <div class="custom-control custom-radio custom-control-inline mb-2">
                         <input type="radio" id="credits50" name="creditTopupRadio" class="custom-control-input" value=50>
                         <label class="custom-control-label" for="credits50">+50 Credits</label>
                     </div>
