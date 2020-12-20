@@ -37,6 +37,10 @@ Route::group(['middleware' => ['role:teacher|superadmin', 'auth']], function () 
     Route::get('/dashboard/emails', 'PagesController@dashboard_emails')->name('dashboard.emails');
     Route::get('/dashboard/coupons/enable/{id}', 'CouponController@enable')->name('dashboard.coupons.enable');
     Route::get('/dashboard/coupons/delete/{id}', 'CouponController@delete')->name('dashboard.coupons.delete');
+    Route::get('/dashboard/paperadvice', 'PaperadviceController@dashboard_index')->name('dashboard.paperadvice');
+    Route::get('/dashboard/paperadvice/delete/{id}', 'PaperadviceController@delete')->name('dashboard.paperadvice.delete');
+    Route::post('/dashboard/paperadvice/create', 'PaperadviceController@store');
+    Route::get('/dashboard/paperadvice/delete/{id}', 'PaperadviceController@destroy')->name('dashboard.paperadvice.delete');
     Route::post('/subcategory/create', 'SubcategoryController@store');
     Route::post('/subcategory/update', 'SubcategoryController@update');
     Route::get('/subcategory-remove/{category}', 'SubcategoryController@destroy');
@@ -79,20 +83,7 @@ Route::get('/{subject}/{category}/{topic}', 'LessonsController@subject_category_
 
 Route::get('/subject-view', 'LessonsController@subjectsView')->name('subjectsView');
 
-
-
-// Route::get('test', function () {
-
-//     $user = [
-//         'name' => 'Mahedi Hasan',
-//         'info' => 'Laravel Developer'
-//     ];
-
-//     \Mail::to('mail@codechief.org')->send(new \App\Mail\NewMail($user));
-
-//     dd("success");
-
-// });
+Route::get('/exam-paper-tips', 'PaperadviceController@index')->name('paperadvice.index');
 
 Route::get('/subjects', 'PagesController@subjects')->name('pages.subjects');
 

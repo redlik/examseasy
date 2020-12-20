@@ -14,6 +14,9 @@
         <li class="pl-3 mb-3"><a href="{{ route('dashboard.categories') }}" class="text-white"><i
                     class="fas fa-chevron-right pr-1"></i> Categories & Topics</a></li>
         <hr class="sidebar-rule">
+        <li class="pl-3 mb-3"><a href="{{ route('dashboard.paperadvice') }}" class="text-white"><i
+            class="fas fa-chevron-right pr-1"></i> Paper Advice Videos</a></li>
+        <hr class="sidebar-rule">
         <li class="pl-3 mb-3"><a href="{{ route('dashboard.students') }}" class="text-white"><i
                     class="fas fa-chevron-right pr-1"></i> Students</a></li>
         <li class="pl-3 mb-3"><a href="{{ route('dashboard.transactions') }}" class="text-white"><i
