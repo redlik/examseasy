@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Database\Eloquent\Builder;
+use Stripe\Stripe;
 
 class PagesController extends Controller
 {
@@ -74,7 +75,7 @@ class PagesController extends Controller
             return view('dashboard.lessons', compact("lessons", "subjects", "subcategories", "selected_category"));
         }
 
-        
+
     }
 
     public function lesson_view($subject, $subcategory, $topic, $lesson_slug) {
@@ -143,9 +144,9 @@ class PagesController extends Controller
 
         return view('dashboard.transactions', compact("transactions"));
     }
-    
+
     public function dashboard_emails() {
-        
+
 
         return view('dashboard.emails');
     }
@@ -183,7 +184,7 @@ class PagesController extends Controller
         $user->credits = $new_credit;
         $user->save();
 
-        $transactions = Transaction::has('user')->get();    
+        $transactions = Transaction::has('user')->get();
         $lessons = Lesson::withCount('user')->get();
 
         return view('user_panel', compact("user", "lessons", "transactions"));
@@ -200,5 +201,93 @@ class PagesController extends Controller
 
         return view('pages.myvideos', compact('lessons'));
 
+    }
+
+    public function checkout() {
+        return view ('pages.checkout');
+    }
+
+    public function stripeSession(Request $request, Response $response) {
+        \Stripe\Stripe::setApiKey('sk_test_0qpl1hs9SHkT9UB8MH9X1R43');
+        // dd(json_decode($request->input('amount'), true));
+        $amount = json_decode($request->input('amount'), true);
+
+        switch ($amount) {
+            case 4.99:
+                $credit = 1;
+                break;
+            case 19.99:
+                $credit = 5;
+                break;
+            case 49.99:
+                $credit = 15;
+                break;
+            case 149.99:
+                $credit = 50;
+                break;
+            case 249.99:
+                $credit = 100;
+                break;
+            case 499.99:
+                $credit = 999;
+                break;
+            default:
+                $credit = 19.99;
+        }
+
+        $session = \Stripe\Checkout\Session::create([
+            'payment_method_types' => ['card'],
+            'line_items' => [[
+              'price_data' => [
+                'currency' => 'eur',
+                'product_data' => [
+                  'name' => 'Credit Topup',
+                ],
+                'unit_amount' => $amount,
+              ],
+              'quantity' => 1,
+            ]],
+            'mode' => 'payment',
+            'success_url' => 'https://examsmadeeasy.ie/thankyou?session={CHECKOUT_SESSION_ID}',
+            'cancel_url' => 'https://examsmadeeasy.ie/checkout',
+          ]);
+
+          return response()->json([ 'id' => $session->id ], 200);
+
+    }
+
+    public function webhook(Request $request, Response $response) {
+        \Stripe\Stripe::setApiKey('sk_test_0qpl1hs9SHkT9UB8MH9X1R43');
+
+        $payload = @file_get_contents('php://input');
+        $event = null;
+
+        try {
+            $event = \Stripe\Event::constructFrom(
+                json_decode($payload, true)
+            );
+        } catch(\UnexpectedValueException $e) {
+            // Invalid payload
+            http_response_code(400);
+            exit();
+        }
+
+        // Handle the event
+        switch ($event->type) {
+            case 'payment_intent.succeeded':
+                $paymentIntent = $event->data->object; // contains a StripePaymentIntent
+                handlePaymentIntentSucceeded($paymentIntent);
+                echo("Payment intent");
+                break;
+            case 'payment_method.attached':
+                $paymentMethod = $event->data->object; // contains a StripePaymentMethod
+                handlePaymentMethodAttached($paymentMethod);
+                break;
+            // ... handle other event types
+            default:
+                echo 'Received unknown event type ' . $event->type;
+        }
+
+        return http_response_code(200);
     }
 }
