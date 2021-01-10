@@ -20,7 +20,7 @@ Route::get('/', 'PagesController@home');
 Auth::routes();
 
 Route::group(['middleware' => ['role:teacher|superadmin', 'auth']], function () {
-    
+
     Route::get('/dashboard', 'PagesController@dashboard')->name('dashboard');
     Route::get('/dashboard/lessons', 'PagesController@dashboard_lessons')->name('dashboard.lessons');
     Route::get('/dashboard/search', 'PagesController@dashboard_lessons_search')->name('dashboard.lessons.search');
@@ -51,19 +51,19 @@ Route::group(['middleware' => ['role:teacher|superadmin', 'auth']], function () 
     Route::get('/getcategory/{id}', 'LessonsController@getCategory');
     Route::get('/gettopic/{id}', 'SubcategoryController@getTopic');
     Route::get('/remove/{id}', 'LessonsController@remove')->name('remove');
-    
 
-   
+
+
 });
 
 Route::group(['middleware' => ['role:student|superadmin']], function () {
-    
+
     Route::get('/user/student_{id}', 'PagesController@user_panel')->name('user_panel')->middleware('auth');
     Route::post('/topup/store', 'TransactionController@store')->name('transaction.store')->middleware('auth');
     Route::get('/buycredits', 'PagesController@buy_credits')->name('buy_credits')->middleware('auth');
     Route::post('/topup', 'PagesController@topup');
     Route::get('/myvideos', 'PagesController@myvideos')->name('pages.myvideos');
-   
+
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -73,6 +73,13 @@ Route::resource('/lesson', 'LessonsController')->middleware('auth');
 Route::get('/{subject}/{category}/{topic}/{lesson}', 'PagesController@lesson_view')->name('lesson_canonical_view')->middleware('auth');
 
 Route::get('/lessons', 'LessonsController@index')->name('lessons-list');
+
+/* Test checkout url */
+Route::get('/checkout', 'PagesController@checkout')->name('checkout');
+Route::post('/create-stripe-session', 'PagesController@stripeSession')->name('create.session');
+Route::post('/webhook', 'PagesController@webhook')->name('webhook');
+Route::get('/thankyou', 'PagesController@thankyou')->name('payment.success');
+
 
 
 Route::get('/unlock/{id}', 'LessonsController@isUnlocked')->name('is-unlocked');
