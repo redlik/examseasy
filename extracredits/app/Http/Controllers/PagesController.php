@@ -256,8 +256,8 @@ class PagesController extends Controller
                 'customer_name' => Auth::user()->name,
             ],
             'mode' => 'payment',
-            'success_url' => 'http://3d7407bd1191.ngrok.io/thankyou',
-            'cancel_url' => 'http://3d7407bd1191.ngrok.io/checkout',
+            'success_url' => env('STRIPE_SUCCESS'),
+            'cancel_url' => env('STRIPE_CANCEL'),
           ]);
 
           return response()->json([ 'id' => $session->id ], 200);
@@ -265,18 +265,23 @@ class PagesController extends Controller
     }
 
     public function webhook(Request $request, Response $response) {
-        \Stripe\Stripe::setApiKey('sk_test_0qpl1hs9SHkT9UB8MH9X1R43');
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        $endpoint_secret = env('STRIPE_WEBHOOK_SECRET');
 
         $payload = @file_get_contents('php://input');
+        $sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'];
         $event = null;
 
         try {
-            $event = \Stripe\Event::constructFrom(
-                json_decode($payload, true)
+            $event = \Stripe\Webhook::constructEvent(
+                $payload, $sig_header, $endpoint_secret
             );
-            var_dump($event);
         } catch(\UnexpectedValueException $e) {
             // Invalid payload
+            http_response_code(400);
+            exit();
+        } catch(\Stripe\Exception\SignatureVerificationException $e) {
+            // Invalid signature
             http_response_code(400);
             exit();
         }

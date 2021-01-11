@@ -224,7 +224,7 @@
                 </div>
                 <div class="form-check form-check-inline mb-3 mx-sm-auto mx-lg-2">
                     <label>
-                        <input class="form-check-input" type="radio" name="credit_topup" id="credit5" value=1999>
+                        <input class="form-check-input" type="radio" name="credit_topup" id="credit5" value=1999 checked>
                         <img src="{{ asset('images/icons/credits5a.svg') }}" alt="" style="width:150px">
                     </label>
                 </div>
