@@ -7,8 +7,8 @@ use App\Lesson;
 use App\Subcategory;
 use App\Topic;
 use App\Transaction;
-use Auth;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
@@ -212,44 +212,52 @@ class PagesController extends Controller
         // dd(json_decode($request->input('amount'), true));
         $amount = json_decode($request->input('amount'), true);
 
+        $credit = 0;
+
         switch ($amount) {
-            case 4.99:
+            case 499:
                 $credit = 1;
                 break;
-            case 19.99:
+            case 1999:
                 $credit = 5;
                 break;
-            case 49.99:
+            case 4999:
                 $credit = 15;
                 break;
-            case 149.99:
+            case 14999:
                 $credit = 50;
                 break;
-            case 249.99:
+            case 24999:
                 $credit = 100;
                 break;
-            case 499.99:
+            case 49999:
                 $credit = 999;
                 break;
             default:
-                $credit = 19.99;
+                $credit = 5;
         }
+
+        $description = "Credit Top Up x ".$credit;
 
         $session = \Stripe\Checkout\Session::create([
             'payment_method_types' => ['card'],
+            'customer_email' => Auth::user()->email,
             'line_items' => [[
               'price_data' => [
                 'currency' => 'eur',
                 'product_data' => [
-                  'name' => 'Credit Topup',
+                  'name' => $description,
                 ],
                 'unit_amount' => $amount,
               ],
               'quantity' => 1,
             ]],
+            'metadata' => [
+                'customer_name' => Auth::user()->name,
+            ],
             'mode' => 'payment',
-            'success_url' => 'https://examsmadeeasy.ie/thankyou?session={CHECKOUT_SESSION_ID}',
-            'cancel_url' => 'https://examsmadeeasy.ie/checkout',
+            'success_url' => 'http://3d7407bd1191.ngrok.io/thankyou',
+            'cancel_url' => 'http://3d7407bd1191.ngrok.io/checkout',
           ]);
 
           return response()->json([ 'id' => $session->id ], 200);
@@ -266,6 +274,7 @@ class PagesController extends Controller
             $event = \Stripe\Event::constructFrom(
                 json_decode($payload, true)
             );
+            var_dump($event);
         } catch(\UnexpectedValueException $e) {
             // Invalid payload
             http_response_code(400);
@@ -276,12 +285,49 @@ class PagesController extends Controller
         switch ($event->type) {
             case 'payment_intent.succeeded':
                 $paymentIntent = $event->data->object; // contains a StripePaymentIntent
-                handlePaymentIntentSucceeded($paymentIntent);
-                echo("Payment intent");
+                $user = User::where('email', $paymentIntent->charges->data[0]->billing_details->email)->first();
+                $amount = $paymentIntent->charges->data[0]->amount;
+
+                $credit = 0;
+
+                switch ($amount) {
+                    case 499:
+                        $credit = 1;
+                        break;
+                    case 1999:
+                        $credit = 5;
+                        break;
+                    case 4999:
+                        $credit = 15;
+                        break;
+                    case 14999:
+                        $credit = 50;
+                        break;
+                    case 24999:
+                        $credit = 100;
+                        break;
+                    case 49999:
+                        $credit = 999;
+                        break;
+                    default:
+                        $credit = 5;
+                }
+
+                $user->credits = $user->credits + $credit;
+                $user->save();
+
+                // Adding unlimited if selected
+                if ($credit == 999) {
+                    $user->unlimited = 1;
+                    $user->save();
+                    $request->session()->flash('success_message', 'Thank you for the purchase, you have now unlimited access to all current and future videos');
+                } else {
+                    $request->session()->flash('success_message', 'Thank you for the purchase, the credits has been added to your account');
+                }
+
                 break;
             case 'payment_method.attached':
                 $paymentMethod = $event->data->object; // contains a StripePaymentMethod
-                handlePaymentMethodAttached($paymentMethod);
                 break;
             // ... handle other event types
             default:
@@ -289,5 +335,13 @@ class PagesController extends Controller
         }
 
         return http_response_code(200);
+    }
+
+    public function thankyou() {
+       return view('pages.thankyou');
+    }
+
+    public function handlePaymentIntentSucceeded($paymentIntent) {
+        return print_r($paymentIntent);
     }
 }

@@ -194,6 +194,10 @@
 </style>
 @endsection
 
+@section('show_credits')
+    <x-creditbox />
+@endsection
+
 @section('content')
     @csrf
         <div class="col-12 col-md-9 mx-auto my-4">
