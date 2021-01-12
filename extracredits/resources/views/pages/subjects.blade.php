@@ -26,8 +26,25 @@
           </button>
           </div>
         @endif
+        @if(Session::has('message'))
+            <p class="alert alert-success alert-dismissible fade show text-center font-weight-bold">{{ Session::get
+            ('message') }}</p>
+        @endif
     </div>
 </div>
+@auth
+    @role('student')
+    @if (Auth::user()->claim == 0)
+    <div class="col-12 my-4">
+        <div class="d-flex justify-content-center">
+            <a href="{{ route('claim.credits', ['id' => Auth::user()->id]) }}" class="btn btn-primary btn-lg">
+                Claim your Free credits
+            </a>
+        </div>
+    @endif
+    @endrole
+</div>
+@endauth
 <div class="container">
     <div class="row">
         <div class="col-12 bg-white rounded shadow p-3">
@@ -38,7 +55,7 @@
                     <a href="{{ route('subjects-view', [$subject->name]) }}">  <img src="images/thumbnails/{{$subject->name}}_thumb.png" class="img-fluid" alt="{{ $subject->name }}"></a>
                     </div>
                   </div>
-                    
+
                 @endforeach
             </div>
         </div>
