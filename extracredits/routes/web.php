@@ -75,8 +75,7 @@ Route::get('/{subject}/{category}/{topic}/{lesson}', 'PagesController@lesson_vie
 
 Route::get('/lessons', 'LessonsController@index')->name('lessons-list');
 
-/* Test checkout url */
-Route::get('/checkout', 'PagesController@checkout')->name('checkout');
+/* New checkout urls */
 Route::post('/create-stripe-session', 'PagesController@stripeSession')->name('create.session');
 Route::post('/webhook', 'PagesController@webhook')->name('webhook');
 Route::get('/thankyou', 'PagesController@thankyou')->name('payment.success');

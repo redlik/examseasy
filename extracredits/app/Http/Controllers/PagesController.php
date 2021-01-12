@@ -203,10 +203,6 @@ class PagesController extends Controller
 
     }
 
-    public function checkout() {
-        return view ('pages.checkout');
-    }
-
     public function stripeSession(Request $request, Response $response) {
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
         // dd(json_decode($request->input('amount'), true));
