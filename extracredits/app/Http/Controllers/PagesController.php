@@ -247,6 +247,9 @@ class PagesController extends Controller
                 'currency' => 'eur',
                 'product_data' => [
                   'name' => $description,
+                    'images' => [
+                        'https://examsmadeeasy.ie/images/credit-stripe.jpg',
+                    ]
                 ],
                 'unit_amount' => $amount,
               ],
