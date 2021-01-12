@@ -12,10 +12,10 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <p>Your top up has been successful, you can now unlock the lessons</p>
-                <a href="/subjects">All Subjects</a>
-                <a href="/user/student_{{ Auth::user()->id }}">Your Dashboard</a>
+            <div class="col-12 text-center">
+                <h3 class="mb-4">Your top up has been successful, you can now unlock the lessons</h3>
+                <a href="/subjects" class="btn btn-lg btn-primary mr-4">All Subjects</a>
+                <a href="/user/student_{{ Auth::user()->id }}" class="btn btn-lg btn-success">Your Dashboard</a>
             </div>
         </div>
     </div>
