@@ -48,7 +48,6 @@
                             <th scope="col">Charge</th>
                             <th scope="col">Credits</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Email</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,7 +60,6 @@
                             <td>€{{ $transaction->amount }}</td>
                             <td>{{ $transaction->credit_topup }}</td>
                             <td>{{ $transaction->name_on_card }}</td>
-                            <td>{{ $transaction->email }}</td>
                         </tr>
                         @endforeach
                     </tbody>

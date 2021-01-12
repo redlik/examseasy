@@ -329,6 +329,14 @@ class PagesController extends Controller
                 } else {
                     $request->session()->flash('success_message', 'Thank you for the purchase, the credits has been added to your account');
                 }
+                $transaction = new Transaction();
+                $transaction->amount = $paymentIntent->charges->data[0]->amount / 100;
+                $transaction->name_on_card = $paymentIntent->charges->data[0]->billing_details->name;
+                $transaction->stripeToken = $paymentIntent->charges->data[0]->id;
+                $transaction->credit_topup = $credit;
+                $transaction->user_id = $user->id;
+
+                $transaction->save();
 
                 break;
             case 'payment_method.attached':
