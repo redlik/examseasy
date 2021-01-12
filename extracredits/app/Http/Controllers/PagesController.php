@@ -208,7 +208,7 @@ class PagesController extends Controller
     }
 
     public function stripeSession(Request $request, Response $response) {
-        \Stripe\Stripe::setApiKey('sk_test_0qpl1hs9SHkT9UB8MH9X1R43');
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         // dd(json_decode($request->input('amount'), true));
         $amount = json_decode($request->input('amount'), true);
 
