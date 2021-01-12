@@ -253,7 +253,12 @@
                     </label>
                 </div>
             </div>
-            <button id="checkout-button" class="btn btn-primary">Proceed to Checkout</button>
+            <div class="text-center">
+                <button id="checkout-button" class="btn btn-lg btn-success">
+                    Proceed to Checkout
+                    <i class="fas fa-chevron-circle-right ml-2"></i>
+                </button>
+            </div>
         </div>
     @endif
 @endsection
