@@ -261,7 +261,7 @@
 @section('bottom_scripts')
 <script type="text/javascript">
     // Create an instance of the Stripe object with your publishable API key
-    var stripe = Stripe('pk_test_4DsMDDIsp4VTuDwC1AfU1mmo');
+    var stripe = Stripe('{{ config('app.stripe_public') }}');
     var checkoutButton = document.getElementById('checkout-button');
 
     checkoutButton.addEventListener('click', function() {
