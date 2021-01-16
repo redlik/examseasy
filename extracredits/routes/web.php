@@ -90,7 +90,7 @@ Route::get('/{subject}/{category}/{topic}', 'LessonsController@subject_category_
 
 Route::get('/subject-view', 'LessonsController@subjectsView')->name('subjectsView');
 
-Route::get('/exam-paper-tips', 'PaperadviceController@index')->name('paperadvice.index');
+Route::get('/exam-paper-advice', 'PaperadviceController@index')->name('paperadvice.index');
 
 Route::get('/subjects', 'PagesController@subjects')->name('pages.subjects');
 

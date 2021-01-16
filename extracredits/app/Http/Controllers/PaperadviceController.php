@@ -14,11 +14,15 @@ class PaperadviceController extends Controller
     public function index()
     {
         $videos = Paperadvice::all();
+        foreach ($videos as &$video) {
+            $video->link = substr($video->link, -9);
+        }
+        unset($video);
 
         return view('pages.advicevideos', compact('videos'));
     }
 
-    public function dashboard_index() 
+    public function dashboard_index()
     {
         $videos = Paperadvice::all();
 
@@ -30,9 +34,9 @@ class PaperadviceController extends Controller
         return view('dashboard.paperadvice');
     }
 
-    public function store(Request $request) 
+    public function store(Request $request)
     {
-        
+
         $video = Paperadvice::create($request->all());
         $video->slug = $video->id."-".Str::slug($request->input('title'), '-');
 
