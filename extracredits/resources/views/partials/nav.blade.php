@@ -23,11 +23,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('') }}">Home</a>
                 </li>
-                
+
                 <li class="nav-item">
                     <a class="nav-link" href="/subjects">Subjects</a>
                 </li>
-               
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('paperadvice.index') }}">Exam Papers Advice</a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('how-it-works') }}">How it Works</a>
                 </li>
