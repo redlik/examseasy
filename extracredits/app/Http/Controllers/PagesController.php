@@ -203,12 +203,8 @@ class PagesController extends Controller
 
     }
 
-    public function checkout() {
-        return view ('pages.checkout');
-    }
-
     public function stripeSession(Request $request, Response $response) {
-        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
         // dd(json_decode($request->input('amount'), true));
         $amount = json_decode($request->input('amount'), true);
 
@@ -247,6 +243,9 @@ class PagesController extends Controller
                 'currency' => 'eur',
                 'product_data' => [
                   'name' => $description,
+                    'images' => [
+                        'https://examsmadeeasy.ie/images/credit-stripe.jpg',
+                    ]
                 ],
                 'unit_amount' => $amount,
               ],
@@ -265,7 +264,7 @@ class PagesController extends Controller
     }
 
     public function webhook(Request $request, Response $response) {
-        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
         $endpoint_secret = env('STRIPE_WEBHOOK_SECRET');
 
         $payload = @file_get_contents('php://input');
@@ -352,9 +351,5 @@ class PagesController extends Controller
 
     public function thankyou() {
        return view('pages.thankyou');
-    }
-
-    public function handlePaymentIntentSucceeded($paymentIntent) {
-        return print_r($paymentIntent);
     }
 }

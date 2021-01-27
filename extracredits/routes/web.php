@@ -75,8 +75,7 @@ Route::get('/{subject}/{category}/{topic}/{lesson}', 'PagesController@lesson_vie
 
 Route::get('/lessons', 'LessonsController@index')->name('lessons-list');
 
-/* Test checkout url */
-Route::get('/checkout', 'PagesController@checkout')->name('checkout');
+/* New checkout urls */
 Route::post('/create-stripe-session', 'PagesController@stripeSession')->name('create.session');
 Route::post('/webhook', 'PagesController@webhook')->name('webhook');
 Route::get('/thankyou', 'PagesController@thankyou')->name('payment.success');
@@ -91,7 +90,7 @@ Route::get('/{subject}/{category}/{topic}', 'LessonsController@subject_category_
 
 Route::get('/subject-view', 'LessonsController@subjectsView')->name('subjectsView');
 
-Route::get('/exam-paper-tips', 'PaperadviceController@index')->name('paperadvice.index');
+Route::get('/exam-paper-advice', 'PaperadviceController@index')->name('paperadvice.index');
 
 Route::get('/subjects', 'PagesController@subjects')->name('pages.subjects');
 

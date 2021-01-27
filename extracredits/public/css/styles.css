@@ -6,7 +6,7 @@
     font-weight: 400;
     font-display: block;
     src: url("webfonts/fa-regular-400.eot");
-    src: url("webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("webfonts/fa-regular-400.woff2") format("woff2"), url("webfonts/fa-regular-400.woff") format("woff"), url("webfonts/fa-regular-400.ttf") format("truetype"), url("webfonts/fa-regular-400.svg#fontawesome") format("svg"); 
+    src: url("webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("webfonts/fa-regular-400.woff2") format("woff2"), url("webfonts/fa-regular-400.woff") format("woff"), url("webfonts/fa-regular-400.ttf") format("truetype"), url("webfonts/fa-regular-400.svg#fontawesome") format("svg");
 }
 
 .testimonial-card .card-up {
@@ -242,6 +242,13 @@ a.unlink:hover {
     color: #4e73df !important;
 }
 
+a.unlink {
+    color: #67B447;
+}
+a.unlink:hover {
+    color: #38870E;
+}
+
 .animated--fade-in {
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
@@ -250,7 +257,7 @@ a.unlink:hover {
     -webkit-animation-timing-function: opacity cubic-bezier(0, 1, 0.4, 1);
     animation-timing-function: opacity cubic-bezier(0, 1, 0.4, 1);
   }
-  
+
 .bg-gradient-primary {
 background-color: #4e73df;
 background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);

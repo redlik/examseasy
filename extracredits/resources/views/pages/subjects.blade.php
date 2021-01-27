@@ -38,7 +38,7 @@
     <div class="col-12 my-4">
         <div class="d-flex justify-content-center">
             <a href="{{ route('claim.credits', ['id' => Auth::user()->id]) }}" class="btn btn-primary btn-lg">
-                Claim your Free credits
+                Claim Your Free Credits
             </a>
         </div>
     @endif
