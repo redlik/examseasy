@@ -14,5 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LevelsTableSeeder::class);
         $this->call(SubjectsTableSeed::class);
         $this->call(PermissionsSeeder::class);
+        $this->call(SubcategorySeeder::class);
+        $this->call(TopicSeeder::class);
     }
 }
