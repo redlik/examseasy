@@ -85,6 +85,7 @@ Route::get('/thankyou', 'PagesController@thankyou')->name('payment.success');
 Route::get('/unlock/{id}', 'LessonsController@isUnlocked')->name('is-unlocked');
 
 Route::get('/subject/{id}', 'LessonsController@subjects')->name('subjects-view');
+Route::get('/subject-eager/{id}', 'LessonsController@subjects_eager')->name('subjects.eager');
 Route::get('/{subject}/{id}', 'LessonsController@subject_category')->name('subject.category');
 Route::get('/{subject}/{category}/{topic}', 'LessonsController@subject_category_topic')->name('subject.topic');
 

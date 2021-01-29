@@ -60,7 +60,7 @@ class LessonsController extends Controller
 
         $user = Auth::user();
 
-        $request->validate(['thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', 
+        $request->validate(['thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                             'title' => 'required|unique:lessons',
                             'description' => 'required',
                             'link' => 'required|url',
@@ -133,7 +133,7 @@ class LessonsController extends Controller
     {
         $lesson = Lesson::find($id);
         $hash = Str::random(4);
-        
+
         $request->validate(['title' => 'required',
                             'description' => 'required',
                             'link' => 'required|url',
@@ -183,7 +183,7 @@ class LessonsController extends Controller
     }
 
     public static function isUnlocked($lesson_id) {
-        
+
         $subjects = Subject::all();
         $lesson_id = $lesson_id;
         $current_lesson = Lesson::find($lesson_id);
@@ -213,10 +213,25 @@ class LessonsController extends Controller
         $topics = Topic::has('subcategory')->has('lesson')->orderBy('order_position', 'asc')->get();
         $hiddenSubjects = [8];
         return view('lessons.subject-view', compact('lessons', 'subject', 'credits', 'subcategories', 'topics', 'hiddenSubjects'));
-        
+
         // else {
-        //   return redirect()->route('login'); 
+        //   return redirect()->route('login');
         // }
+    }
+
+    public function subjects_eager($subject_name)
+    {
+        if (Auth::user()) {
+            $user = Auth::user();
+            $credits = $user->credits;
+        }
+        else {
+            $credits = 0;
+        }
+        $subject = Subject::where('name', $subject_name)->withCount(['categories', 'topics', 'lesson'])->first();
+        $hiddenSubjects = [8];
+//        dd($subject);
+        return view('lessons.subject-eager', compact( 'subject',  'hiddenSubjects'));
     }
 
     public function subject_category($subject, $category) {
@@ -226,7 +241,7 @@ class LessonsController extends Controller
         $lessons = Lesson::with('topic')->get();
         return view('lessons.subject-category', compact('category', 'topics', 'lessons'));
     }
-    
+
     public function subject_category_topic($subject, $category, $topic) {
         $subject = Subject::where('name', $subject)->first();
         $topic = Topic::where('slug', $topic)->first();
