@@ -18,11 +18,14 @@ class TopicController extends Controller
         $topic->order_position = $request->get('topic_order_position');
         $topic->save();
 
+        $topic->slug = $topic->id."-".$topic->slug;
+        $topic->save();
+
         return redirect()->back();
     }
 
     public function update(Request $request) {
-        $request->validate(['name' => 'required', 
+        $request->validate(['name' => 'required',
                             'topic_order_position' => 'required',
                             ]);
 
@@ -30,7 +33,7 @@ class TopicController extends Controller
         $topic = Topic::find($request->input('editTopicId'));
         $topic->name = $request->input('name');
         $topic->order_position = (int)$request->get('topic_order_position');
-
+        $topic->slug = $topic->id."-".Str::slug($request->input('name'), '-');
         $topic->save();
 
         return redirect()->back();
