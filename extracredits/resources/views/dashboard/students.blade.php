@@ -75,7 +75,8 @@
                         No
                         @endif
                     </td>
-                <td><a href="{{ route('dashboard.student.panel', [$student->id]) }}" class="btn btn-green text-white">View details</a>
+                <td><a href="{{ route('dashboard.student.panel', [$student->id]) }}" class="btn btn-green
+                text-white">Details</a>
                 </td>
             </tr>
             @endforeach
