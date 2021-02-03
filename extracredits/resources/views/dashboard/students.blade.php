@@ -43,6 +43,7 @@
                 <th scope="col">Email</th>
                 <th scope="col">Registered</th>
                 <th scope="col">Credits</th>
+                <th scope="col">Claimed</th>
                 <th scope="col">Operations</th>
             </tr>
         </thead>
@@ -58,7 +59,7 @@
                 @default
                 <tr class="">
             @endswitch
-            
+
                 <th scope="row">{{ $student->id }}</th>
                 <td>{{ $student->name }}</td>
                 <td>{{ $student->email }}</td>
@@ -68,7 +69,12 @@
                 @else
                 <td>{{ $student->credits }}</td>
                 @endif
-                
+                    <td>@if($student->claim)
+                        Yes
+                        @else
+                        No
+                        @endif
+                    </td>
                 <td><a href="{{ route('dashboard.student.panel', [$student->id]) }}" class="btn btn-green text-white">View details</a>
                 </td>
             </tr>
