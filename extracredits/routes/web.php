@@ -51,8 +51,7 @@ Route::group(['middleware' => ['role:teacher|superadmin', 'auth']], function () 
     Route::get('/getcategory/{id}', 'LessonsController@getCategory');
     Route::get('/gettopic/{id}', 'SubcategoryController@getTopic');
     Route::get('/remove/{id}', 'LessonsController@remove')->name('remove');
-
-
+    Route::get('/students-export', 'StudentController@studentsExport')->name('students.export');
 
 });
 
