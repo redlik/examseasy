@@ -19,6 +19,7 @@
         "laravel/ui": "^2.1",
         "livewire/livewire": "^2.2",
         "maatwebsite/excel": "^3.1",
+        "spatie/laravel-honeypot": "2.3.*",
         "spatie/laravel-permission": "^3.13",
         "stripe/stripe-php": "^7.67"
     },

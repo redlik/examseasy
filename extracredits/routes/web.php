@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\TransactionController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Spatie\Honeypot\ProtectAgainstSpam;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PagesController@home');
 
-Auth::routes();
+Route::middleware(ProtectAgainstSpam::class)->group(function() {
+    Auth::routes();
+});
 
 Route::group(['middleware' => ['role:teacher|superadmin', 'auth']], function () {
 
