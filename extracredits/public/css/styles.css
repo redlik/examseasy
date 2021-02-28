@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap');
 @font-face {
     font-family: 'Font Awesome';
     font-style: normal;
@@ -36,6 +37,10 @@ html {
 .sidebar-rule {
     border-top: 1px solid rgba(255,255,255,0.20);
     margin: 1rem;
+}
+
+.turq {
+    color: #00bbd4;
 }
 
 .btn-pink {
@@ -376,6 +381,54 @@ color: #5a5c69 !important;
 
 .text-gray-900 {
 color: #3a3b45 !important;
+}
+
+/************ LANDING PAGE **********/
+#landing-page {
+    font-family: 'Montserrat', sans-serif;
+    background-image: url("../images/land-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    padding: 80px 0;
+    min-height: 800px;
+}
+
+.landing-img {
+    max-width: 570px;
+}
+
+.landing-h1 {
+    font-weight: 900;
+    color: #00bbd4;
+    font-size: 2.3rem;
+}
+
+.landing-h2 {
+    font-weight: 800;
+    color: #00bbd4;
+    font-size: 1.5rem;
+}
+
+.btn-landing {
+    font-weight: 800;
+    color: #fff;
+    font-size: 1.8rem;
+    box-shadow: #666 4px 4px 5px;
+    margin-bottom: 3rem;
+}
+
+.btn-landing:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.landing-list li {
+    margin-bottom: 0.5rem;
+}
+
+.landing-list li:last-child {
+    margin-bottom: 2rem;
 }
 
 /*********** MOBILE VIEW ***********/

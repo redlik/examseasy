@@ -126,5 +126,7 @@ Route::get('/livewire', function() {
     return view('livewire');
 });
 
+Route::view('/free-credits', 'pages.free-credits')->name('free-credits');
+
 Route::get('/contact', 'ContactController@show');
 Route::post('/contact', 'ContactController@mailContactForm');

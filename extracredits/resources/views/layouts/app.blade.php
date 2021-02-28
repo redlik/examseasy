@@ -68,7 +68,7 @@
         })(window, document);
         adroll.track("pageView");
     </script>
-    
+
 
     @yield('extra_scripts')
 
@@ -87,7 +87,7 @@
 <body class="d-flex flex-column h-100">
         <main role="main" style="padding-bottom: 40px">
         @include('partials/nav')
-
+            @yield('full-width-content')
             <div class="container">
                 <div class="row">
                     @yield('content')
@@ -96,7 +96,7 @@
         </main>
         @include('partials/footer')
     @yield('bottom_scripts')
-    
+
 </body>
 
 </html>
