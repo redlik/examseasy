@@ -8,6 +8,8 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
+                    <h5 class="font-weight-bold text-center mb-4 turq">Register before 31st of March 2021 and receive
+                         5 free credits</h5>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         @honeypot
